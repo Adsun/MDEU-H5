@@ -20306,7 +20306,8 @@ ul.slides li.slide {
 }
 
 .s-section.s-footer-section {
-    position: relative
+    position: relative;
+    background-color: #333;
 }
 
 @media only screen and (max-width:727px) {
@@ -20367,7 +20368,7 @@ ul.slides li.slide {
 
 @media screen and (min-width:948px) {
     .s-section.s-footer-section .container .separate-line {
-        padding-top: 5px
+        padding-top: 2px
     }
 }
 
@@ -23416,7 +23417,7 @@ html#ecwid_html body#pages h6 {
     display: -webkit-flex;
     display: flex;
     font-size: 16px;
-    padding: 80px 0;
+    padding: 20px 0;
     position: relative
 }
 
