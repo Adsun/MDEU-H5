@@ -25,6 +25,44 @@
         float: left;
         text-align: center;
     }
+    
+    .orange {
+        color: orange
+    }
+
+    *{margin:0;padding:0;font-size:12px;font-family:'Microsoft YaHei'}
+    #nav,#navRight{
+        display:-webkit-box;
+        display:-moz-box;
+        display:box;
+        margin-top:5px;
+    }
+    #navRight{
+        width:auto;
+        height:auto;
+        -webkit-box-orient:vertical;
+        -moz-box-orient:vertical;
+        box-orient:vertical
+    }
+    #navRight div{
+        -webkit-box-flex:1;
+        -moz-box-flex:1;
+        box-flex:1;
+        text-align:left;
+    }
+    #navRight span{
+        font-size:15px;
+        line-height:30px;
+    }
+    .signUpBtn {
+        color: orange;
+        border: solid 1px;
+        font-size: 10px;
+        width: auto;
+        height: auto;
+        margin-left: 6px;
+        font-size: 10px;
+    }
 </style>
 
 <body>
@@ -95,15 +133,31 @@
             </ul>
             <div class="container">
                 <div class="tab-content" style="height:500px">
-                    <div class="tab-pane active" id="nav1">
+                    <div class="tab-pane active" id="nav1" style="margin-top: 20px">
                         <div class="row firstRow rowHeader">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <img src="img/课程1.png" class="center-block">
+                            <div class="col-xs-5 col-sm-5 col-md-5">
+                                <img style="float:right" src="img/课程1.png" class="center-block">
                             </div>
-                            <div class="col-xs-5 col-sm-4 col-md-3">
-                                <p>德语欧标课程</p>
-                                <p>开课时间</p>
-                                <p>德语欧标课程</p>
+                            <div class="col-xs-5 col-sm-5 col-md-5">
+                                <div id="navRight">
+                                    <div id="box4" style="margin-top:10px"><span>德语欧标课程</span></div>
+                                    <div id="box5" style="margin-top:10px">
+                                        <span>开课时间:</span>
+                                        <span class="orange startDate" style="margin-right: 10px">2018.09.10</span>
+                                        <span>价格:</span>
+                                        <span class="orange startDate" style="margin-right: 10px">1200</span>
+                                        <span>讲师:</span>
+                                        <span>墨子</span>
+                                    </div>
+                                    <div id="box6" style="margin-top:5px">
+                                        <span>课程介绍</span>
+                                        <span style="margin: 10px">|</span>
+                                        <span>课程安排</span>
+                                        <span style="margin: 10px">|</span>
+                                        <span>优惠活动</span>
+                                        <span><div class="btn btn-default btn-xs signUpBtn">立即报名</div></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -144,7 +198,6 @@
                             </div>
                         </div>
                         <div class="column col-xs-12 col-sm-6 col-md-6">
-
                             <div>
                                 <p>微博：@米西德语 @老狼德语</p>
                             </div>
