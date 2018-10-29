@@ -12,11 +12,12 @@
 .box .boxContent {
     width: 80%;
     height: 100%;
+    opacity: 1;
     position: absolute;
     top: 0;
     left: 0;
     padding: 30px;
-    background: #bb6e09bf;
+    background: #f88e04bf;
     border: 4px solid rgba(255, 255, 255, 0.10);
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
