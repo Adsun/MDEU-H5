@@ -17,7 +17,7 @@
     top: 0;
     left: 0;
     padding: 30px;
-    background: #f88e04bf;
+    background: rgba(248, 142, 4, 0.749);
     border: 4px solid rgba(255, 255, 255, 0.10);
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
