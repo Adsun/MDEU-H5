@@ -4,7 +4,8 @@
 <head>
     <title>米德在线</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
+        name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +16,7 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="padding: 0px">
+    <div id="vueData" class="container-fluid" style="padding: 0px">
         <div class="navigator s-navbar-section" id="s-header">
             <div class="strikingly-fixed s-bg-light-text" id="s-nav">
                 <div class="s-nav-inner">
@@ -30,8 +31,7 @@
                             </h2>
                         </div>
                         <ul class="s-nav">
-                            <li><a class="s-nav-item selected" target="_self" href="index.html"><span
-                                    class="s-font-body">首页</span></a></li>
+                            <li><a class="s-nav-item selected" target="_self" href="index.html"><span class="s-font-body">首页</span></a></li>
                             <li><a class="s-nav-item" target="_self" href="aboutus.html"><span class="s-font-body">米德团队</span></a></li>
                             <li><a class="s-nav-item" target="_self" href="#"><span class="s-font-body">联系我们</span></a></li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span class="s-font-body">加入我们</span></a></li>
@@ -52,13 +52,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="img/轮播图.png" alt="First slide" class="img-responsive center-block" style="width:100%">
+                    <img :src="mainBanner1.path" alt="First slide" class="img-responsive center-block" style="width:100%">
                 </div>
                 <div class="item">
-                    <img src="img/轮播图.png" alt="Second slide" class="img-responsive center-block" style="width:100%">
+                    <img :src="mainBanner2.path" alt="Second slide" class="img-responsive center-block" style="width:100%">
                 </div>
                 <div class="item">
-                    <img src="img/轮播图.png" alt="Third slide" class="img-responsive center-block" style="width:100%">
+                    <img :src="mainBanner3.path" alt="Third slide" class="img-responsive center-block" style="width:100%">
                 </div>
             </div>
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -73,48 +73,46 @@
         <div class="clearfix" style="left: 26%; width: 48%; padding-bottom: 30px">
             <div class="row" style="padding:20px">
                 <div class="column col-xs-12 col-sm-4 col-md-4">
-                    <p style="letter-spacing:8px;font-size: 20px;">一站式德语游学服务</p>
-                    <p style="letter-spacing:5px;font-size: 10px;">亲和 严谨 有深度</p>
+                    <p style="letter-spacing:8px;font-size: 20px;">{{mainTitle.articleContent}}</p>
+                    <p style="letter-spacing:5px;font-size: 10px;">{{mainSubTitle.articleContent}}</p>
                 </div>
                 <div class="column col-xs-12 col-sm-2 col-md-2">
                     <img class="img-responsive center-block" src="img/箭头.png">
                 </div>
                 <div class="column col-xs-12 col-sm-6 col-md-6">
-                    <p style="letter-spacing:2px;font-size: 10px;">一群高学历的留德青年 + 一个接地气的创业梦想</p>
-                    <p style="letter-spacing:2px;font-size: 10px;">我们赞赏的是一种前行不息的求学态度，对于每一个追求视野的学子</p>
-                    <p style="letter-spacing:2px;font-size: 10px;">我们希望以自己的经验助你一臂之力，为你的将来增添更多可能</p>
+                    <p style="letter-spacing:2px;font-size: 10px;">{{mainDetail.articleContent}}</p>
                 </div>
             </div>
             <div class="row">
 
                 <div data-sorting-index="0" class="column col-xs-12 col-sm-6 col-md-4" style="padding: 3px;">
-                    <a href="德语标准课程.html">
-                        <div><img class="img-responsive center-block" src="img/德语标准课程.png"></div>
+                    <a :href="mainMudle1.url">
+                        <div><img class="img-responsive center-block" :src="mainMudle1.path"></div>
                     </a>
                 </div>
                 <div data-sorting-index="1" class="column col-xs-12 col-sm-6 col-md-4" style="padding: 3px;">
-                    <a href="德语特色课程.html">
-                        <div><img class="img-responsive center-block" src="img/德语特色课程.png"></div>
+                    <a :href="mainMudle2.url">
+                        <div><img class="img-responsive center-block" :src="mainMudle2.path"></div>
                     </a>
                 </div>
                 <div data-sorting-index="2" class="column col-xs-12 col-sm-6 col-md-4" style="padding: 3px;">
-                    <a href="德语课程.html">
-                        <div><img class="img-responsive center-block" src="img/德语精品课程.png"></div>
+                    <a :href="mainMudle3.url">
+                        <div><img class="img-responsive center-block" :src="mainMudle3.path"></div>
                     </a>
                 </div>
                 <div data-sorting-index="3" class="column col-xs-12 col-sm-6 col-md-4" style="padding: 3px;">
-                    <a href="德语资源.html">
-                        <div><img class="img-responsive center-block" src="img/德语资源下载.png"></div>
+                    <a :href="mainMudle4.url">
+                        <div><img class="img-responsive center-block" :src="mainMudle4.path"></div>
                     </a>
                 </div>
                 <div data-sorting-index="4" class="column col-xs-12 col-sm-6 col-md-4" style="padding: 3px;">
-                    <a href="#">
-                        <div><img class="img-responsive center-block" src="img/德语留学服务.png"></div>
+                    <a :href="mainMudle5.url">
+                        <div><img class="img-responsive center-block" :src="mainMudle5.path"></div>
                     </a>
                 </div>
                 <div data-sorting-index="5" class="column col-xs-12 col-sm-6 col-md-4" style="padding: 5px;">
-                    <a href="#">
-                        <div><img class="img-responsive center-block" src="img/德国周边小店.png"></div>
+                    <a :href="mainMudle6.url">
+                        <div><img class="img-responsive center-block" :src="mainMudle6.path"></div>
                     </a>
                 </div>
             </div>
@@ -174,7 +172,7 @@
                     <div class="clearfix">
                         <div class="row">
                             <div class="cloumn col-xs-12 col-sm-12 col-md-12">
-                                <div><img class="img-responsive center-block" src="img/二维码.png" class="center-block"></div>
+                                <div><img class="img-responsive center-block" src="img/二维码.png"></div>
                             </div>
                             <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="padding-top:5px;">
                                 <div class="text-center" style="font-size: 10px">
@@ -188,23 +186,111 @@
         </div>
     </div>
 </body>
-<script>
-    function DrawImage(hotimg) {
-        $(hotimg).jqthumb({
-            classname: 'jqthumb',
-            width: '100%',
-            height: '300px',
-            position: {
-                y: '50%',
-                x: '50%'
-            },
-            zoom: '1',
-            method: 'auto',
-        });
-    }
-</script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js "></script>
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js "></script>
-<script src="js/jqthumb.js"></script>
+
+<script>
+    var vm = new Vue({
+        el: '#vueData',
+        data: {
+            //文字
+            mainTitle: {
+                articleContent : '一站式德语游学服务',
+                contentUrl: ''
+            },
+            mainSubTitle: {
+                articleContent : '亲和 严谨 有深度',
+                contentUrl: ''
+            },
+            mainDetail: {
+                articleContent : '一群高学历的留德青年 + 一个接地气的创业梦想     我们赞赏的是一种前行不息的求学态度，对于每一个追求视野的学子    我们希望以自己的经验助你一臂之力，为你的将来增添更多可能',
+                contentUrl: ''
+            },
+
+            //图片
+            mainBanner1: {
+                path: 'img/轮播图.png',
+                url: ''
+            },
+            mainBanner2: {
+                path: 'img/轮播图.png',
+                url: ''
+            },
+            mainBanner3: {
+                path: 'img/轮播图.png',
+                url: ''
+            },
+            mainMudle1: {
+                path: 'img/德语标准课程.png',
+                url: '德语标准课程.html'
+            },
+            mainMudle2: {
+                path: 'img/德语特色课程.png',
+                url: '德语特色课程.html'
+            },
+            mainMudle3: {
+                path: 'img/德语精品课程.png',
+                url: '德语课程.html'
+            },
+            mainMudle4: {
+                path: 'img/德语资源下载.png',
+                url: '德语资源.html'
+            },
+            mainMudle5: {
+                path: 'img/德国周边小店.png',
+                url: '#'
+            },
+            mainMudle6: {
+                path: 'img/德国周边小店.png',
+                url: '#'
+            },
+        }
+    });
+    $(document).ready(function(){
+        $.ajax({url:"http://118.24.110.84:8081/admin/web/page.do",success:function(res){
+            var jsonObject = JSON.parse(res+'');
+            //文字
+            if (jsonObject.mainTitle != null) {
+                vm.mainTitle = jsonObject.mainTitle;
+            }
+            if (jsonObject.mainSubTitle != null) {
+                vm.mainSubTitle = jsonObject.mainSubTitle;
+            }
+            if (jsonObject.mainDetail != null) {
+                vm.mainDetail = jsonObject.mainDetail;
+            }
+            //图片
+            if (jsonObject.mainBanner1 != null) {
+                vm.mainBanner1 = jsonObject.mainBanner1;
+            }
+            if (jsonObject.mainBanner2 != null) {
+                vm.mainBanner2 = jsonObject.mainBanner2;
+            }
+            if (jsonObject.mainBanner3 != null) {
+                vm.mainBanner3 = jsonObject.mainBanner3;
+            }
+            if (jsonObject.mainMudle1 != null) {
+                vm.mainMudle1 = jsonObject.mainMudle1;
+            }
+            if (jsonObject.mainMudle2 != null) {
+                vm.mainMudle2 = jsonObject.mainMudle2;
+            }
+            if (jsonObject.mainMudle3 != null) {
+                vm.mainMudle3 = jsonObject.mainMudle3;
+            }
+            if (jsonObject.mainMudle4 != null) {
+                vm.mainMudle4 = jsonObject.mainMudle4;
+            }
+            if (jsonObject.mainMudle5 != null) {
+                vm.mainMudle5 = jsonObject.mainMudle5;
+            }
+            if (jsonObject.mainMudle6 != null) {
+                vm.mainMudle6 = jsonObject.mainMudle6;
+            }
+		}});
+    })
+</script>
+
 
 </html>
