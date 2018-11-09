@@ -104,13 +104,13 @@ sup {
 }
 @font-face {
     font-family: SourceHanSansCN;
-    src: url('/font/SourceHanSansCN-Bold.otf'),
-    url('/font/SourceHanSansCN-ExtraLight.otf'),
-    url('/font/SourceHanSansCN-Heavy.otf'),
-    url('/font/SourceHanSansCN-Light.otf'),
-    url('/font/SourceHanSansCN-Medium.otf'),
-    url('/font/SourceHanSansCN-Normal.otf'),
-    url('/font/SourceHanSansCN-Regular.otf'); }
+    src: url('../font/SourceHanSansCN-Bold.otf'),
+    url('../font/SourceHanSansCN-ExtraLight.otf'),
+    url('../font/SourceHanSansCN-Heavy.otf'),
+    url('../font/SourceHanSansCN-Light.otf'),
+    url('../font/SourceHanSansCN-Medium.otf'),
+    url('../font/SourceHanSansCN-Normal.otf'),
+    url('../font/SourceHanSansCN-Regular.otf'); }
 
 body {
     font-family: SourceHanSansCN;
