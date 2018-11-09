@@ -51,7 +51,7 @@ h2 {
 }
 
 figure:hover img {
-    opacity: 0.5;
+    opacity: 0;
 }
 
 .modal.fade.in {
@@ -101,4 +101,13 @@ sup {
     color: #FFF;
     border-radius: 5px;
     font-size: 10px
+}
+
+body {
+    font-family: "思源黑体";
+}
+
+ol.carousel-indicators li.active {
+    width: 30px;
+    height: 10px;
 }
