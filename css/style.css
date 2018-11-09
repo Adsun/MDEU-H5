@@ -25,6 +25,7 @@ figure img {
 figure figcaption p,
 h2{
     opacity: 0;
+    transform: scale(1.2);
 }
 
 figure figcaption h2 {
@@ -33,19 +34,21 @@ figure figcaption h2 {
 
 figure figcaption p {
     padding-left: 18%;
+    
 }
 
 figure:hover figcaption{
     opacity: 1;
-   
     transform: scale(1);
     transition: all 0.5s
 }
 
 figure:hover figcaption p,h2 {
     opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s
 }
 
 figure:hover img {
-    opacity: 0.1;
+    opacity: 0.5;
 }
