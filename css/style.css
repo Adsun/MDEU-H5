@@ -102,10 +102,20 @@ sup {
     border-radius: 5px;
     font-size: 10px
 }
+@font-face {
+    font-family: SourceHanSansCN;
+    src: url('/font/SourceHanSansCN-Bold.otf'),
+    url('/font/SourceHanSansCN-ExtraLight.otf'),
+    url('/font/SourceHanSansCN-Heavy.otf'),
+    url('/font/SourceHanSansCN-Light.otf'),
+    url('/font/SourceHanSansCN-Medium.otf'),
+    url('/font/SourceHanSansCN-Normal.otf'),
+    url('/font/SourceHanSansCN-Regular.otf'); }
 
 body {
-    font-family: "思源黑体";
+    font-family: SourceHanSansCN;
 }
+
 
 ol.carousel-indicators li.active {
     width: 30px;
