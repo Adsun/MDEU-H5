@@ -61,9 +61,9 @@
                         </div>
                         <ul class="s-nav">
                             <li><a class="s-nav-item selected" target="_self" href="index.html"><span class="s-font-body">首页</span></a></li>
-                            <li><a class="s-nav-item" target="_self" href="index.html"><span class="s-font-body">米德团队</span></a></li>
-                            <li><a class="s-nav-item" target="_self" href="aboutus.html"><span class="s-font-body">关于我们</span></a></li>
-                            <li><a class="s-nav-item" target="_self" href="joinus.html"><span class="s-font-body">联系我们</span></a></li>
+                            <li><a class="s-nav-item" target="_self" href="aboutus.html"><span class="s-font-body">米德团队</span></a></li>
+                            <li><a class="s-nav-item" target="_self" href="#"><span class="s-font-body">联系我们</span></a></li>
+                            <li><a class="s-nav-item" target="_self" href="joinus.html"><span class="s-font-body">加入我们</span></a></li>
                             <div id="loginContainer"></div>
                             <li id="s-ecommerce-nav-shopping-cart-wrapper" class="s-ecommerce-nav-shopping-cart-wrapper hidden"></li>
                         </ul>
@@ -221,5 +221,17 @@
 
 <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script>
+        $('div .signUpBtn').hover(function () {
+            $(this).css({
+                'background-color': '#ff9900',
+                'color': '#ffffff'
+            });
+        }, function () {
+            $(this).css({
+                'background-color': '#ffffff',
+                'color': '#ff9900'
+            });
+        })
+    </script>
 </html>
