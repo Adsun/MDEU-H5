@@ -16,33 +16,6 @@
     <link rel="stylesheet" media="screen" href="./css/style.css">
     <link href="./img/mi.png" rel="shortcut icon" type="image/x-icon">
 </head>
-<style>
-    .orange {
-        color: orange;
-    }
-
-    .nav-tabs {
-        border-bottom: 0px solid #ddd !important;
-    }
-
-    .nav-tabs>li.active>a {
-        border: 0px solid #ddd !important;
-        color: orange !important;
-        border-bottom: 3px solid orange !important;
-    }
-
-    .nav-tabs>li>a {
-        border: 1px solid transparent !important;
-    }
-
-    #nav0 a {
-        color: black !important;
-    }
-
-    #nav0 {
-        margin-top: 1rem;
-    }
-</style>
 
 <body>
     <div class="container-fluid" style="padding: 0px">
@@ -82,7 +55,7 @@
                 <li style="font-size:2rem;padding-top:0.5rem">|</li>
                 <li style="width:30%"><a href="#nav2" data-toggle="tab">特色系列课</a></li>
                 <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                <li style="width:30%"><a href="#nav3" data-toggle="tab">会员群讲座</a></li>
+                <li style="width:30%"><a href="#nav3" data-toggle="tab">会员群讲座<sup> 成为会员?</sup></a></li>
             </ul>
             <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-bottom:40px;">
                 <div class="tab-content">
@@ -222,16 +195,17 @@
 <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
-        $('div .signUpBtn').hover(function () {
-            $(this).css({
-                'background-color': '#ff9900',
-                'color': '#ffffff'
-            });
-        }, function () {
-            $(this).css({
-                'background-color': '#ffffff',
-                'color': '#ff9900'
-            });
-        })
-    </script>
+    $('div .signUpBtn').hover(function () {
+        $(this).css({
+            'background-color': '#ff9900',
+            'color': '#ffffff'
+        });
+    }, function () {
+        $(this).css({
+            'background-color': '#ffffff',
+            'color': '#ff9900'
+        });
+    })
+</script>
+
 </html>
