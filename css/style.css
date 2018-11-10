@@ -4,7 +4,6 @@ figure {
 }
 
 figure figcaption {
-
     width: 100%;
     height: 100%;
     position: absolute;
@@ -34,7 +33,6 @@ figure figcaption h2 {
 
 figure figcaption p {
     padding-left: 18%;
-
 }
 
 figure:hover figcaption {
@@ -103,10 +101,6 @@ sup {
     font-size: 10px
 }
 
-
-
-
-
 @font-face {
     font-family: SourceHanSansCN;
     src: url('../font/SourceHanSansCN-Regular.otf');
@@ -124,6 +118,7 @@ sup {
     src: url('../font/SourceHanSansCN-Light.otf');
     font-weight: 300;
 }
+
 @font-face {
     font-family: SourceHanSansCN;
     src: url('../font/SourceHanSansCN-Normal.otf');
@@ -146,8 +141,15 @@ body {
     font-family: SourceHanSansCN;
 }
 
-
 ol.carousel-indicators li.active {
-    width: 30px;
-    height: 10px;
+    width: 22px;
+    height: 6px;
+}
+
+ol.carousel-indicators li {
+    width: 6px;
+    height: 5px;
+    background: #FFF;
+    margin-left: 6px;
+    margin-right: 6px;
 }
