@@ -140,12 +140,12 @@ a:visited {
 /* 已被访问的链接 */
 
 a:hover {
-    color: #d1d40d;
+    color: #ffffff;
 }
 
 
 /* 鼠标指针移动到链接上 */
 
 a:active {
-    color: #d1d40d;
+    color: #ffffff;
 }
