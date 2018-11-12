@@ -296,13 +296,13 @@
                 var jsonObject = JSON.parse(res + '');
                 //文字
                 if (jsonObject.mainTitle != null) {
-                    vm.mainTitle = jsonObject.mainTitle.toString().replace('/\n/g','<br>');
+                    vm.mainTitle = jsonObject.mainTitle;
                 }
                 if (jsonObject.mainSubTitle != null) {
-                    vm.mainSubTitle = jsonObject.mainSubTitle.toString().replace('/\n/g','<br>');
+                    vm.mainSubTitle = jsonObject.mainSubTitle;
                 }
                 if (jsonObject.mainDetail != null) {
-                    vm.mainDetail = jsonObject.mainDetail.toString().replace('/\n/g','<br>');
+                    vm.mainDetail = jsonObject.mainDetail;
                 }
                 //图片
                 // if (jsonObject.mainBanner1 != null) {
