@@ -113,3 +113,7 @@ ol.carousel-indicators li {
     margin-left: 6px;
     margin-right: 6px;
 }
+
+p {
+    white-space:pre-line;
+}
