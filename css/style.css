@@ -124,3 +124,28 @@ ol.carousel-indicators li {
 p {
     white-space: pre-line;
 }
+
+a:link {
+    color: #000;
+}
+
+
+/* 未被访问的链接 */
+
+a:visited {
+    color: #000;
+}
+
+
+/* 已被访问的链接 */
+
+a:hover {
+    color: #d1d40d;
+}
+
+
+/* 鼠标指针移动到链接上 */
+
+a:active {
+    color: #d1d40d;
+}

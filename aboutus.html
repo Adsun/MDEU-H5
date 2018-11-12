@@ -4,8 +4,7 @@
 <head>
     <title>米德在线</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
-        name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +16,7 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="padding: 0px">
+    <div id="vueData" class="container-fluid" style="padding: 0px">
         <div class="navigator s-navbar-section" id="s-header">
             <div class="strikingly-fixed s-bg-light-text" id="s-nav">
                 <div class="s-nav-inner">
@@ -46,12 +45,12 @@
         <div class="waypoint"></div>
         <a class="section-anchor" style="top: -997px;"></a>
         <div>
-            <img class="img-responsive center-block" src="img/米德团队banner.png" style="width:100%;">
+            <img class="img-responsive center-block" :src="teamBanner.path" style="width:100%;">
         </div>
         <div class="clearfix" style="left: 23%; width: 54%; padding-bottom: 30px">
             <div class="row">
                 <div class="column col-xs-12 col-sm-12 col-md-12">
-                    <h3 style="letter-spacing:8px; font-weight:400;font-size: 26px;">关于我们</h3>
+                    <h3 style="letter-spacing:8px; font-weight:400;font-size: 26px;">{{teamTitle.articleContent}}</h3>
                     <div style=" width:30px; ">
                         <hr style="height:5px;border:none;border-top:5px solid #ffb339;margin-bottom: 0px; " />
                     </div>
@@ -59,119 +58,52 @@
                 <div class="column col-xs-12 col-sm-4 col-md-4">
                     <div class="row" style="padding:0px;font-size: 20px;font-weight:400; ">
                         <div class="column col-xs-12 col-sm-6 col-md-6">
-                            <li style="color: #ffb339;">专业</li>
+                            <li style="color: #ffb339;">{{teamSubTitle1.articleContent}}</li>
                         </div>
                         <div class="column col-xs-12 col-sm-6 col-md-6">
-                            <li style="color: #ffb339;">严谨</li>
+                            <li style="color: #ffb339;">{{teamSubTitle2.articleContent}}</li>
                         </div>
                         <div class="column col-xs-12 col-sm-6 col-md-6">
-                            <li style="color: #ffb339;">亲和</li>
+                            <li style="color: #ffb339;">{{teamSubTitle3.articleContent}}</li>
                         </div>
                         <div class="column col-xs-12 col-sm-6 col-md-6">
-                            <li style="color: #ffb339;">随意</li>
+                            <li style="color: #ffb339;">{{teamSubTitle4.articleContent}}</li>
                         </div>
                     </div>
                 </div>
                 <div class="column col-xs-12 col-sm-4 col-md-4">
                     <div class="row" style="padding:0px;font-size: 12px;font-weight:300; ">
                         <div class="column col-xs-12 col-sm-12 col-md-12">
-                            <p class="text-center">一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字</p>
+                            <p class="text-center">{{teamDetail1.articleContent}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="column col-xs-12 col-sm-4 col-md-4">
                     <div class="row" style="padding:0px;font-size: 12px;font-weight:300;">
                         <div class="column col-xs-12 col-sm-12 col-md-12">
-                            <p class="text-center">一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字</p>
+                            <p class="text-center">{{teamDetail2.articleContent}}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="column col-xs-12 col-sm-6 col-md-4 ">
+                <div class="column col-xs-12 col-sm-6 col-md-4 " v-for="teacher in teachers" style="padding-bottom:40px">
                     <figure>
-                        <img class="img-responsive center-block" src="img/老师照片.png">
+                        <img class="img-responsive center-block" :src="teacher.imgUrl">
                         <figcaption>
-                            <h2 class="text-center" style="padding:0px; padding-top: 20%;">图片标题</h2>
-                            <p class="text-center" style="padding:0px;">这里是图片的相关描述内容</p>
+                            <h2 class="text-center" style="padding:0px; padding-top: 30%;">欢迎语</h2>
+                            <p class="text-center" style="padding:0px;">{{teacher.detail}}</p>
+                            <p class="text-center" style="padding:0px; padding-top: 30%;"><a :href="teacher.link">查看详情→</a></p>
                         </figcaption>
                     </figure>
-                    <div class="text-center">
-                        <p style="font-size: 14px;font-weight: 400">姓名姓名姓名</p>
-                        <p style="font-size: 12px;font-weight: 300">个人介绍个人介绍个人介绍</p>
-                    </div>
-                </div>
-
-                <div class="column col-xs-12 col-sm-6 col-md-4 ">
-                    <figure>
-                        <img class="img-responsive center-block" src="img/老师照片.png">
-                        <figcaption>
-                            <h2 class="text-center" style="padding:0px; padding-top: 20%;">图片标题</h2>
-                            <p class="text-center" style="padding:0px;">这里是图片的相关描述内容</p>
-                        </figcaption>
-                    </figure>
-                    <div class="text-center">
-                        <p style="font-size: 14px;font-weight: 400">姓名姓名姓名</p>
-                        <p style="font-size: 12px;font-weight: 300">个人介绍个人介绍个人介绍</p>
-                    </div>
-                </div>
-                <div class="column col-xs-12 col-sm-6 col-md-4 ">
-                    <figure>
-                        <img class="img-responsive center-block" src="img/老师照片.png">
-                        <figcaption>
-                            <h2 class="text-center" style="padding:0px; padding-top: 20%;">图片标题</h2>
-                            <p class="text-center" style="padding:0px;">这里是图片的相关描述内容</p>
-                        </figcaption>
-                    </figure>
-                    <div class="text-center">
-                        <p style="font-size: 14px;font-weight: 400">姓名姓名姓名</p>
-                        <p style="font-size: 12px;font-weight: 300">个人介绍个人介绍个人介绍</p>
-                    </div>
-                </div>
-                <div class="column col-xs-12 col-sm-6 col-md-4 ">
-                    <figure>
-                        <img class="img-responsive center-block" src="img/老师照片.png">
-                        <figcaption>
-                            <h2 class="text-center" style="padding:0px; padding-top: 20%;">图片标题</h2>
-                            <p class="text-center" style="padding:0px;">这里是图片的相关描述内容</p>
-                        </figcaption>
-                    </figure>
-                    <div class="text-center">
-                        <p style="font-size: 14px;font-weight: 400">姓名姓名姓名</p>
-                        <p style="font-size: 12px;font-weight: 300">个人介绍个人介绍个人介绍</p>
-                    </div>
-                </div>
-
-                <div class="column col-xs-12 col-sm-6 col-md-4 ">
-                    <figure>
-                        <img class="img-responsive center-block" src="img/老师照片.png">
-                        <figcaption>
-                            <h2 class="text-center" style="padding:0px; padding-top: 20%;">图片标题</h2>
-                            <p class="text-center" style="padding:0px;">这里是图片的相关描述内容</p>
-                        </figcaption>
-                    </figure>
-                    <div class="text-center">
-                        <p style="font-size: 14px;font-weight: 400">姓名姓名姓名</p>
-                        <p style="font-size: 12px;font-weight: 300">个人介绍个人介绍个人介绍</p>
-                    </div>
-                </div>
-
-                <div class="column col-xs-12 col-sm-6 col-md-4 ">
-                    <figure>
-                        <img class="img-responsive center-block" src="img/老师照片.png">
-                        <figcaption>
-                            <h2 class="text-center" style="padding:0px; padding-top: 20%;">图片标题</h2>
-                            <p class="text-center" style="padding:0px;">这里是图片的相关描述内容</p>
-                        </figcaption>
-                    </figure>
-                    <div class="text-center">
-                        <p style="font-size: 14px;font-weight: 400">姓名姓名姓名</p>
-                        <p style="font-size: 12px;font-weight: 300">个人介绍个人介绍个人介绍</p>
+                    <div class="text-center" style="height:30px">
+                        <p style="font-size: 14px;font-weight: 400">{{teacher.name}}</p>
+                        <p style="font-size: 12px;font-weight: 300">{{teacher.summary}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        
+
 
         <div class="row" style="background:#000; color:#FFF">
             <div class="clearfix" style="left: 23%; width: 54%;padding-top:70px; padding-bottom: 40px; ">
@@ -242,5 +174,104 @@
         </div>
     </div>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js "></script>
+<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js "></script>
+
+<script>
+    var vm = new Vue({
+        el: '#vueData',
+        data: {
+            //老师信息
+            teachers: [],
+            //文字
+            teamTitle: {
+                articleContent: '关于我们',
+                contentUrl: ''
+            },
+            teamSubTitle1: {
+                articleContent: '专业',
+                contentUrl: ''
+            },
+            teamSubTitle2: {
+                articleContent: '严谨',
+                contentUrl: ''
+            },
+            teamSubTitle3: {
+                articleContent: '亲和',
+                contentUrl: ''
+            },
+            teamSubTitle4: {
+                articleContent: '随意',
+                contentUrl: ''
+            },
+            teamDetail1: {
+                articleContent: '团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍',
+                contentUrl: ''
+            },
+            teamDetail2: {
+                articleContent: '团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍',
+                contentUrl: ''
+            },
+
+            //图片
+            teamBanner: {
+                path: 'img/米德团队banner.png',
+                url: ''
+            },
+        }
+    });
+    $(document).ready(function() {
+        $.ajax({
+            url: "http://118.24.110.84:8081/admin/web/page.do",
+            success: function(res) {
+                var jsonObject = JSON.parse(res + '');
+
+                //文字
+                if (jsonObject.teamTitle != null) {
+                    vm.teamTitle = jsonObject.teamTitle;
+                }
+                if (jsonObject.teamSubTitle1 != null) {
+                    vm.teamSubTitle1 = jsonObject.teamSubTitle1;
+                }
+                if (jsonObject.teamSubTitle2 != null) {
+                    vm.teamSubTitle2 = jsonObject.teamSubTitle2;
+                }
+                if (jsonObject.teamSubTitle3 != null) {
+                    vm.teamSubTitle3 = jsonObject.teamSubTitle3;
+                }
+                if (jsonObject.teamSubTitle4 != null) {
+                    vm.teamSubTitle4 = jsonObject.teamSubTitle4;
+                }
+                if (jsonObject.teamDetail1 != null) {
+                    vm.teamDetail1 = jsonObject.teamDetail1;
+                }
+                if (jsonObject.teamDetail2 != null) {
+                    vm.teamDetail2 = jsonObject.teamDetail2;
+                }
+                //图片
+                // if (jsonObject.mainBanner1 != null) {
+                //     vm.mainBanner1 = jsonObject.mainBanner1;
+                // }
+                if (jsonObject.teamBanner != null) {
+                    vm.teamBanner = jsonObject.teamBanner;
+                }
+
+            }
+        });
+        $.ajax({
+            url: "http://118.24.110.84:8081/admin/teacher/list.do",
+            success: function(res) {
+                var jsonObject = JSON.parse(res + '');
+
+                //文字
+                if (jsonObject.rows != null) {
+                    vm.teachers = jsonObject.rows;
+                }
+            }
+        });
+    })
+</script>
 
 </html>
