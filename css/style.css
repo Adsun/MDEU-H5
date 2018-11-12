@@ -24,37 +24,38 @@ figure img {
 figure figcaption p,
 h2 {
     opacity: 0;
-    transform: scale(1.2);
-    
+    transform: scale(1.5);
 }
 
 figure figcaption h2 {
     padding: 15% 0 0 18%;
     font-size: 18px;
-    font-weight:400;
+    font-weight: 400;
 }
 
 figure figcaption p {
     padding-left: 18%;
     font-size: 12px;
-    font-weight:300;
+    font-weight: 300;
 }
 
 figure:hover figcaption {
     opacity: 1;
     transform: scale(1);
-    transition: all 0.5s
+    transition: all 0.5s;
 }
 
 figure:hover figcaption p,
 h2 {
     opacity: 1;
     transform: scale(1);
-    transition: all 0.5s
+    transition: all 0.5s;
 }
 
 figure:hover img {
     opacity: 0;
+    transform: scale(1.4);
+    transition: all 1s;
 }
 
 .modal.fade.in {
@@ -120,5 +121,5 @@ ol.carousel-indicators li {
 }
 
 p {
-    white-space:pre-line;
+    white-space: pre-line;
 }
