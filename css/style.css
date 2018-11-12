@@ -25,14 +25,19 @@ figure figcaption p,
 h2 {
     opacity: 0;
     transform: scale(1.2);
+    
 }
 
 figure figcaption h2 {
     padding: 15% 0 0 18%;
+    font-size: 18px;
+    font-weight:400;
 }
 
 figure figcaption p {
     padding-left: 18%;
+    font-size: 12px;
+    font-weight:300;
 }
 
 figure:hover figcaption {
