@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="padding: 0px">
+    <div id="vueData" class="container-fluid" style="padding: 0px">
         <div class="navigator s-navbar-section" id="s-header">
             <div class="strikingly-fixed s-bg-light-text" id="s-nav">
                 <div class="s-nav-inner">
@@ -46,64 +46,43 @@
         <div class="waypoint"></div>
         <a class="section-anchor" style="top: -997px;"></a>
         <div style="position:relative;">
-            <img class="img-responsive center-block" src="img/加入我们banner.png" style="width:100%;">
+            <img class="img-responsive center-block" :src="joinusBanner.path" style="width:100%;">
         </div>
         <div class="clearfix" style="left: 23%; width: 54%; padding-bottom: 30px">
             <div class="row ">
                 <div class="column col-xs-12 col-sm-12 col-md-12 ">
-                    <h1 style="letter-spacing:8px; font-weight:400; font-size: 28px;">欢迎 共赢</h1>
+                    <h1 style="letter-spacing:8px; font-weight:400; font-size: 28px;">{{joinusTitle.articleContent}}</h1>
                         <div style=" width:50px; ">
                             <hr style="height:3px;border:none;border-top:3px solid #ffb339;margin-bottom: 0px; " />
                         </div>
                 </div>
                 <div class="column col-xs-12 col-sm-4 col-md-4 ">
-                    <h3 style="color: #ffb339;width: 80%;font-weight:400; font-size: 20px;">我们一直期待着你的加入
+                    <h3 style="color: #ffb339;width: 80%;font-weight:400; font-size: 20px;">{{joinusSubTitle.articleContent}}
                     </h3>
                 </div>
                 <div class="column col-xs-12 col-sm-4 col-md-4 ">
                     <div class="row " style="padding:0px ">
                         <div class="column col-xs-12 col-sm-12 col-md-12 ">
-                            <p class="text-center " style="font-weight:300; font-size: 14px;">一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字</p>
+                            <p class="text-center " style="font-weight:300; font-size: 14px;">{{joinusDetail1.articleContent}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="column col-xs-12 col-sm-4 col-md-4 ">
                     <div class="row " style="padding:0px ">
                         <div class="column col-xs-12 col-sm-12 col-md-12 ">
-                            <p class="text-center " style="font-weight:300; font-size: 14px;"> 一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字</p>
+                            <p class="text-center " style="font-weight:300; font-size: 14px;">{{joinusDetail2.articleContent}}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row " style="padding:5px;">
-                <div class="column col-xs-12 col-sm-6 col-md-6" style="width:47%;height:400px;margin:10px; background: #fafafa">
+                <div class="column col-xs-12 col-sm-6 col-md-6" v-for="job in jobs" 
+                style="width:47%;height:400px;margin:10px; background: #fafafa">
                     <div style="padding-left:10%;padding-top:20%;width:80%;">
-                        <span style="font-weight:400; font-size: 24px; padding-right: 8px">职位名称</span>
-                        <span style="font-weight:400; font-size: 16px;">Position name</span>
+                        <span style="font-weight:400; font-size: 24px; padding-right: 8px">{{job.name}}</span>
+                        <span style="font-weight:400; font-size: 16px;">{{job.eName}}</span>
                         <p style="font-weight:400; font-size: 14px;">
-                            职位介绍职位介绍职位介绍职位介绍职位介绍职位介绍职位介绍职位介绍</p>
-                        <div style=" width:35px; margin-top: 70%">
-                            <hr style="height:4px;border:none;border-top:4px solid #ffb339;" />
-                        </div>
-                    </div>
-                </div>
-                <div class="column col-xs-12 col-sm-6 col-md-6" style="width:47%;height:400px;margin:10px; background:  #fafafa">
-                    <div style="padding-left:10%;padding-top:20%;width:80%;">
-                        <span style="font-weight:400; font-size: 24px;padding-right: 8px">职位名称</span>
-                        <span style="font-weight:400; font-size: 16px;">Position name</span>
-                        <p style="font-weight:400; font-size: 14px;">
-                            职位介绍职位介绍职位介绍职位介绍职位介绍职位介绍职位介绍职位介绍</p>
-                        <div style=" width:35px; margin-top: 70%">
-                            <hr style="height:4px;border:none;border-top:4px solid #ffb339;" />
-                        </div>
-                    </div>
-                </div>
-                <div class="column col-xs-12 col-sm-6 col-md-6" style="width:47%;height:400px;margin:10px; background:  #fafafa">
-                    <div style="padding-left:10%;padding-top:20%;width:80%;">
-                        <span style="font-weight:400; font-size: 24px; padding-right: 8px">职位名称</span>
-                        <span style="font-weight:400; font-size: 16px;">Position name</span>
-                        <p style="font-weight:400; font-size: 14px;">
-                            职位介绍职位介绍职位介绍职位介绍职位介绍职位介绍职位介绍职位介绍</p>
+                                {{job.jobDtl}}</p>
                         <div style=" width:35px; margin-top: 70%">
                             <hr style="height:4px;border:none;border-top:4px solid #ffb339;" />
                         </div>
@@ -111,8 +90,7 @@
                 </div>
             </div>
             <div class="row text-center" >
-                <p style="font-size:16px;font-weight:400;">联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式
-                    联系方式联系方式联系方式联系方式联系方式联系方式<a href="mailto:business@midezaixian.cn" style="color:#ffb339;font-size: 20px;font-weight: 500">business@midezaixian.cn</a>
+                <p style="font-size:16px;font-weight:400;">{{joinusEmailDes.articleContent}}<a :href="getEmail()" style="color:#ffb339;font-size: 20px;font-weight: 500">{{joinusEmailAdd.articleContent}}</a>
                 </p>
             </div>
         </div>
@@ -166,7 +144,6 @@
                                 <p style="font-size: 12px;font-weight:300;">留德小助手</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="column col-xs-12 col-sm-12 col-md-4 " style="padding-right:0px;">
@@ -187,5 +164,96 @@
         </div>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js "></script>
+<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js "></script>
 
+<script>
+    var vm = new Vue({
+        el: '#vueData',
+        data: {
+            //招聘信息
+            jobs: [],
+            //文字
+            joinusTitle: {
+                articleContent: '欢迎 共赢',
+                contentUrl: ''
+            },
+            joinusSubTitle: {
+                articleContent: '我们一直期待着你的加入',
+                contentUrl: ''
+            },
+            joinusDetail1: {
+                articleContent: '一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字',
+                contentUrl: ''
+            },
+            joinusDetail2: {
+                articleContent: '一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字一大串文字',
+                contentUrl: ''
+            },
+            joinusEmailDes: {
+                articleContent: '团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍团队介绍',
+                contentUrl: ''
+            },
+            joinusEmailAdd: {
+                articleContent: 'business@midezaixian.cn',
+                contentUrl: ''
+            },
+
+            //图片
+            joinusBanner: {
+                path: 'img/加入我们banner.png',
+                url: ''
+            },
+        },
+        methods: {
+            getEmail:function(){
+                return 'mailto:' + this.joinusEmailAdd.articleContent;
+            }
+        }
+    });
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://118.24.110.84:8081/admin/web/page.do",
+            success: function (res) {
+                var jsonObject = JSON.parse(res + '');
+
+                //文字
+                if (jsonObject.joinusTitle != null) {
+                    vm.joinusTitle = jsonObject.joinusTitle;
+                }
+                if (jsonObject.joinusSubTitle != null) {
+                    vm.joinusSubTitle = jsonObject.joinusSubTitle;
+                }
+                if (jsonObject.joinusDetail1 != null) {
+                    vm.joinusDetail1 = jsonObject.joinusDetail1;
+                }
+                if (jsonObject.joinusDetail2 != null) {
+                    vm.joinusDetail2 = jsonObject.joinusDetail2;
+                }
+                if (jsonObject.joinusEmailDes != null) {
+                    vm.joinusEmailDes = jsonObject.joinusEmailDes;
+                }
+                if (jsonObject.joinusEmailAdd != null) {
+                    vm.joinusEmailAdd = jsonObject.joinusEmailAdd;
+                }
+                //图片
+                if (jsonObject.joinusBanner != null) {
+                    vm.joinusBanner = jsonObject.joinusBanner;
+                }
+
+            }
+        });
+        $.ajax({
+            url: "http://118.24.110.84:8081/admin/job/list.do",
+            success: function (res) {
+                var jsonObject = JSON.parse(res + '');
+                //文字
+                if (jsonObject.rows != null) {
+                    vm.jobs = jsonObject.rows;
+                }
+            }
+        });
+    })
+</script>
 </html>
