@@ -4,7 +4,8 @@
 <head>
     <title>米德在线</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
+        name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,9 +32,9 @@
                             </h2>
                         </div>
                         <ul class="s-nav">
-                            <li><a class="s-nav-item selected" target="_self" href="index.html"><span  style="font-size:14px;padding:15px;font-weight:300">首页</span></a></li>
-                            <li><a class="s-nav-item" target="_self" href="aboutus.html"><span  style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
-                            <li><a class="s-nav-item" target="_self" href="#"><span  style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></a></li>
+                            <li><a class="s-nav-item selected" target="_self" href="index.html"><span style="font-size:14px;padding:15px;font-weight:300">首页</span></a></li>
+                            <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
+                            <li><a class="s-nav-item" target="_self" href="#"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></a></li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
                             <div id="loginContainer"></div>
                             <li id="s-ecommerce-nav-shopping-cart-wrapper" class="s-ecommerce-nav-shopping-cart-wrapper hidden"></li>
@@ -55,8 +56,8 @@
                         <hr style="height:5px;border:none;border-top:5px solid #ffb339;margin-bottom: 0px; " />
                     </div>
                 </div>
-                <div class="column col-xs-12 col-sm-4 col-md-4">
-                    <div class="row" style="padding:0px;font-size: 20px;font-weight:400; ">
+                <div class="column col-xs-12 col-sm-4 col-md-4" style="padding-bottom:20px">
+                    <div class="row" style="font-size: 20px;font-weight:400; ">
                         <div class="column col-xs-12 col-sm-6 col-md-6">
                             <li style="color: #ffb339;">{{teamSubTitle1.articleContent}}</li>
                         </div>
@@ -71,23 +72,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="column col-xs-12 col-sm-4 col-md-4">
+                <div class="column col-xs-12 col-sm-4 col-md-4" style="padding-bottom:20px">
                     <div class="row" style="padding:0px;font-size: 12px;font-weight:300; ">
                         <div class="column col-xs-12 col-sm-12 col-md-12">
                             <p class="text-center">{{teamDetail1.articleContent}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="column col-xs-12 col-sm-4 col-md-4">
+                <div class="column col-xs-12 col-sm-4 col-md-4" style="padding-bottom:20px">
                     <div class="row" style="padding:0px;font-size: 12px;font-weight:300;">
                         <div class="column col-xs-12 col-sm-12 col-md-12">
                             <p class="text-center">{{teamDetail2.articleContent}}</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="column col-xs-12 col-sm-6 col-md-4 " v-for="teacher in teachers" style="padding-bottom:40px">
+                <div class="column col-xs-12 col-sm-4 col-md-4 " v-for="teacher in teachers" style="padding-bottom:40px">
                     <figure>
                         <img class="img-responsive center-block" :src="teacher.imgUrl">
                         <figcaption>
@@ -96,7 +95,7 @@
                             <p class="text-center" style="padding:0px; padding-top: 5%"><a :href="teacher.link">相关课程→</a></p>
                         </figcaption>
                     </figure>
-                    <div class="text-center" style="height:50px;padding: 10px">
+                    <div class="text-center" style="height:60px;padding: 5px">
                         <p style="font-size: 14px;font-weight: 400">{{teacher.name}}</p>
                         <p style="font-size: 12px;font-weight: 300">{{teacher.summary}}</p>
                     </div>
@@ -222,10 +221,10 @@
             },
         }
     });
-    $(document).ready(function() {
+    $(document).ready(function () {
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/page.do",
-            success: function(res) {
+            success: function (res) {
                 var jsonObject = JSON.parse(res + '');
 
                 //文字
@@ -262,7 +261,7 @@
         });
         $.ajax({
             url: "http://118.24.110.84:8081/admin/teacher/list.do",
-            success: function(res) {
+            success: function (res) {
                 var jsonObject = JSON.parse(res + '');
 
                 //文字
