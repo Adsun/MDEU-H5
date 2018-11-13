@@ -14,7 +14,7 @@ figure figcaption {
     background: rgba(248, 142, 4, 0.749);
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
-    border: 2px solid #dad5d5;
+    border: 2px solid hsl(300, 6%, 91%);
 }
 
 figure img {
