@@ -68,13 +68,14 @@ figure:hover img {
 }
 
 .nav-tabs {
-    border-bottom: 0px solid #ddd !important;
+    border-bottom: 1px solid #dad7d7 !important;
 }
 
 .nav-tabs>li.active>a {
     border: 0px solid #ddd !important;
     color: orange !important;
     border-bottom: 3px solid orange !important;
+    display:inline-block;
 }
 
 .nav-tabs>li>a {
