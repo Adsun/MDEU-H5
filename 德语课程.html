@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="padding: 0px">
+    <div id="vueData" class="container-fluid" style="padding: 0px">
         <div class="navigator s-navbar-section" id="s-header">
             <div class="strikingly-fixed s-bg-light-text" id="s-nav">
                 <div class="s-nav-inner">
@@ -50,53 +50,25 @@
         <div class="clearfix" style="padding-bottom: 30px">
             <div class="row">
                 <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-top:30px">
-                    <div class="demo row">
+                    <div class="row">
                         <div class="column col-xs-12 col-sm-12 col-md-6">
                             <figure>
                                 <img class="img-responsive center-block" src="img/德语A1.png">
                                 <figcaption>
-                                    <h2>姓名姓名姓名</h2>
-                                    <hr style="margin-left:18%;width:40px;height:5px;border:none;border-top:5px solid hsl(40, 75%, 2%); " />
-                                    <p>个人介绍个人介绍个人介绍</p>
-                                </figcaption>
-                            </figure>
-                        </div>
-
-                        <div class="column col-xs-12 col-sm-12 col-md-6 ">
-                            <figure>
-                                <img class="img-responsive center-block" src="img/德语A1.png">
-                                <figcaption>
-                                    <h2>姓名姓名姓名</h2>
-                                    <hr style="margin-left:18%;width:40px;height:5px;border:none;border-top:5px solid hsl(40, 75%, 2%); " />
-                                    <p>个人介绍个人介绍个人介绍</p>
-                                </figcaption>
-                            </figure>
-                        </div>
-
-                        <div class="column col-xs-12 col-sm-12 col-md-6 " style="padding-top:30px; padding-bottom: 30px">
-                            <figure>
-                                <img class="img-responsive center-block" src="img/德语A1.png">
-                                <figcaption>
-                                    <h2>姓名姓名姓名</h2>
-                                    <hr style="margin-left:18%;width:40px;height:5px;border:none;border-top:5px solid hsl(40, 75%, 2%); " />
-                                    <p>个人介绍个人介绍个人介绍</p>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="column col-xs-12 col-sm-12 col-md-6 " style="padding-top:30px; padding-bottom: 30px">
-                            <figure>
-                                <img class="img-responsive center-block" src="img/德语A1.png">
-                                <figcaption>
-                                    <h2>姓名姓名姓名</h2>
-                                    <hr style="margin-left:18%;width:40px;height:5px;border:none;border-top:5px solid hsl(40, 75%, 2%); " />
-                                    <p>个人介绍个人介绍个人介绍</p>
+                                    <p style="font-size: 18px; font-weight: 400;padding: 15% 0 0 18%;margin:0;">2018.09.19</p>
+                                    <p style="font-size: 24px; font-weight: bold;margin: 0;">姓名姓名姓名</p>
+                                    <hr style="margin:14px 0 14px 18%;width:45px;height:4px;border:none;border-top:4px solid hsl(40, 75%, 2%); " />
+                                    <p style="font-size: 14px; font-weight: 400;">个人介绍个人介绍个人介绍</p>
                                 </figcaption>
                             </figure>
                         </div>
                     </div>
                 </div>
-                <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-bottom: 30px">
-                    <img src="img/更多精品课程.png" />
+                <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-top: 20px;padding-bottom: 30px">
+                    <p style="font-size: 18px;font-weight: 400">更多精品课程</p>
+                    <a :href="img1.url"><img :src="img1.path" @mouseover="changeImg(1,1)" @mouseout="changeImg(1,0)"/></a>
+                    <a :href="img2.url"><img :src="img2.path" @mouseover="changeImg(2,1)" @mouseout="changeImg(2,0)"/></a>
+                    <a :href="img3.url"><img :src="img3.path" @mouseover="changeImg(3,1)" @mouseout="changeImg(3,0)"/></a>
                 </div>
             </div>
             <!--coursePlan  modal-->
@@ -319,9 +291,57 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js "></script>
+<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js "></script>
+
+<script>
+        var vm = new Vue({
+            el: '#vueData',
+            data: {
+                //图片
+                img1: {
+                    path: 'img/youku0.png',
+                    url: '#'
+                },
+                img2: {
+                    path: 'img/wechat0.png',
+                    url: '#'
+                },
+                img3: {
+                    path: 'img/xima0.png',
+                    url: '#'
+                },
+            },
+            methods: {
+                changeImg:function(img,type){
+                    if (type === 0) {
+                        if (img == 1) {
+                            this.img1.path = 'img/youku0.png';
+                        }
+                        if (img == 2) {
+                            this.img2.path = 'img/wechat0.png';
+                        }
+                        if (img == 3) {
+                            this.img3.path = 'img/xima0.png';
+                        }
+                    } else if (type === 1) {
+                        if (img == 1) {
+                            this.img1.path = 'img/youku1.png';
+                        }
+                        if (img == 2) {
+                            this.img2.path = 'img/wechat1.png';
+                        }
+                        if (img == 3) {
+                            this.img3.path = 'img/xima1.png';
+                        }
+                    }
+                },
+            }
+        });
+    </script>
 
 </html>
