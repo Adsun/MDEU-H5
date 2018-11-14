@@ -66,9 +66,15 @@ figure:hover img {
 .orange {
     color: orange;
 }
+.clearfix {
+    left: 21%; 
+    width: 58%;
+}
 
 .nav-tabs {
     border-bottom: 1px solid #dad7d7 !important;
+    font-weight: 400;
+    font-size: 15px;
 }
 
 .nav-tabs>li.active>a {
