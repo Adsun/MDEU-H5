@@ -3,3 +3,12 @@
     padding-right: 15px;
     border-right: 2px solid #ddd;
 }
+.close{
+    font-size: xx-large !important;
+    background-color: #5d5d5d !important;
+    color: #fff !important;
+    width: 3rem !important;
+}
+.modal-body {
+    padding: 0px !important;
+}
