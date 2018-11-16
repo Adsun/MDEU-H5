@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml"
+    xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>米德在线</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
+        name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,12 +34,14 @@
                             </h2>
                         </div>
                         <ul class="s-nav">
-                            <li><a class="s-nav-item selected" target="_self" href="index.html"><span  style="font-size:14px;padding:15px;font-weight:300">首页</span></a></li>
-                            <li><a class="s-nav-item" target="_self" href="aboutus.html"><span  style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
-                            <li><a class="s-nav-item" target="_self" href="#"><span  style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></a></li>
+                            <li><a class="s-nav-item selected" target="_self" href="index.html"><span style="font-size:14px;padding:15px;font-weight:300">首页</span></a></li>
+                            <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
+                            <li><a class="s-nav-item">
+                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span
+                                            style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
+                                </a></li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
-                            <div id="loginContainer"></div>
-                            <li id="s-ecommerce-nav-shopping-cart-wrapper" class="s-ecommerce-nav-shopping-cart-wrapper hidden"></li>
+
                         </ul>
                     </div>
                 </div>
@@ -91,12 +95,14 @@
                                                         <div id="box6" style="padding-top:10px;">
                                                             <span style="padding-left:20px">
                                                                 <a type="button" data-toggle="modal" data-target="#myModal1">
-                                                                    <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">观看预告</div>
+                                                                    <div class="btn btn-default btn-xs orange signUpBtn"
+                                                                        style="border-color: orange;">观看预告</div>
                                                                 </a>
                                                             </span>
                                                             <span style="padding-left:20px">
                                                                 <a type="button" data-toggle="modal" data-target="#myModal">
-                                                                    <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">获取资源</div>
+                                                                    <div class="btn btn-default btn-xs orange signUpBtn"
+                                                                        style="border-color: orange;">获取资源</div>
                                                                 </a>
                                                             </span>
                                                         </div>
@@ -132,27 +138,95 @@
                     </div>
                 </div>
             </div>
-            <table class="table detailTable">
-                <tbody>
-                    <tr style="height:3rem">
-                        <td colspan="1">资源报错</td>
-                        <td colspan="2" style="text-align:left"><input placeholder="类型区别/资源分类" /></td>
-                        <td colspan="5" style="text-align:left"><input placeholder="错误描述(请控制在30字内)" /></td>
-                        <td colspan="1">
-                            <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">反馈意见</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div>
+                <form class="form-inline" role="form">
+                    <span>资源报错</span>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="type" placeholder="类型区别/资源分类">
+                    </div>
+                    <div class="form-group">
+                            <input type="text" class="form-control" id="detail" placeholder="错误描述(请控制在30字内)">
+                    </div>
+                    <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">反馈意见</div>
+                  </form>
+            </div>
+        </div>
+        <div class="row" style="background:#000; color:#FFF;margin:0px">
+            <div class="clearfix" style="padding-top:70px; padding-bottom: 40px; ">
+                <div class="column col-xs-12 col-sm-12 col-md-4" style="padding-top:15px;">
+                    <div class="row">
+                        <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="height:30px;padding-left: 0px;margin-bottom: 14px">
+                            <div style="line-height: 0px; font-size: 16px;font-weight:700 ;margin-bottom: 14px;letter-spacing:5px;">
+                                <p>米德平台</p>
+                            </div>
+                            <div style=" width:35px;">
+                                <hr style="height:4px;border:none;border-top:5px solid #ffb339; " />
+                            </div>
+                        </div>
+                        <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-left: 0px;">
+
+                            <div>
+                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">微博：@米西德语 @老狼德语</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">公众号：MIDEZAIXIAN</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">小程序：德语网课</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">CCTALK公开课群：515555</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 12px;font-weight:300">CCTALK会员群：82635920</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" column col-xs-12 col-sm-12 col-md-4 " style="padding-top:15px;">
+                    <div class="row">
+                        <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="height:30px;margin-bottom: 14px">
+                            <div style="line-height: 0px; font-size: 16px;font-weight: 800;letter-spacing:5px;">
+                                <p>合作机构</p>
+                            </div>
+                            <div style=" width:35px; ">
+                                <hr style="height:4px;border:none;border-top:5px solid #ffb339; " />
+                            </div>
+
+                        </div>
+                        <div class="column col-xs-12 col-sm-12 col-md-12">
+                            <div>
+                                <p style="font-size: 12px;font-weight:300;">留德小助手</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="column col-xs-12 col-sm-12 col-md-4 " style="padding-right:0px;">
+                    <div style="padding-left:40%;">
+                        <div class="row">
+                            <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="padding-right:0px">
+                                <div><img class="img-responsive center-block" src="img/二维码.png"></div>
+                            </div>
+                            <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="padding-top:5px;padding-right:0px">
+                                <div class="text-center">
+                                    <p style="font-size: 14px;font-weight: 300">扫一扫了解更多</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!--my modal-->
-        <div class="modal fade" id="myModal" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                &times;
-                            </button>
+                            &times;
+                        </button>
                         <form role="form">
                             <table class="table table-striped">
                                 <tr style="text-align:left;font-size:1rem">
@@ -184,13 +258,14 @@
             </div>
         </div>
         <!--my modal-->
-        <div class="modal fade" id="myModal1" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal1" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                &times;
-                            </button>
+                            &times;
+                        </button>
                         <form role="form">
                             <table class="table table-striped">
                                 <tr style="text-align:left;font-size:1rem">
@@ -225,88 +300,71 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row" style="background:#000; color:#FFF">
-        <div class="clearfix" style="padding-top:70px; padding-bottom: 40px; ">
-            <div class="column col-xs-12 col-sm-12 col-md-4" style="padding-top:15px;">
-                <div class="row">
-                    <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="height:30px;padding-left: 0px;margin-bottom: 14px">
-                        <div style="line-height: 0px; font-size: 16px;font-weight:700 ;margin-bottom: 14px;letter-spacing:5px;">
-                            <p>米德平台</p>
-                        </div>
-                        <div style=" width:35px;">
-                            <hr style="height:4px;border:none;border-top:5px solid #ffb339; " />
-                        </div>
-                    </div>
-                    <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-left: 0px;">
 
-                        <div>
-                            <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">微博：@米西德语 @老狼德语</p>
-                        </div>
-                        <div>
-                            <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">公众号：MIDEZAIXIAN</p>
-                        </div>
-                        <div>
-                            <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">小程序：德语网课</p>
-                        </div>
-                        <div>
-                            <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">CCTALK公开课群：515555</p>
-                        </div>
-                        <div>
-                            <p style="font-size: 12px;font-weight:300">CCTALK会员群：82635920</p>
-                        </div>
+        <!--my modal-->
+        <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" style="text-align:center; width:800px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title center-align" id="myModalLabel" style="font-size:22px;font-weight: 400">
+                            联系我们
+                        </h4>
                     </div>
-                </div>
-            </div>
-            <div class=" column col-xs-12 col-sm-12 col-md-4 " style="padding-top:15px;">
-                <div class="row">
-                    <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="height:30px;margin-bottom: 14px">
-                        <div style="line-height: 0px; font-size: 16px;font-weight: 800;letter-spacing:5px;">
-                            <p>合作机构</p>
-                        </div>
-                        <div style=" width:35px; ">
-                            <hr style="height:4px;border:none;border-top:5px solid #ffb339; " />
-                        </div>
-
-                    </div>
-                    <div class="column col-xs-12 col-sm-12 col-md-12">
-                        <div>
-                            <p style="font-size: 12px;font-weight:300;">留德小助手</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="column col-xs-12 col-sm-12 col-md-4 " style="padding-right:0px;">
-                <div style="padding-left:40%;">
-                    <div class="row">
-                        <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="padding-right:0px">
-                            <div><img class="img-responsive center-block" src="img/二维码.png"></div>
-                        </div>
-                        <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="padding-top:5px;padding-right:0px">
-                            <div class="text-center">
-                                <p style="font-size: 14px;font-weight: 300">扫一扫了解更多</p>
+                    <div class="modal-body">
+                        <form class="form-inline" role="form">
+                            <div class="form-group" style="padding:10px 15px 0px 0">
+                                <input type="text" style="width:300px;" class="form-control" id="name" placeholder="您的姓名：" />
                             </div>
+                            <div class="form-group" style="padding:10px 0 0px 15px">
+                                <input type="text" style="width:300px;" class="form-control" id="city" placeholder="所在城市：" />
+                            </div>
+                            <div class="form-group" style="padding:10px 15px 0px 0">
+                                <input type="text" style="width:300px;" class="form-control" id="email" placeholder="您的邮箱：" />
+                            </div>
+                            <div class="form-group" style="padding:10px 0 0px 15px">
+                                <input type="text" style="width:300px;" class="form-control" id="phone" placeholder="联系电话：" />
+                            </div>
+                            <div class="form-group" style="padding:10px 0 0px 0">
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="detail"
+                                    placeholder="合作需求："></textarea>
+                            </div>
+                        </form>
+                        <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
+                            <span>商务合作电话：</span><span style="color:#ffb339;padding-right: 30px">027-82298390</span>
+                            <span>微信：</span><span style="color:#ffb339">deutschshi / michideutsch</span>
+                        </div>
+                        <div class="row" style="padding: 10px 0 10px 0">
+                            <button type="button" class="btn btn-warning" style="width:200px">
+                                完成并发送
+                            </button>
+                        </div>
+
+                        <div class="row" style="padding: 10px 0 10px 0">
+                            <img src="img/logo1.png" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+
 </body>
 
 <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
-    $('div .signUpBtn').hover(function() {
+    $('div .signUpBtn').hover(function () {
         $(this).css({
             'background-color': '#ff9900',
             'color': '#ffffff'
         });
-    }, function() {
+    }, function () {
         $(this).css({
             'background-color': '#ffffff',
             'color': '#ff9900'

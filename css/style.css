@@ -66,8 +66,9 @@ figure:hover img {
 .orange {
     color: orange;
 }
+
 .clearfix {
-    left: 21%; 
+    left: 21%;
     width: 58%;
 }
 
@@ -81,7 +82,7 @@ figure:hover img {
     border: 0px solid #ddd !important;
     color: orange !important;
     border-bottom: 3px solid orange !important;
-    display:inline-block;
+    display: inline-block;
 }
 
 .nav-tabs>li>a {

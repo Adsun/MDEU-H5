@@ -32,12 +32,14 @@
                             </h2>
                         </div>
                         <ul class="s-nav">
-                            <li><a class="s-nav-item selected" target="_self" href="index.html"><span  style="font-size:14px;padding:15px;font-weight:300">首页</span></a></li>
-                            <li><a class="s-nav-item" target="_self" href="aboutus.html"><span  style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
-                            <li><a class="s-nav-item" target="_self" href="#"><span  style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></a></li>
+                            <li><a class="s-nav-item selected" target="_self" href="index.html"><span style="font-size:14px;padding:15px;font-weight:300">首页</span></a></li>
+                            <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
+                            <li><a class="s-nav-item">
+                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span
+                                            style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
+                                </a></li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
-                            <div id="loginContainer"></div>
-                            <li id="s-ecommerce-nav-shopping-cart-wrapper" class="s-ecommerce-nav-shopping-cart-wrapper hidden"></li>
+
                         </ul>
                     </div>
                 </div>
@@ -96,7 +98,7 @@
         </div>
         
 
-        <div class="row" style="background:#000; color:#FFF">
+        <div class="row" style="background:#000; color:#FFF;margin:0px">
             <div class="clearfix" style="padding-top:70px; padding-bottom: 40px; ">
                 <div class="column col-xs-12 col-sm-12 col-md-4" style="padding-top:15px;">
                     <div class="row">
@@ -162,7 +164,57 @@
                 </div>
             </div>
         </div>
+
+        <!--my modal-->
+    <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="text-align:center; width:800px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title center-align" id="myModalLabel" style="font-size:22px;font-weight: 400">
+                        联系我们
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline" role="form">
+                        <div class="form-group" style="padding:10px 15px 0px 0">
+                            <input type="text" style="width:300px;" class="form-control" id="name" placeholder="您的姓名：" />
+                        </div>
+                        <div class="form-group" style="padding:10px 0 0px 15px">
+                            <input type="text" style="width:300px;" class="form-control" id="city" placeholder="所在城市：" />
+                        </div>
+                        <div class="form-group" style="padding:10px 15px 0px 0">
+                            <input type="text" style="width:300px;" class="form-control" id="email" placeholder="您的邮箱：" />
+                        </div>
+                        <div class="form-group" style="padding:10px 0 0px 15px">
+                            <input type="text" style="width:300px;" class="form-control" id="phone" placeholder="联系电话：" />
+                        </div>
+                        <div class="form-group" style="padding:10px 0 0px 0">
+                            <textarea type="text" rows="5" style="width:630px;" class="form-control" id="detail"
+                                placeholder="合作需求："></textarea>
+                        </div>
+                    </form>
+                    <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
+                            <span>商务合作电话：</span><span style="color:#ffb339;padding-right: 30px">027-82298390</span>
+                            <span>微信：</span><span style="color:#ffb339">deutschshi / michideutsch</span>
+                        </div>
+                        <div class="row" style="padding: 10px 0 10px 0">
+                                <button type="button" class="btn btn-warning" style="width:200px">
+                                        完成并发送
+                                </button>
+                        </div>
+                        
+                        <div class="row" style="padding: 10px 0 10px 0">
+                                <img src="img/logo1.png" />
+                        </div>
+                </div>
+            </div>
+        </div>
     </div>
+    </div>
+    
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js "></script>
