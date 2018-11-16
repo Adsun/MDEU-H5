@@ -52,7 +52,7 @@
         <div>
             <img class="img-responsive center-block" src="img/德语资源banner.png" style="width:100%;">
         </div>
-        <div class="clearfix" style="left: 21%; width: 58%; padding-bottom: 30px">
+        <div class="clearfix" style="padding-bottom: 30px">
             <div id="nav0" class="tabbable row">
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12 ">
                     <ul class="nav nav-tabs " style="text-align: center;">
@@ -138,16 +138,19 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="row">
                 <form class="form-inline" role="form">
-                    <span>资源报错</span>
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="type" placeholder="类型区别/资源分类">
+                    <div class="column col-xs-2 col-sm-2 col-md-2 text-center" style="font-size:20px;font-weight: 400;padding: 5px"><span >资源报错</span></div>
+                    
+                    <div class="form-group column col-xs-3 col-sm-3 col-md-3" style="padding: 5px">
+                        <input type="text" class="form-control" id="type" placeholder="类型区别/资源分类" style="width:100%;height: 28px;">
                     </div>
-                    <div class="form-group">
-                            <input type="text" class="form-control" id="detail" placeholder="错误描述(请控制在30字内)">
+                    <div class="form-group column col-xs-5 col-sm-5 col-md-5" style="padding: 5px">
+                        <input type="text" class="form-control" id="detail" placeholder="错误描述(请控制在30字内)" style="width:100%;height: 28px;">
                     </div>
-                    <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">反馈意见</div>
+                    <div class="column col-xs-2 col-sm-2 col-md-2" style="padding: 5px">
+                            <div class="btn btn-default btn-xs orange signUpBtn " data-toggle="modal" data-target="#tjModal" style="border-color: orange;padding: 5px;height: 28px; width: 100%">反馈意见</div>
+                    </div>
                   </form>
             </div>
         </div>
@@ -203,7 +206,7 @@
                     </div>
                 </div>
                 <div class="column col-xs-12 col-sm-12 col-md-4 " style="padding-right:0px;">
-                    <div style="padding-left:40%;">
+                    <div style="padding-left:50%;">
                         <div class="row">
                             <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="padding-right:0px">
                                 <div><img class="img-responsive center-block" src="img/二维码.png"></div>
@@ -229,7 +232,7 @@
                         </button>
                         <form role="form">
                             <table class="table table-striped">
-                                <tr style="text-align:left;font-size:1rem">
+                                <tr style="text-align:center;font-size:1rem">
                                     <td style="width:20%">
                                         <img src="img/德语视频图标.png" />
                                         <p style="font-size:2rem;margin-left:20px">权 利 的 世 界</p>
@@ -330,7 +333,7 @@
                                 <input type="text" style="width:300px;" class="form-control" id="phone" placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="detail"
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="need"
                                     placeholder="合作需求："></textarea>
                             </div>
                         </form>
@@ -347,6 +350,28 @@
                         <div class="row" style="padding: 10px 0 10px 0">
                             <img src="img/logo1.png" />
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--my modal-->
+        <div class="modal fade" id="tjModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" style="text-align:center; width:800px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title center-align" style="font-size:22px;font-weight: 400">
+                            提交成功
+                        </h4>
+                    </div>
+                    <div class="modal-body" style="margin:30px;font-weight: 300;font-size: 16">
+                        <span>感谢您的反馈，我们会在第一时间做出回应！</span>
+                    </div>
+                    <div class="row" style="padding: 10px 0 10px 0">
+                            <img src="img/logo1.png" />
                     </div>
                 </div>
             </div>
