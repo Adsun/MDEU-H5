@@ -213,7 +213,7 @@
                                 &times;
                             </button>
                             <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400 ">
-                                【米德】 德语B1进阶班
+                                【米德】 {{nowCourse.courseName}}
                             </h4>
                         </div>
                         <div class="modal-body ">
@@ -226,125 +226,15 @@
                                                 <td style="font-size:11px;color:#D5D5D5 ">课程时间</td>
                                                 <td style="font-size:11px;color:#D5D5D5 ">课程内容</td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem ">
+                                            <tr style="text-align:center;font-size:1rem " v-for="coursePlan in nowCoursePlans">
                                                 <td style="font-size:11px;color:#444 ">
-                                                    <li>2018.10.02</li>
+                                                    <li>{{coursePlan.courseDate}}</li>
                                                 </td>
                                                 <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
-                                                    周二 20:00-22:00
+                                                    {{coursePlan.courseTime}}
                                                 </td>
                                                 <td style="font-size:11px;color:#444 ">
-                                                    L01【阅读】Essen
-                                                </td>
-                                            </tr>
-                                            <tr style="text-align:center;font-size:1rem ">
-                                                <td style="font-size:11px;color:#444 ">
-                                                    <li>2018.10.02</li>
-                                                </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
-                                                    周二 20:00-22:00
-                                                </td>
-                                                <td style="font-size:11px;color:#444 ">
-                                                    L01【阅读】Essen
-                                                </td>
-                                            </tr>
-                                            <tr style="text-align:center;font-size:1rem ">
-                                                <td style="font-size:11px;color:#444 ">
-                                                    <li>2018.10.02</li>
-                                                </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
-                                                    周二 20:00-22:00
-                                                </td>
-                                                <td style="font-size:11px;color:#444 ">
-                                                    L01【阅读】Essen
-                                                </td>
-                                            </tr>
-                                            <tr style="text-align:center;font-size:1rem ">
-                                                <td style="font-size:11px;color:#444 ">
-                                                    <li>2018.10.02</li>
-                                                </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
-                                                    周二 20:00-22:00
-                                                </td>
-                                                <td style="font-size:11px;color:#444 ">
-                                                    L01【阅读】Essen
-                                                </td>
-                                            </tr>
-                                            <tr style="text-align:center;font-size:1rem ">
-                                                <td style="font-size:11px;color:#444 ">
-                                                    <li>2018.10.02</li>
-                                                </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
-                                                    周二 20:00-22:00
-                                                </td>
-                                                <td style="font-size:11px;color:#444 ">
-                                                    L01【阅读】Essen
-                                                </td>
-                                            </tr>
-                                            <tr style="text-align:center;font-size:1rem ">
-                                                <td style="font-size:11px;color:#444 ">
-                                                    <li>2018.10.02</li>
-                                                </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
-                                                    周二 20:00-22:00
-                                                </td>
-                                                <td style="font-size:11px;color:#444 ">
-                                                    L01【阅读】Essen
-                                                </td>
-                                            </tr>
-                                            <tr style="text-align:center;font-size:1rem ">
-                                                <td style="font-size:11px;color:#444 ">
-                                                    <li>2018.10.02</li>
-                                                </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
-                                                    周二 20:00-22:00
-                                                </td>
-                                                <td style="font-size:11px;color:#444 ">
-                                                    L01【阅读】Essen
-                                                </td>
-                                            </tr>
-                                            <tr style="text-align:center;font-size:1rem ">
-                                                <td style="font-size:11px;color:#444 ">
-                                                    <li>2018.10.02</li>
-                                                </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
-                                                    周二 20:00-22:00
-                                                </td>
-                                                <td style="font-size:11px;color:#444 ">
-                                                    L01【阅读】Essen
-                                                </td>
-                                            </tr>
-                                            <tr style="text-align:center;font-size:1rem ">
-                                                <td style="font-size:11px;color:#444 ">
-                                                    <li>2018.10.02</li>
-                                                </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
-                                                    周二 20:00-22:00
-                                                </td>
-                                                <td style="font-size:11px;color:#444 ">
-                                                    L01【阅读】Essen
-                                                </td>
-                                            </tr>
-                                            <tr style="text-align:center;font-size:1rem ">
-                                                <td style="font-size:11px;color:#444 ">
-                                                    <li>2018.10.02</li>
-                                                </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
-                                                    周二 20:00-22:00
-                                                </td>
-                                                <td style="font-size:11px;color:#444 ">
-                                                    L01【阅读】Essen
-                                                </td>
-                                            </tr>
-                                            <tr style="text-align:center;font-size:1rem ">
-                                                <td style="font-size:11px;color:#444 ">
-                                                    <li>2018.10.02</li>
-                                                </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
-                                                    周二 20:00-22:00
-                                                </td>
-                                                <td style="font-size:11px;color:#444 ">
-                                                    L01【阅读】Essen
+                                                    {{coursePlan.courseDtl}}
                                                 </td>
                                             </tr>
                                         </table>
@@ -370,19 +260,17 @@
                                 【德语B1进阶班】 优惠活动
                             </h4>
                         </div>
-                        <div class="modal-body ">
-                            <table class="table table-striped ">
-                                <tr style="text-align:center;font-size:1.5rem;border: 1px solid #bbbbbb;margin-bottom:4rem;margin-top:4rem ">
-                                    <td style="width:38% ">
-                                        <img src="img/优惠活动图标.png ">
-                                    </td>
-                                    <td width="200px; " style="text-align:left;color:#444; ">
-                                        <p>现在报名即刻享受特大优惠</p>
-                                        <p>特价：<span style="text-align:center;font-size:2em " class="orange ">1200</span>（不定期涨价）</p>
-                                        <div class="btn btn-default btn-xs orange signUpBtn " style="border-color: orange; ">立即报名</div>
-                                    </td>
-                                </tr>
-                            </table>
+                        <div class="modal-body " style="margin-left:10%;width:80%;margin-bottom: 30px">
+                            <div class="row" style="border: 2px solid hsl(300, 1%, 55%);">
+                                <div class="cloumn col-xs-6 col-sm-6 col-md-6">
+                                    <img class="img-responsive center-block" src="img/优惠活动图标.png">
+                                </div>
+                                <div class="cloumn col-xs-6 col-sm-86 col-md-6">
+                                    <p style="padding-top:30px">现在报名即刻享受特大优惠</p>
+                                    <p>特价：<span style="text-align:center;font-size:2em " class="orange ">{{nowCourse.price}}</span>（不定期涨价）</p>
+                                    <div class="btn btn-default btn-xs orange signUpBtn " style="border-color: orange; ">立即报名</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -475,6 +363,7 @@
             courses: [{
                 'imgUrl': 'img/课程图.png',
                 'courseName': '德语欧标课程',
+                'courseId': 0,
                 'startTime': '2018.09.10',
                 'teacher': '墨子',
                 'price': '1200￥',
@@ -484,6 +373,7 @@
             }],
             nowCourse: {},
             nowModel: '',
+            nowCoursePlans: {},
             //文字
             courseType1: {
                 articleContent: '最新课程',
@@ -525,10 +415,24 @@
             getCourse: function(course, model) {
                 this.nowCourse = course;
                 this.nowModel = model;
+                if (model == '') {
+                    this.getCoursePlan(course.courseId);
+                }
                 $('#' + model).modal("show");
             },
             closeModel: function() {
                 $('#' + this.nowModel).modal("hide");
+            },
+            getCoursePlan: function(courseId) {
+                $.ajax({
+                    url: "http://118.24.110.84:8081/admin/web/coursePlan.do?courseId=" + courseId,
+                    success: function(res) {
+                        var jsonObject = JSON.parse(res + '');
+                        if (jsonObject != null && jsonObject.length > 0) {
+                            vm.teachers = jsonObject;
+                        }
+                    }
+                });
             },
             getCourses: function(type) {
                 $.ajax({
@@ -536,9 +440,8 @@
                     success: function(res) {
                         var jsonObject = JSON.parse(res + '');
 
-                        //文字
                         if (jsonObject != null && jsonObject.length > 0) {
-                            vm.teachers = jsonObject;
+                            vm.nowCoursePlans = jsonObject;
                         }
                     }
                 });
