@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml"
-    xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>德语标准课程</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
-        name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +16,7 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="padding: 0px">
+    <div id="vueData" class="container-fluid" style="padding: 0px">
         <div class="navigator s-navbar-section" id="s-header">
             <div class="strikingly-fixed s-bg-light-text" id="s-nav">
                 <div class="s-nav-inner">
@@ -35,10 +33,11 @@
                         <ul class="s-nav">
                             <li><a class="s-nav-item selected" target="_self" href="index.html"><span style="font-size:14px;padding:15px;font-weight:300">首页</span></a></li>
                             <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
-                            <li><a class="s-nav-item">
-                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span
-                                            style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
-                                </a></li>
+                            <li>
+                                <a class="s-nav-item" @click="getCourse(nowCourse,'lxModal')">
+                                    <div style="cursor: pointer;"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
+                                </a>
+                            </li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
 
                         </ul>
@@ -46,138 +45,159 @@
                 </div>
             </div>
         </div>
+        <!--my modal-->
+        <div class="modal fade " id="lxModal" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
+            <div class="modal-dialog " style="text-align:center; width:800px ">
+                <div class="modal-content ">
+                    <div class="modal-header ">
+                        <button type="button " class="close " @click="closeModel">
+                            &times;
+                        </button>
+                        <h4 class="modal-title center-align " id="myModalLabel " style="font-size:22px;font-weight: 400 ">
+                            联系我们
+                        </h4>
+                    </div>
+                    <div class="modal-body ">
+                        <form class="form-inline " role="form ">
+                            <div class="form-group " style="padding:10px 15px 0px 0 ">
+                                <input type="text " style="width:300px; " class="form-control " id="name " placeholder="您的姓名： " />
+                            </div>
+                            <div class="form-group " style="padding:10px 0 0px 15px ">
+                                <input type="text " style="width:300px; " class="form-control " id="city " placeholder="所在城市： " />
+                            </div>
+                            <div class="form-group " style="padding:10px 15px 0px 0 ">
+                                <input type="text " style="width:300px; " class="form-control " id="email " placeholder="您的邮箱： " />
+                            </div>
+                            <div class="form-group " style="padding:10px 0 0px 15px ">
+                                <input type="text " style="width:300px; " class="form-control " id="phone " placeholder="联系电话： " />
+                            </div>
+                            <div class="form-group " style="padding:10px 0 0px 0 ">
+                                <textarea type="text " rows="5 " style="width:630px; " class="form-control " id="detail " placeholder="合作需求： "></textarea>
+                            </div>
+                        </form>
+                        <div class="row " style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px ">
+                            <span>商务合作电话：</span><span style="color:#ffb339;padding-right: 30px ">027-82298390</span>
+                            <span>微信：</span><span style="color:#ffb339 ">deutschshi / michideutsch</span>
+                        </div>
+                        <div class="row " style="padding: 10px 0 10px 0 ">
+                            <button type="button " class="btn btn-warning " style="width:200px ">
+                                完成并发送
+                            </button>
+                        </div>
+
+                        <div class="row " style="padding: 10px 0 10px 0 ">
+                            <img src="img/logo1.png " />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="waypoint"></div>
         <a class="section-anchor" style="top: -997px;"></a>
         <div>
-            <img class="img-responsive center-block" src="img/德语标准课程banner.png" style="width:100%;">
+            <img class="img-responsive center-block" :src="courseBanner.path" style="width:100%;">
         </div>
         <div class="clearfix" style="padding-bottom: 30px">
             <div id="nav0" class="tabbable row">
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="padding:0px;padding-bottom:20px;">
                     <ul class="nav nav-tabs " style="text-align: center;">
-                        <li class="active" style="width:14%"><a href="#nav1" data-toggle="tab">最新课程</a></li>
-                        <li style="font-size:2rem;padding-top:0.5rem">
+                        <li class="active" style="width:14%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType1')">{{courseType1.articleContent}}</a></li>
+                        <li style=" font-size:2rem;padding-top:0.5rem ">
                             <p>|</p>
                         </li>
-                        <li style="width:13%"><a href="#nav2" data-toggle="tab">欧标A1</a></li>
+                        <li style="width:13%;cursor: pointer; "><a data-toggle="tab" @click="getCourses('courseType2')">{{courseType2.articleContent}}</a>
+                        </li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:13%"><a href="#nav3" data-toggle="tab">欧标A2</a></li>
+                        <li style="width:13%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType3')">{{courseType3.articleContent}}</a></li>
+                        <li style=" font-size:2rem;padding-top:0.5rem ">|</li>
+                        <li style="width:13%;cursor: pointer; "><a data-toggle="tab" @click="getCourses('courseType4')">{{courseType4.articleContent}}</a>
+                        </li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:13%"><a href="#nav4" data-toggle="tab">欧标B1</a></li>
+                        <li style="width:13%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType5')">{{courseType5.articleContent}}</a></li>
+                        <li style=" font-size:2rem;padding-top:0.5rem ">|</li>
+                        <li style="width:14%;cursor: pointer; "><a data-toggle="tab" @click="getCourses('courseType6')">{{courseType6.articleContent}}</a>
+                        </li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:13%"><a href="#nav5" data-toggle="tab">欧标B2</a></li>
-                        <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:14%"><a href="#nav6" data-toggle="tab">德福备考</a></li>
-                        <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:14%"><a href="#nav7" data-toggle="tab">专四专八</a></li>
+                        <li style="width:14%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType7')">{{courseType7.articleContent}}</a></li>
                     </ul>
                 </div>
-                <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding:0px;padding-bottom:20%;">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="nav1" style="margin-top: 20px">
-                            <div class="row firstRow rowHeader">
-                                <div class="cloumn col-xs-12 col-sm-5 col-md-5">
-                                    <img class="img-responsive center-block" src="img/课程图.png">
-                                </div>
-                                <div class="cloumn col-xs-12 col-sm-1 col-md-1 " style="padding-top:70px">
-                                    <img class="img-responsive center-block" src="img/德语标准课程-三角矩形.png">
-                                </div>
-                                <div class="cloumn col-xs-12 col-sm-6 col-md-6 " style="padding-top: 30px;">
-                                    <table class="table detailTable">
-                                        <tbody>
-                                            <tr style="height:3rem">
-                                                <div id="box4" style="padding-top:10px"><span style="text-align:left;font-size: 20px;font-weight: 400;">德语欧标课程</span></div>
-                                            </tr>
-                                            <tr style="height:3rem">
-                                                <div id="box5" style="padding-top:20px;font-size: 15px;font-weight: 400;">
-                                                    <span>开课时间:</span>
-                                                    <span class="orange startDate" style="padding-right: 10px;font-weight: bold;">2018.09.10</span>
-                                                    <span>价格:</span>
-                                                    <span class="orange startDate" style="padding-right: 10px;font-weight: bold;">1200￥</span>
-                                                    <span>讲师:</span>
-                                                    <span>墨子</span>
-                                                </div>
-                                            </tr>
-                                            <tr class="repairDepartment">
-                                                <div id="box6" style="padding-top:10px;font-size: 15px;font-weight: 400;cursor: pointer;">
-                                                    <a type="button" class="btn-link" style="color:#000" data-toggle="modal"
-                                                        data-target="#courseIntroduction">
-                                                        <span>课程介绍</span>
-                                                    </a>
-                                                    <span style="padding: 10px">|</span>
-                                                    <a type="button" class="btn-link" style="color:#000" data-toggle="modal"
-                                                        data-target="#coursePlan">
-                                                        <span>课程安排</span>
-                                                    </a>
-                                                    <span style="padding: 10px">|</span>
-                                                    <a type="button" class="btn-link" style="color:#000" data-toggle="modal"
-                                                        data-target="#discountActivity">
-                                                        <span>优惠活动</span>
-                                                    </a>
-                                                    <span style="padding-left:20px">
-                                                        <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">立即报名</div>
-                                                    </span>
-                                                </div>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                <div class=" cloumn col-xs-12 col-sm-12 col-md-12 " style="padding:0px;padding-bottom:20%; ">
+                    <div class="row firstRow rowHeader " v-for="course in courses ">
+                        <div class="cloumn col-xs-12 col-sm-5 col-md-5 ">
+                            <img class="img-responsive center-block " :src="course.imgUrl ">
                         </div>
-                        <div class="tab-pane" id="nav2">
-                            内容2
+                        <div class="cloumn col-xs-12 col-sm-1 col-md-1 " style="padding-top:70px ">
+                            <img class="img-responsive center-block " src="img/德语标准课程-三角矩形.png ">
                         </div>
-                        <div class="tab-pane" id="nav3">
-                            内容3
-                        </div>
-                        <div class="tab-pane" id="nav4">
-                            内容4
-                        </div>
-                        <div class="tab-pane" id="nav5">
-                            内容5
-                        </div>
-                        <div class="tab-pane" id="nav6">
-                            内容6
-                        </div>
-                        <div class="tab-pane" id="nav7">
-                            内容7
-                        </div>
-                        <div class="tab-pane" id="nav8">
-                            内容8
+                        <div class="cloumn col-xs-12 col-sm-6 col-md-6 " style="padding-top: 30px; ">
+                            <table class="table detailTable ">
+                                <tbody>
+                                    <tr style="height:3rem ">
+                                        <div id="box4 " style="padding-top:10px "><span style="text-align:left;font-size: 20px;font-weight: 400; ">{{course.courseName}}</span></div>
+                                    </tr>
+                                    <tr style="height:3rem ">
+                                        <div id="box5 " style="padding-top:20px;font-size: 15px;font-weight: 400; ">
+                                            <span>开课时间:</span>
+                                            <span class="orange startDate " style="padding-right: 10px;font-weight: bold; ">{{course.startTime}}</span>
+                                            <span>价格:</span>
+                                            <span class="orange startDate " style="padding-right: 10px;font-weight: bold; ">{{course.price}}</span>
+                                            <span>讲师:</span><span>{{course.teacher}}</span>
+
+                                        </div>
+                                    </tr>
+                                    <tr class="repairDepartment ">
+                                        <div id="box6 " style="padding-top:10px;font-size: 15px;font-weight: 400;cursor: pointer; ">
+                                            <a type="button " class="btn-link " @click="getCourse(course,'courseIntroduction') " style="color:#000 ">
+                                                <span>课程介绍</span>
+                                            </a>
+                                            <span style="padding: 10px ">|</span>
+                                            <a type="button " class="btn-link " @click="getCourse(course, 'coursePlan') " style="color:#000 ">
+                                                <span>课程安排</span>
+                                            </a>
+                                            <span style="padding: 10px ">|</span>
+                                            <a type="button " class="btn-link " @click="getCourse(course, 'discountActivity') " style="color:#000 ">
+                                                <span>优惠活动</span>
+                                            </a>
+                                            <span style="padding-left:20px ">
+                                                <div class="btn btn-default btn-xs orange signUpBtn " style="border-color: orange; ">立即报名</div>
+                                            </span>
+                                        </div>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
             <!--courseIntroduction modal-->
-            <div class="modal fade" id="courseIntroduction" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <div class="modal fade " id="courseIntroduction" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
+                <div class="modal-dialog ">
+                    <div class="modal-content ">
+                        <div class="modal-header ">
+                            <button type="button " class="close " @click="closeModel()">
                                 &times;
                             </button>
-                            <h4 class="modal-title center-align" style="font-size:22px;font-weight: 400">
-                                【德语B1进阶班】 课程介绍
+                            <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400 ">
+                                【 {{nowCourse.courseName}}】 课程介绍
                             </h4>
                         </div>
-                        <div class="modal-body">
-                            <div class="row" style="margin-left:10%;width:80%;">
-                                <div class="cloumn col-xs-3 col-sm-3 col-md-3 " style="text-align: center">
-                                    <img src="img/老师头像.png" />
+                        <div class="modal-body ">
+                            <div class="row " style="margin-left:10%;width:80%; ">
+                                <div class="cloumn col-xs-3 col-sm-3 col-md-3 " style="text-align: center ">
+                                    <img :src="nowCourse.teacherImg" />
                                 </div>
                                 <div class="cloumn col-xs-9 col-sm-9 col-md-9 ">
-                                    <p>【米德】 墨子老师</p>
-                                    <p>老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语寄语老师寄语老师寄语老师寄语老师寄语老师寄语</p>
+                                    <p>【米德】 {{nowCourse.teacher}}</p>
+                                    <p>{{nowCourse.teacherDtl}}</p>
                                 </div>
                                 <div class="cloumn col-xs-3 col-sm-3 col-md-3 ">
                                 </div>
                                 <div class="cloumn col-xs-9 col-sm-9 col-md-9 ">
                                     <p>课程简介</p>
-                                    <p>课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介</p>
+                                    <p>{{nowCourse.courseDtl}}</p>
                                 </div>
-                                <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="text-align: center">
-                                        <img src="img/头像logo.png" />
+                                <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="text-align: center ">
+                                    <img src="img/黑色文字logo.png" />
                                 </div>
                             </div>
                         </div>
@@ -185,154 +205,153 @@
                 </div>
             </div>
             <!--coursePlan  modal-->
-            <div class="modal fade" id="coursePlan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <div class="modal fade " id="coursePlan" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
+                <div class="modal-dialog ">
+                    <div class="modal-content ">
+                        <div class="modal-header ">
+                            <button type="button " class="close " @click="closeModel()">
                                 &times;
                             </button>
-                            <h4 class="modal-title center-align" style="font-size:22px;font-weight: 400">
+                            <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400 ">
                                 【米德】 德语B1进阶班
                             </h4>
                         </div>
-                        <div class="modal-body">
-                            <form role="form">
-                                <table class="table table-striped">
-                                    <tr style="text-align:left;font-size:1rem">
-                                        <table class="table table-striped">
-                                            <tr style="text-align:center;font-size:2rem">
-                                                <td style="font-size:11px;color:#D5D5D5">日期</td>
-                                                <td style="font-size:11px;color:#D5D5D5">课程时间</td>
-                                                <td style="font-size:11px;color:#D5D5D5">课程内容</td>
+                        <div class="modal-body ">
+                            <form role="form ">
+                                <table class="table table-striped ">
+                                    <tr style="text-align:left;font-size:1rem ">
+                                        <table class="table table-striped ">
+                                            <tr style="text-align:center;font-size:2rem ">
+                                                <td style="font-size:11px;color:#D5D5D5 ">日期</td>
+                                                <td style="font-size:11px;color:#D5D5D5 ">课程时间</td>
+                                                <td style="font-size:11px;color:#D5D5D5 ">课程内容</td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem">
-                                                <td style="font-size:11px;color:#444">
+                                            <tr style="text-align:center;font-size:1rem ">
+                                                <td style="font-size:11px;color:#444 ">
                                                     <li>2018.10.02</li>
                                                 </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5;">
+                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
                                                     周二 20:00-22:00
                                                 </td>
-                                                <td style="font-size:11px;color:#444">
+                                                <td style="font-size:11px;color:#444 ">
                                                     L01【阅读】Essen
                                                 </td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem">
-                                                <td style="font-size:11px;color:#444">
+                                            <tr style="text-align:center;font-size:1rem ">
+                                                <td style="font-size:11px;color:#444 ">
                                                     <li>2018.10.02</li>
                                                 </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5;">
+                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
                                                     周二 20:00-22:00
                                                 </td>
-                                                <td style="font-size:11px;color:#444">
+                                                <td style="font-size:11px;color:#444 ">
                                                     L01【阅读】Essen
                                                 </td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem">
-                                                <td style="font-size:11px;color:#444">
+                                            <tr style="text-align:center;font-size:1rem ">
+                                                <td style="font-size:11px;color:#444 ">
                                                     <li>2018.10.02</li>
                                                 </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5;">
+                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
                                                     周二 20:00-22:00
                                                 </td>
-                                                <td style="font-size:11px;color:#444">
+                                                <td style="font-size:11px;color:#444 ">
                                                     L01【阅读】Essen
                                                 </td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem">
-                                                <td style="font-size:11px;color:#444">
+                                            <tr style="text-align:center;font-size:1rem ">
+                                                <td style="font-size:11px;color:#444 ">
                                                     <li>2018.10.02</li>
                                                 </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5;">
+                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
                                                     周二 20:00-22:00
                                                 </td>
-                                                <td style="font-size:11px;color:#444">
+                                                <td style="font-size:11px;color:#444 ">
                                                     L01【阅读】Essen
                                                 </td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem">
-                                                <td style="font-size:11px;color:#444">
+                                            <tr style="text-align:center;font-size:1rem ">
+                                                <td style="font-size:11px;color:#444 ">
                                                     <li>2018.10.02</li>
                                                 </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5;">
+                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
                                                     周二 20:00-22:00
                                                 </td>
-                                                <td style="font-size:11px;color:#444">
+                                                <td style="font-size:11px;color:#444 ">
                                                     L01【阅读】Essen
                                                 </td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem">
-                                                <td style="font-size:11px;color:#444">
+                                            <tr style="text-align:center;font-size:1rem ">
+                                                <td style="font-size:11px;color:#444 ">
                                                     <li>2018.10.02</li>
                                                 </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5;">
+                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
                                                     周二 20:00-22:00
                                                 </td>
-                                                <td style="font-size:11px;color:#444">
+                                                <td style="font-size:11px;color:#444 ">
                                                     L01【阅读】Essen
                                                 </td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem">
-                                                <td style="font-size:11px;color:#444">
+                                            <tr style="text-align:center;font-size:1rem ">
+                                                <td style="font-size:11px;color:#444 ">
                                                     <li>2018.10.02</li>
                                                 </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5;">
+                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
                                                     周二 20:00-22:00
                                                 </td>
-                                                <td style="font-size:11px;color:#444">
+                                                <td style="font-size:11px;color:#444 ">
                                                     L01【阅读】Essen
                                                 </td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem">
-                                                <td style="font-size:11px;color:#444">
+                                            <tr style="text-align:center;font-size:1rem ">
+                                                <td style="font-size:11px;color:#444 ">
                                                     <li>2018.10.02</li>
                                                 </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5;">
+                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
                                                     周二 20:00-22:00
                                                 </td>
-                                                <td style="font-size:11px;color:#444">
+                                                <td style="font-size:11px;color:#444 ">
                                                     L01【阅读】Essen
                                                 </td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem">
-                                                <td style="font-size:11px;color:#444">
+                                            <tr style="text-align:center;font-size:1rem ">
+                                                <td style="font-size:11px;color:#444 ">
                                                     <li>2018.10.02</li>
                                                 </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5;">
+                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
                                                     周二 20:00-22:00
                                                 </td>
-                                                <td style="font-size:11px;color:#444">
+                                                <td style="font-size:11px;color:#444 ">
                                                     L01【阅读】Essen
                                                 </td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem">
-                                                <td style="font-size:11px;color:#444">
+                                            <tr style="text-align:center;font-size:1rem ">
+                                                <td style="font-size:11px;color:#444 ">
                                                     <li>2018.10.02</li>
                                                 </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5;">
+                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
                                                     周二 20:00-22:00
                                                 </td>
-                                                <td style="font-size:11px;color:#444">
+                                                <td style="font-size:11px;color:#444 ">
                                                     L01【阅读】Essen
                                                 </td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem">
-                                                <td style="font-size:11px;color:#444">
+                                            <tr style="text-align:center;font-size:1rem ">
+                                                <td style="font-size:11px;color:#444 ">
                                                     <li>2018.10.02</li>
                                                 </td>
-                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5;">
+                                                <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
                                                     周二 20:00-22:00
                                                 </td>
-                                                <td style="font-size:11px;color:#444">
+                                                <td style="font-size:11px;color:#444 ">
                                                     L01【阅读】Essen
                                                 </td>
                                             </tr>
                                         </table>
                                     </tr>
                                 </table>
-                                <div class="row" style="text-align:center;margin-bottom:20px">
-                                    <img src="img/黑色文字logo.png" />
+                                <div class="row " style="text-align:center;margin-bottom:20px ">
+                                    <img src="img/黑色文字logo.png " />
                                 </div>
                             </form>
                         </div>
@@ -340,28 +359,27 @@
                 </div>
             </div>
             <!--discountActivity  modal-->
-            <div class="modal fade" id="discountActivity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <div class="modal fade " id="discountActivity" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
+                <div class="modal-dialog ">
+                    <div class="modal-content ">
+                        <div class="modal-header ">
+                            <button type="button " class="close " @click="closeModel()">
                                 &times;
                             </button>
-                            <h4 class="modal-title center-align" style="font-size:22px;font-weight: 400">
+                            <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400 ">
                                 【德语B1进阶班】 优惠活动
                             </h4>
                         </div>
-                        <div class="modal-body">
-                            <table class="table table-striped">
-                                <tr style="text-align:center;font-size:1.5rem;border: 1px solid #bbbbbb;margin-bottom:4rem;margin-top:4rem">
-                                    <td style="width:38%">
-                                        <img src="img/优惠活动图标.png">
+                        <div class="modal-body ">
+                            <table class="table table-striped ">
+                                <tr style="text-align:center;font-size:1.5rem;border: 1px solid #bbbbbb;margin-bottom:4rem;margin-top:4rem ">
+                                    <td style="width:38% ">
+                                        <img src="img/优惠活动图标.png ">
                                     </td>
-                                    <td width="200px;" style="text-align:left;color:#444;">
+                                    <td width="200px; " style="text-align:left;color:#444; ">
                                         <p>现在报名即刻享受特大优惠</p>
-                                        <p>特价：<span style="text-align:center;font-size:2em" class="orange">1200</span>（不定期涨价）</p>
-                                        <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">立即报名</div>
+                                        <p>特价：<span style="text-align:center;font-size:2em " class="orange ">1200</span>（不定期涨价）</p>
+                                        <div class="btn btn-default btn-xs orange signUpBtn " style="border-color: orange; ">立即报名</div>
                                     </td>
                                 </tr>
                             </table>
@@ -373,42 +391,42 @@
 
 
 
-        <div class="row" style="background:#000; color:#FFF;margin:0px">
-            <div class="clearfix" style="padding-top:70px; padding-bottom: 40px; ">
-                <div class="column col-xs-12 col-sm-12 col-md-4" style="padding-top:15px;">
-                    <div class="row">
-                        <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="height:30px;padding-left: 0px;margin-bottom: 14px">
-                            <div style="line-height: 0px; font-size: 16px;font-weight:700 ;margin-bottom: 14px;letter-spacing:5px;">
+        <div class="row " style="background:#000; color:#FFF;margin:0px ">
+            <div class="clearfix " style="padding-top:70px; padding-bottom: 40px; ">
+                <div class="column col-xs-12 col-sm-12 col-md-4 " style="padding-top:15px; ">
+                    <div class="row ">
+                        <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="height:30px;padding-left: 0px;margin-bottom: 14px ">
+                            <div style="line-height: 0px; font-size: 16px;font-weight:700 ;margin-bottom: 14px;letter-spacing:5px; ">
                                 <p>米德平台</p>
                             </div>
-                            <div style=" width:35px;">
+                            <div style=" width:35px; ">
                                 <hr style="height:4px;border:none;border-top:5px solid #ffb339; " />
                             </div>
                         </div>
-                        <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-left: 0px;">
+                        <div class="column col-xs-12 col-sm-12 col-md-12 " style="padding-left: 0px; ">
 
                             <div>
-                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">微博：@米西德语 @老狼德语</p>
+                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px ">微博：@米西德语 @老狼德语</p>
                             </div>
                             <div>
-                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">公众号：MIDEZAIXIAN</p>
+                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px ">公众号：MIDEZAIXIAN</p>
                             </div>
                             <div>
-                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">小程序：德语网课</p>
+                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px ">小程序：德语网课</p>
                             </div>
                             <div>
-                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px">CCTALK公开课群：515555</p>
+                                <p style="font-size: 12px;font-weight:300;margin-bottom: 14px ">CCTALK公开课群：515555</p>
                             </div>
                             <div>
-                                <p style="font-size: 12px;font-weight:300">CCTALK会员群：82635920</p>
+                                <p style="font-size: 12px;font-weight:300 ">CCTALK会员群：82635920</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class=" column col-xs-12 col-sm-12 col-md-4 " style="padding-top:15px;">
-                    <div class="row">
-                        <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="height:30px;margin-bottom: 14px">
-                            <div style="line-height: 0px; font-size: 16px;font-weight: 800;letter-spacing:5px;">
+                <div class=" column col-xs-12 col-sm-12 col-md-4 " style="padding-top:15px; ">
+                    <div class="row ">
+                        <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="height:30px;margin-bottom: 14px ">
+                            <div style="line-height: 0px; font-size: 16px;font-weight: 800;letter-spacing:5px; ">
                                 <p>合作机构</p>
                             </div>
                             <div style=" width:35px; ">
@@ -416,23 +434,23 @@
                             </div>
 
                         </div>
-                        <div class="column col-xs-12 col-sm-12 col-md-12">
+                        <div class="column col-xs-12 col-sm-12 col-md-12 ">
                             <div>
-                                <p style="font-size: 12px;font-weight:300;">留德小助手</p>
+                                <p style="font-size: 12px;font-weight:300; ">留德小助手</p>
                             </div>
                         </div>
 
                     </div>
                 </div>
-                <div class="column col-xs-12 col-sm-12 col-md-4 " style="padding-right:0px;">
-                    <div style="padding-left:40%;">
-                        <div class="row">
-                            <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="padding-right:0px">
-                                <div><img class="img-responsive center-block" src="img/二维码.png"></div>
+                <div class="column col-xs-12 col-sm-12 col-md-4 " style="padding-right:0px; ">
+                    <div style="padding-left:40%; ">
+                        <div class="row ">
+                            <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-right:0px ">
+                                <div><img class="img-responsive center-block " src="img/二维码.png "></div>
                             </div>
-                            <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="padding-top:5px;padding-right:0px">
-                                <div class="text-center">
-                                    <p style="font-size: 14px;font-weight: 300">扫一扫了解更多</p>
+                            <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-top:5px;padding-right:0px ">
+                                <div class="text-center ">
+                                    <p style="font-size: 14px;font-weight: 300 ">扫一扫了解更多</p>
                                 </div>
                             </div>
                         </div>
@@ -440,67 +458,148 @@
                 </div>
             </div>
         </div>
-        <!--my modal-->
-        <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" style="text-align:center; width:800px">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                        <h4 class="modal-title center-align" id="myModalLabel" style="font-size:22px;font-weight: 400">
-                            联系我们
-                        </h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form-inline" role="form">
-                            <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" id="name" placeholder="您的姓名：" />
-                            </div>
-                            <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" id="city" placeholder="所在城市：" />
-                            </div>
-                            <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" id="email" placeholder="您的邮箱：" />
-                            </div>
-                            <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" id="phone" placeholder="联系电话：" />
-                            </div>
-                            <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="detail"
-                                    placeholder="合作需求："></textarea>
-                            </div>
-                        </form>
-                        <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
-                            <span>商务合作电话：</span><span style="color:#ffb339;padding-right: 30px">027-82298390</span>
-                            <span>微信：</span><span style="color:#ffb339">deutschshi / michideutsch</span>
-                        </div>
-                        <div class="row" style="padding: 10px 0 10px 0">
-                            <button type="button" class="btn btn-warning" style="width:200px">
-                                完成并发送
-                            </button>
-                        </div>
 
-                        <div class="row" style="padding: 10px 0 10px 0">
-                            <img src="img/logo1.png" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 </body>
 
-<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js "></script>
+<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js "></script>
+<script src="https://cdn.jsdelivr.net/npm/vue "></script>
+
 <script>
-    $('div .signUpBtn').hover(function () {
+    var vm = new Vue({
+        el: '#vueData',
+        data: {
+            //课程信息
+            courses: [{
+                'imgUrl': 'img/课程图.png',
+                'courseName': '德语欧标课程',
+                'startTime': '2018.09.10',
+                'teacher': '墨子',
+                'price': '1200￥',
+                'courseDtl': '课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介',
+                'teacherDtl': '老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语寄语老师寄语老师寄语老师寄语老师寄语老师寄语',
+                'teacherImg': 'img/老师头像.png'
+            }],
+            nowCourse: {},
+            nowModel: '',
+            //文字
+            courseType1: {
+                articleContent: '最新课程',
+                contentUrl: ''
+            },
+            courseType2: {
+                articleContent: '欧标A1',
+                contentUrl: ''
+            },
+            courseType3: {
+                articleContent: '欧标A2',
+                contentUrl: ''
+            },
+            courseType4: {
+                articleContent: '欧标B1',
+                contentUrl: ''
+            },
+            courseType5: {
+                articleContent: '欧标B2',
+                contentUrl: ''
+            },
+            courseType6: {
+                articleContent: '德福备考',
+                contentUrl: ''
+            },
+            courseType7: {
+                articleContent: '专四专八',
+                contentUrl: ''
+            },
+
+
+            //图片
+            courseBanner: {
+                path: 'img/德语标准课程banner.png',
+                url: ''
+            },
+        },
+        methods: {
+            getCourse: function(course, model) {
+                this.nowCourse = course;
+                this.nowModel = model;
+                $('#' + model).modal("show");
+            },
+            closeModel: function() {
+                $('#' + this.nowModel).modal("hide");
+            },
+            getCourses: function(type) {
+                $.ajax({
+                    url: "http://118.24.110.84:8081/admin/web/course.do?constantId=" + type,
+                    success: function(res) {
+                        var jsonObject = JSON.parse(res + '');
+
+                        //文字
+                        if (jsonObject != null && jsonObject.length > 0) {
+                            vm.teachers = jsonObject;
+                        }
+                    }
+                });
+            }
+        }
+    });
+    $(document).ready(function() {
+        $.ajax({
+            url: "http://118.24.110.84:8081/admin/web/page.do",
+            success: function(res) {
+                var jsonObject = JSON.parse(res + '');
+
+                //文字
+                if (jsonObject.courseType1 != null) {
+                    vm.courseType1 = jsonObject.courseType1;
+                }
+                if (jsonObject.courseType2 != null) {
+                    vm.courseType2 = jsonObject.courseType2;
+                }
+                if (jsonObject.courseType3 != null) {
+                    vm.courseType3 = jsonObject.courseType3;
+                }
+                if (jsonObject.courseType4 != null) {
+                    vm.courseType4 = jsonObject.courseType4;
+                }
+                if (jsonObject.courseType5 != null) {
+                    vm.courseType5 = jsonObject.courseType5;
+                }
+                if (jsonObject.courseType6 != null) {
+                    vm.courseType6 = jsonObject.courseType6;
+                }
+                if (jsonObject.courseType7 != null) {
+                    vm.courseType7 = jsonObject.courseType7;
+                }
+                //图片
+                if (jsonObject.courseBanner != null) {
+                    vm.courseBanner = jsonObject.courseBanner;
+                }
+
+            }
+        });
+        $.ajax({
+            url: "http://118.24.110.84:8081/admin/web/course.do?constantId=courseType1",
+            success: function(res) {
+                var jsonObject = JSON.parse(res + '');
+
+                //文字
+                if (jsonObject != null && jsonObject.length > 0) {
+                    vm.teachers = jsonObject;
+                }
+            }
+        });
+    })
+</script>
+<script>
+    $('div .signUpBtn').hover(function() {
         $(this).css({
             'background-color': '#ff9900',
             'color': '#ffffff'
         });
-    }, function () {
+    }, function() {
         $(this).css({
             'background-color': '#ffffff',
             'color': '#ff9900'
