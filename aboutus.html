@@ -4,8 +4,7 @@
 <head>
     <title>米德在线</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
-        name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +12,7 @@
     <link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="./css/main.bundle.css">
     <link rel="stylesheet" media="screen" href="./css/style.css">
+    <link rel="stylesheet" media="screen" href="./css/common.css">
     <link href="./img/mi.png" rel="shortcut icon" type="image/x-icon">
 </head>
 
@@ -34,10 +34,11 @@
                         <ul class="s-nav">
                             <li><a class="s-nav-item selected" target="_self" href="index.html"><span style="font-size:14px;padding:15px;font-weight:300">首页</span></a></li>
                             <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
-                            <li><a class="s-nav-item">
-                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span
-                                            style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
-                                </a></li>
+                            <li>
+                                <a class="s-nav-item">
+                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
+                                </a>
+                            </li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
 
                         </ul>
@@ -179,8 +180,7 @@
             </div>
         </div>
         <!--my modal-->
-        <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" style="text-align:center; width:800px">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -206,8 +206,7 @@
                                 <input type="text" style="width:300px;" class="form-control" id="phone" placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="detail"
-                                    placeholder="合作需求："></textarea>
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="detail" placeholder="合作需求："></textarea>
                             </div>
                         </form>
                         <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
@@ -277,10 +276,10 @@
             },
         }
     });
-    $(document).ready(function () {
+    $(document).ready(function() {
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/page.do",
-            success: function (res) {
+            success: function(res) {
                 var jsonObject = JSON.parse(res + '');
 
                 //文字
@@ -317,7 +316,7 @@
         });
         $.ajax({
             url: "http://118.24.110.84:8081/admin/teacher/list.do",
-            success: function (res) {
+            success: function(res) {
                 var jsonObject = JSON.parse(res + '');
 
                 //文字
