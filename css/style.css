@@ -161,3 +161,17 @@ a:hover {
 a:active {
     color: #ffffff;
 }
+
+.modal-content {
+    border-radius: 0px;
+}
+
+.modal-header {
+    border-bottom: 0px solid #e5e5e5;
+    padding: 0px;
+}
+
+.modal-title {
+    margin-top: 20px;
+    margin-bottom: 20px
+}

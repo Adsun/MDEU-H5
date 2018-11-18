@@ -174,17 +174,17 @@
                 <div class="modal-dialog ">
                     <div class="modal-content ">
                         <div class="modal-header ">
-                            <button type="button " class="close " @click="closeModel()">
-                                &times;
-                            </button>
-                            <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400 ">
+                            <button type="button " class="close" @click="closeModel()">
+                                        &times;
+                                    </button>
+                            <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400;">
                                 【 {{nowCourse.courseName}}】 课程介绍
                             </h4>
                         </div>
-                        <div class="modal-body ">
+                        <div class=" modal-body ">
                             <div class="row " style="margin-left:10%;width:80%; ">
                                 <div class="cloumn col-xs-3 col-sm-3 col-md-3 " style="text-align: center ">
-                                    <img :src="nowCourse.teacherImg" />
+                                    <img :src="nowCourse.teacherImg " />
                                 </div>
                                 <div class="cloumn col-xs-9 col-sm-9 col-md-9 ">
                                     <p>【米德】 {{nowCourse.teacher}}</p>
@@ -197,7 +197,7 @@
                                     <p>{{nowCourse.courseDtl}}</p>
                                 </div>
                                 <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="text-align: center ">
-                                    <img src="img/黑色文字logo.png" />
+                                    <img src="img/黑色文字logo.png " />
                                 </div>
                             </div>
                         </div>
@@ -209,10 +209,10 @@
                 <div class="modal-dialog ">
                     <div class="modal-content ">
                         <div class="modal-header ">
-                            <button type="button " class="close " @click="closeModel()">
+                            <button type="button" class="close" @click="closeModel()">
                                 &times;
                             </button>
-                            <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400 ">
+                            <h4 class="modal-title center-align" style="font-size:22px;font-weight: 400 ">
                                 【米德】 {{nowCourse.courseName}}
                             </h4>
                         </div>
@@ -226,7 +226,7 @@
                                                 <td style="font-size:11px;color:#D5D5D5 ">课程时间</td>
                                                 <td style="font-size:11px;color:#D5D5D5 ">课程内容</td>
                                             </tr>
-                                            <tr style="text-align:center;font-size:1rem " v-for="coursePlan in nowCoursePlans">
+                                            <tr style="text-align:center;font-size:1rem " v-for="coursePlan in nowCoursePlans ">
                                                 <td style="font-size:11px;color:#444 ">
                                                     <li>{{coursePlan.courseDate}}</li>
                                                 </td>
@@ -253,20 +253,20 @@
                 <div class="modal-dialog ">
                     <div class="modal-content ">
                         <div class="modal-header ">
-                            <button type="button " class="close " @click="closeModel()">
+                            <button type="button " class="close " @click="closeModel() ">
                                 &times;
                             </button>
                             <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400 ">
                                 【德语B1进阶班】 优惠活动
                             </h4>
                         </div>
-                        <div class="modal-body " style="margin-left:10%;width:80%;margin-bottom: 30px">
-                            <div class="row" style="border: 2px solid hsl(300, 1%, 55%);">
-                                <div class="cloumn col-xs-6 col-sm-6 col-md-6">
-                                    <img class="img-responsive center-block" src="img/优惠活动图标.png">
+                        <div class="modal-body " style="margin-left:10%;width:80%;margin-bottom: 30px ">
+                            <div class="row " style="border: 2px solid hsl(300, 1%, 55%); ">
+                                <div class="cloumn col-xs-6 col-sm-6 col-md-6 ">
+                                    <img class="img-responsive center-block " src="img/优惠活动图标.png ">
                                 </div>
-                                <div class="cloumn col-xs-6 col-sm-86 col-md-6">
-                                    <p style="padding-top:30px">现在报名即刻享受特大优惠</p>
+                                <div class="cloumn col-xs-6 col-sm-86 col-md-6 ">
+                                    <p style="padding-top:30px ">现在报名即刻享受特大优惠</p>
                                     <p>特价：<span style="text-align:center;font-size:2em " class="orange ">{{nowCourse.price}}</span>（不定期涨价）</p>
                                     <div class="btn btn-default btn-xs orange signUpBtn " style="border-color: orange; ">立即报名</div>
                                 </div>
