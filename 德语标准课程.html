@@ -429,7 +429,7 @@
                     success: function(res) {
                         var jsonObject = JSON.parse(res + '');
                         if (jsonObject != null && jsonObject.length > 0) {
-                            vm.teachers = jsonObject;
+                            vm.nowCoursePlans = jsonObject;
                         }
                     }
                 });
@@ -441,7 +441,7 @@
                         var jsonObject = JSON.parse(res + '');
 
                         if (jsonObject != null && jsonObject.length > 0) {
-                            vm.nowCoursePlans = jsonObject;
+                            vm.courses = jsonObject;
                         }
                     }
                 });
@@ -490,7 +490,7 @@
 
                 //文字
                 if (jsonObject != null && jsonObject.length > 0) {
-                    vm.teachers = jsonObject;
+                    vm.courses = jsonObject;
                 }
             }
         });

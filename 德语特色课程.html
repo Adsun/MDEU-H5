@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="padding: 0px">
+    <div id="vueData" class="container-fluid" style="padding: 0px">
         <div class="navigator s-navbar-section" id="s-header">
             <div class="strikingly-fixed s-bg-light-text" id="s-nav">
                 <div class="s-nav-inner">
@@ -53,19 +53,19 @@
         </div>
         <div class="clearfix" style="padding-bottom: 30px">
             <div id="nav0" class="tabbable row">
-                <ul class="nav nav-tabs " style="text-align: center;">
-                    <li class="active" style="width:30%"><a href="#nav1" data-toggle="tab">免费公开课</a></li>
+                <ul class="nav nav-tabs " style="text-align: center;cursor: pointer;">
+                    <li class="active" style="width:30%"><a @click="getCourses('courseSupType1')" data-toggle="tab">{{courseSupType1.articleContent}}</a></li>
                     <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                    <li style="width:30%"><a href="#nav2" data-toggle="tab">特色系列课</a></li>
+                    <li style="width:30%"><a @click="getCourses('courseSupType2')" data-toggle="tab">{{courseSupType2.articleContent}}</a></li>
                     <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                    <li style="width:30%"><a href="#nav3" data-toggle="tab">会员群讲座<sup> 成为会员?</sup></a></li>
+                    <li style="width:300px"><a @click="getCourses('courseSupType3')" data-toggle="tab">{{courseSupType3.articleContent}}<sup> 成为会员?</sup></a></li>
                 </ul>
-                <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-bottom:40px;">
+                <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-bottom:40px;" v-for="course in courses">
                     <div class="tab-content">
                         <div class="tab-pane active" id="nav1" style="margin-top: 20px">
                             <div class="row firstRow rowHeader">
                                 <div class="cloumn col-xs-12 col-sm-5 col-md-5">
-                                    <img class="img-responsive center-block" src="img/课程图.png">
+                                    <img class="img-responsive center-block" :src="course.imgUrl">
                                 </div>
 
                                 <div class="cloumn col-xs-12 col-sm-1 col-md-1 " style="padding-top:70px">
@@ -75,16 +75,14 @@
                                     <table class="table detailTable">
                                         <tbody>
                                             <tr style="height:3rem">
-                                                <div id="box4" style="padding-top:10px"><span style="text-align:left;font-size: 20px">德语特色课程</span><span
-                                                        style="padding-left:10px">讲师:</span><span>墨子</span></div>
+                                                <div id="box4" style="padding-top:10px"><span style="text-align:left;font-size: 20px">{{course.courseName}}</span><span
+                                                        style="padding-left:10px">讲师:</span><span>{{course.teacher}}</span></div>
 
                                             </tr>
                                             <tr style="height:3rem">
                                                 <div id="box5" style="padding-top:20px;">
                                                     <span>开课时间:</span>
-                                                    <span class="orange startDate" style="padding-right: 10px">2018.09.10
-                                                        20:00</span>
-
+                                                    <span class="orange startDate" style="padding-right: 10px">{{course.startTime}}</span>
                                                 </div>
                                             </tr>
                                             <tr class="repairDepartment">
@@ -92,34 +90,12 @@
                                                     <span style="padding-left:10px">
                                                         <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">立即预约</div>
                                                     </span>
-
                                                 </div>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane" id="nav2">
-                            内容2
-                        </div>
-                        <div class="tab-pane" id="nav3">
-                            内容3
-                        </div>
-                        <div class="tab-pane" id="nav4">
-                            内容4
-                        </div>
-                        <div class="tab-pane" id="nav5">
-                            内容5
-                        </div>
-                        <div class="tab-pane" id="nav6">
-                            内容6
-                        </div>
-                        <div class="tab-pane" id="nav7">
-                            内容7
-                        </div>
-                        <div class="tab-pane" id="nav8">
-                            内容8
                         </div>
                     </div>
                 </div>
@@ -248,6 +224,91 @@
 
 <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue "></script>
+
+<script>
+    var vm = new Vue({
+        el: '#vueData',
+        data: {
+            //课程信息
+            courses: [{
+                'imgUrl': 'img/课程图.png',
+                'courseName': '德语特色课程',
+                'startTime': '2018.09.10',
+                'teacher': '墨子',
+            }],
+            //文字
+            courseSupType1: {
+                articleContent: '免费公开课',
+                contentUrl: ''
+            },
+            courseSupType2: {
+                articleContent: '特色系列课',
+                contentUrl: ''
+            },
+            courseSupType3: {
+                articleContent: '会员群讲座',
+                contentUrl: ''
+            },
+
+
+            //图片
+            courseSupBanner: {
+                path: 'img/德语特色课程banner.png',
+                url: ''
+            },
+        },
+        methods: {
+            getCourses: function(type) {
+                $.ajax({
+                    url: "http://118.24.110.84:8081/admin/web/course.do?constantId=" + type,
+                    success: function(res) {
+                        var jsonObject = JSON.parse(res + '');
+
+                        if (jsonObject != null && jsonObject.length > 0) {
+                            vm.courses = jsonObject;
+                        }
+                    }
+                });
+            }
+        }
+    });
+    $(document).ready(function() {
+        $.ajax({
+            url: "http://118.24.110.84:8081/admin/web/page.do",
+            success: function(res) {
+                var jsonObject = JSON.parse(res + '');
+
+                //文字
+                if (jsonObject.courseSupType1 != null) {
+                    vm.courseSupType1 = jsonObject.courseSupType1;
+                }
+                if (jsonObject.courseSupType2 != null) {
+                    vm.courseSupType2 = jsonObject.courseSupType2;
+                }
+                if (jsonObject.courseSupType3 != null) {
+                    vm.courseSupType3 = jsonObject.courseSupType3;
+                }
+                //图片
+                if (jsonObject.courseSupBanner != null) {
+                    vm.courseSupBanner = jsonObject.courseSupBanner;
+                }
+
+            }
+        });
+        $.ajax({
+            url: "http://118.24.110.84:8081/admin/web/course.do?constantId=courseSupType1",
+            success: function(res) {
+                var jsonObject = JSON.parse(res + '');
+
+                //文字
+                if (jsonObject != null && jsonObject.length > 0) {
+                    vm.courses = jsonObject;
+                }
+            }
+        });
+    })
+</script>
 <script>
     $('div .signUpBtn').hover(function () {
         $(this).css({
