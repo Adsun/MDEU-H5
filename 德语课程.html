@@ -49,20 +49,20 @@
         <div class="waypoint"></div>
         <a class="section-anchor" style="top: -997px;"></a>
         <div>
-            <img class="img-responsive center-block" src="img/banner德语课程.png" style="width:100%;">
+            <img class="img-responsive center-block" :src="courseVudBanner.path" style="width:100%;">
         </div>
         <div class="clearfix" style="padding-bottom: 30px">
             <div class="row">
-                <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-top:30px">
+                <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-top:30px" v-for="course in courses">
                     <div class="row">
                         <div class="column col-xs-12 col-sm-12 col-md-6">
                             <figure>
                                 <img class="img-responsive center-block" src="img/德语A1.png">
                                 <figcaption>
-                                    <p style="font-size: 18px; font-weight: 400;padding: 15% 0 0 18%;margin:0;">2018.09.19</p>
-                                    <p style="font-size: 24px; font-weight: bold;margin: 0;">姓名姓名姓名</p>
+                                    <p style="font-size: 18px; font-weight: 400;padding: 15% 0 0 18%;margin:0;">{{course.startTime}}</p>
+                                    <p style="font-size: 24px; font-weight: bold;margin: 0;">{{course.courseName}}</p>
                                     <hr style="margin:14px 0 14px 18%;width:45px;height:4px;border:none;border-top:4px solid hsl(40, 75%, 2%); " />
-                                    <p style="font-size: 14px; font-weight: 400;">个人介绍个人介绍个人介绍</p>
+                                    <p style="font-size: 14px; font-weight: 400;">{{course.courseDtl}}</p>
                                 </figcaption>
                             </figure>
                         </div>
@@ -352,7 +352,7 @@
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js "></script>
 
 <script>
-var vm = new Vue({
+        var vm = new Vue({
             el: '#vueData',
             data: {
                 //图片
@@ -368,6 +368,13 @@ var vm = new Vue({
                     path: 'img/xima0.png',
                     url: '#'
                 },
+                courseVudBanner: {
+                    path: 'img/banner德语课程.png',
+                    url: ''
+                },
+                //课程信息
+                courses: []
+            
             },
             methods: {
                 changeImg:function(img,type){
@@ -395,5 +402,29 @@ var vm = new Vue({
                 },
             }
         });
+        $(document).ready(function() {
+        $.ajax({
+            url: "http://118.24.110.84:8081/admin/web/page.do",
+            success: function(res) {
+                var jsonObject = JSON.parse(res + '');
+                //图片
+                if (jsonObject.courseVudBanner != null) {
+                    vm.courseVudBanner = jsonObject.courseVudBanner;
+                }
+            }
+        });
+        $.ajax({
+            url: "http://118.24.110.84:8081/admin/web/course.do?constantId=courseVud",
+            success: function(res) {
+                var jsonObject = JSON.parse(res + '');
+
+                //文字
+                if (jsonObject != null && jsonObject.length > 0) {
+                    vm.courses = jsonObject;
+                }
+            }
+        });
+        })
+       
 </script>
 </html>
