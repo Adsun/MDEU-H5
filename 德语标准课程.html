@@ -439,10 +439,7 @@
                     url: "http://118.24.110.84:8081/admin/web/course.do?constantId=" + type,
                     success: function(res) {
                         var jsonObject = JSON.parse(res + '');
-
-                        if (jsonObject != null && jsonObject.length > 0) {
-                            vm.courses = jsonObject;
-                        }
+                        vm.courses = jsonObject;
                     }
                 });
             }
@@ -487,11 +484,7 @@
             url: "http://118.24.110.84:8081/admin/web/course.do?constantId=courseType1",
             success: function(res) {
                 var jsonObject = JSON.parse(res + '');
-
-                //文字
-                if (jsonObject != null && jsonObject.length > 0) {
-                    vm.courses = jsonObject;
-                }
+                vm.courses = jsonObject;
             }
         });
     })
