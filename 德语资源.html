@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="padding: 0px">
+    <div id="vueData" class="container-fluid" style="padding: 0px">
         <div class="navigator s-navbar-section" id="s-header">
             <div class="strikingly-fixed s-bg-light-text" id="s-nav">
                 <div class="s-nav-inner">
@@ -36,7 +36,7 @@
                             <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
                             <li>
                                 <a class="s-nav-item">
-                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
+                                    <div @click="getRes(nowRes,'lxModal')" style="cursor: pointer;"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
                                 </a>
                             </li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
@@ -49,57 +49,56 @@
         <div class="waypoint"></div>
         <a class="section-anchor" style="top: -997px;"></a>
         <div>
-            <img class="img-responsive center-block" src="img/德语资源banner.png" style="width:100%;">
+            <img class="img-responsive center-block" :src="resBanner.path" style="width:100%;">
         </div>
         <div class="clearfix" style="padding-bottom: 30px">
             <div id="nav0" class="tabbable row">
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12 ">
-                    <ul class="nav nav-tabs " style="text-align: center;">
-                        <li class="active" style="width:15%"><a href="#nav1" data-toggle="tab">德语电影</a></li>
+                    <ul class="nav nav-tabs " style="text-align: center;cursor: pointer;">
+                        <li class="active" style="width:15%"><a @click="getRess('resType1')" data-toggle="tab">{{resType1.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a href="#nav2" data-toggle="tab">德语杂志</a></li>
+                        <li style="width:15%"><a @click="getRess('resType2')"  data-toggle="tab">{{resType2.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a href="#nav3" data-toggle="tab">德语小说</a></li>
+                        <li style="width:15%"><a @click="getRess('resType3')"  data-toggle="tab">{{resType3.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a href="#nav4" data-toggle="tab">德语电视剧</a></li>
+                        <li style="width:15%"><a @click="getRess('resType4')"  data-toggle="tab">{{resType4.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a href="#nav5" data-toggle="tab">德语教材</a></li>
+                        <li style="width:15%"><a @click="getRess('resType5')"  data-toggle="tab">{{resType5.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:160px"><a href="#nav6" data-toggle="tab">免费资源<sup> FREE</sup></a></li>
+                        <li style="width:160px"><a @click="getAllRess()"  data-toggle="tab">免费资源<sup> FREE</sup></a></li>
                     </ul>
                 </div>
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-bottom:40px;">
                     <div class="tab-content">
                         <div class="tab-pane active" id="nav1" style="margin-top: 20px">
-                            <div class="row firstRow rowHeader">
+                            <div class="row firstRow rowHeader" v-for="res in ress">
                                 <!--<a type="button" data-toggle="modal" data-target="#myModal">-->
                                 <div class="cloumn col-xs-12 col-sm-5 col-md-5">
-                                    <img class="img-responsive center-block" src="img/课程图.png">
+                                    <img class="img-responsive center-block" :src="res.imgUrl">
                                 </div>
                                 <!--</a>-->
                                 <div class="cloumn col-xs-12 col-sm-7 col-md-7 " style="padding-left:30px">
                                     <table class="table detailTable">
                                         <tbody>
                                             <tr style="height:3rem">
-                                                <div id="box4" style="padding-top:10px"><span style="text-align:left;font-size: 20px">哈利波特全集</span></div>
+                                                <div id="box4" style="padding-top:10px"><span style="text-align:left;font-size: 20px">{{res.resName}}</span></div>
                                             </tr>
                                             <tr style="height:3rem">
                                                 <div id="box5" style="padding-top:20px;">
                                                     <div class="cloumn col-xs-11 col-sm-11 col-md-11 " style="padding:0px">
                                                         <span>简介：</span>
                                                         <span>
-                                                            文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
-                                                            文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+                                                            {{res.resContent}}
                                                         </span>
                                                         <div id="box6" style="padding-top:10px;">
                                                             <span style="padding-left:20px">
                                                                 <a type="button" >
                                                                     <div class="btn btn-default btn-xs orange signUpBtn"
-                                                                        style="border-color: orange;">观看预告</div>
+                                                                        style="border-color: orange;"><a :href="res.videoUrl">观看预告</a></div>
                                                                 </a>
                                                             </span>
                                                             <span style="padding-left:20px">
-                                                                <a type="button" data-toggle="modal" data-target="#myModal1">
+                                                                <a type="button" @click="getRes(res,'')">
                                                                     <div class="btn btn-default btn-xs orange signUpBtn"
                                                                         style="border-color: orange;">获取资源</div>
                                                                 </a>
@@ -112,27 +111,6 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane" id="nav2">
-                            内容2
-                        </div>
-                        <div class="tab-pane" id="nav3">
-                            内容3
-                        </div>
-                        <div class="tab-pane" id="nav4">
-                            内容4
-                        </div>
-                        <div class="tab-pane" id="nav5">
-                            内容5
-                        </div>
-                        <div class="tab-pane" id="nav6">
-                            内容6
-                        </div>
-                        <div class="tab-pane" id="nav7">
-                            内容7
-                        </div>
-                        <div class="tab-pane" id="nav8">
-                            内容8
                         </div>
                     </div>
                 </div>
@@ -234,14 +212,14 @@
                                     <div style="margin:0px;margin-top: 20px">
                                         <img class="img-responsive center-block" src="img/德语视频图标.png" />
                                     </div>
-                                    <p style="font-size:2rem;margin:0px">权 利 的 世 界</p>
+                                    <p style="font-size:2rem;margin:0px">{{nowRes.resName}}</p>
                                 </div>
                                 <div class="column col-xs-1 col-sm-1 col-md-1" style="width:1px">
                                     <div style="width: 1px;height: 200px; background: #2c2b2b;"></div>
                                 </div>
                                 <div class="column col-xs-6 col-sm-6 col-md-6" style="padding:0">
                                     <div style="margin:0px">
-                                        <img class="img-responsive center-block" src="img/德语视频二维码图标.png" />
+                                        <img class="img-responsive center-block" :src="nowRes.qrcUrl" />
                                     </div>
                                 </div>
                             </div>
@@ -274,7 +252,7 @@
                                             <span>提取地址:</span>
                                         </div>
                                         <div class="column col-xs-9 col-sm-9 col-md-9 " style="padding:0px">
-                                            <span style="color:#ffb339;">http://v.baidu.com/tv/28437.htm?frp=browse</span>
+                                            <span style="color:#ffb339;">{{nowRes.bdyUrl}}</span>
                                         </div>
                                     </div>
                                     <div class="row" style="padding:5px">
@@ -282,7 +260,7 @@
                                             <span>提取密码:</span>
                                         </div>
                                         <div class="column col-xs-9 col-sm-9 col-md-9 " style="padding:0px">
-                                            <span>MD9A</span>
+                                            <span>{{nowRes.bdyCode}}</span>
                                         </div>
                                     </div>
                                     <div class="row" style="padding:5px">
@@ -372,8 +350,124 @@
 
 </body>
 
-<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js "></script>
+<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js "></script>
+<script src="https://cdn.jsdelivr.net/npm/vue "></script>
+
+<script>
+    var vm = new Vue({
+        el: '#vueData',
+        data: {
+            //课程信息
+            ress: [{
+                'resName': '哈利波特全集',
+                'resContent': '文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字',
+                'videoUrl': '#',
+                'qrcUrl': 'img/德语视频二维码图标.png',
+                'imgUrl': 'img/课程图.png',
+                'bdyUrl': 'http://v.baidu.com/tv/28437.htm?frp=browse',
+                'bdyCode': 'MD9A'
+            }],
+            nowRes: {},
+            nowModel: '',
+            //文字
+            resType1: {
+                articleContent: '德语电影',
+                contentUrl: ''
+            },
+            resType2: {
+                articleContent: '德语杂志',
+                contentUrl: ''
+            },
+            resType3: {
+                articleContent: '德语小说',
+                contentUrl: ''
+            },
+            resType4: {
+                articleContent: '德语电视剧',
+                contentUrl: ''
+            },
+            resType5: {
+                articleContent: '德语教材',
+                contentUrl: ''
+            },
+
+
+            //图片
+            resBanner: {
+                path: 'img/德语资源banner.png',
+                url: ''
+            },
+        },
+        methods: {
+            getRes: function(res, model) {
+                if (model == '') {
+                    if (res.bdyUrl=null || res.bdyUrl=='') {
+                        model = 'myModal';
+                    } else {
+                        model = 'myModal1';
+                    }
+                }
+                this.nowRes = res;
+                this.nowModel = model;
+                
+                $('#' + model).modal("show");
+            },
+            closeModel: function() {
+                $('#' + this.nowModel).modal("hide");
+            },
+            getRess: function(type) {
+                $.ajax({
+                        url: "http://118.24.110.84:8081/admin/web/resource.do?constantId=" + type,
+                        success: function(res) {
+                            var jsonObject = JSON.parse(res + '');
+                            vm.ress = jsonObject;
+                        }
+                    });
+            },
+            getAllRess: function() {
+                $.ajax({
+                        url: "http://118.24.110.84:8081/admin/web/resource.do",
+                        success: function(res) {
+                            var jsonObject = JSON.parse(res + '');
+                            vm.ress = jsonObject;
+                        }
+                    });
+            }
+        }
+    });
+    $(document).ready(function() {
+        $.ajax({
+            url: "http://118.24.110.84:8081/admin/web/page.do",
+            success: function(res) {
+                var jsonObject = JSON.parse(res + '');
+                //文字
+                if (jsonObject.resType1 != null) {
+                    vm.resType1 = jsonObject.resType1;
+                }
+                if (jsonObject.resType2 != null) {
+                    vm.resType2 = jsonObject.resType2;
+                }
+                if (jsonObject.resType3 != null) {
+                    vm.resType3 = jsonObject.resType3;
+                }
+                if (jsonObject.resType4 != null) {
+                    vm.resType4 = jsonObject.resType4;
+                }
+                if (jsonObject.resType5 != null) {
+                    vm.resType5 = jsonObject.resType5;
+                }
+               
+                //图片
+                if (jsonObject.resBanner != null) {
+                    vm.resBanner = jsonObject.resBanner;
+                }
+
+            }
+        });
+        vm.getRess('resType1');
+    })
+</script>
 
 <script>
     $('div .signUpBtn').hover(function() {

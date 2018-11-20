@@ -101,24 +101,24 @@
             <div id="nav0" class="tabbable row">
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="padding:0px;padding-bottom:20px;">
                     <ul class="nav nav-tabs " style="text-align: center;">
-                        <li class="active" style="width:14%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType1')">{{courseType1.articleContent}}</a></li>
+                        <li class="active" style="width:14%;cursor: pointer;"><a data-toggle="tab" @click="getAllCourses()">最新课程</a></li>
                         <li style=" font-size:2rem;padding-top:0.5rem ">
                             <p>|</p>
                         </li>
-                        <li style="width:13%;cursor: pointer; "><a data-toggle="tab" @click="getCourses('courseType2')">{{courseType2.articleContent}}</a>
+                        <li style="width:13%;cursor: pointer; "><a data-toggle="tab" @click="getCourses('courseType1')">{{courseType1.articleContent}}</a>
                         </li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:13%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType3')">{{courseType3.articleContent}}</a></li>
+                        <li style="width:13%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType2')">{{courseType2.articleContent}}</a></li>
                         <li style=" font-size:2rem;padding-top:0.5rem ">|</li>
-                        <li style="width:13%;cursor: pointer; "><a data-toggle="tab" @click="getCourses('courseType4')">{{courseType4.articleContent}}</a>
+                        <li style="width:13%;cursor: pointer; "><a data-toggle="tab" @click="getCourses('courseType3')">{{courseType3.articleContent}}</a>
                         </li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:13%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType5')">{{courseType5.articleContent}}</a></li>
+                        <li style="width:13%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType4')">{{courseType4.articleContent}}</a></li>
                         <li style=" font-size:2rem;padding-top:0.5rem ">|</li>
-                        <li style="width:14%;cursor: pointer; "><a data-toggle="tab" @click="getCourses('courseType6')">{{courseType6.articleContent}}</a>
+                        <li style="width:14%;cursor: pointer; "><a data-toggle="tab" @click="getCourses('courseType5')">{{courseType5.articleContent}}</a>
                         </li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:14%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType7')">{{courseType7.articleContent}}</a></li>
+                        <li style="width:14%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType6')">{{courseType6.articleContent}}</a></li>
                     </ul>
                 </div>
                 <div class=" cloumn col-xs-12 col-sm-12 col-md-12 " style="padding:0px;padding-bottom:20%; ">
@@ -376,30 +376,26 @@
             nowCoursePlans: {},
             //文字
             courseType1: {
-                articleContent: '最新课程',
-                contentUrl: ''
-            },
-            courseType2: {
                 articleContent: '欧标A1',
                 contentUrl: ''
             },
-            courseType3: {
+            courseType2: {
                 articleContent: '欧标A2',
                 contentUrl: ''
             },
-            courseType4: {
+            courseType3: {
                 articleContent: '欧标B1',
                 contentUrl: ''
             },
-            courseType5: {
+            courseType4: {
                 articleContent: '欧标B2',
                 contentUrl: ''
             },
-            courseType6: {
+            courseType5: {
                 articleContent: '德福备考',
                 contentUrl: ''
             },
-            courseType7: {
+            courseType6: {
                 articleContent: '专四专八',
                 contentUrl: ''
             },
@@ -415,7 +411,7 @@
             getCourse: function(course, model) {
                 this.nowCourse = course;
                 this.nowModel = model;
-                if (model == '') {
+                if (model == 'coursePlan') {
                     this.getCoursePlan(course.courseId);
                 }
                 $('#' + model).modal("show");
@@ -436,12 +432,21 @@
             },
             getCourses: function(type) {
                 $.ajax({
-                    url: "http://118.24.110.84:8081/admin/web/course.do?constantId=" + type,
-                    success: function(res) {
-                        var jsonObject = JSON.parse(res + '');
-                        vm.courses = jsonObject;
-                    }
-                });
+                        url: "http://118.24.110.84:8081/admin/web/course.do?constantId=" + type,
+                        success: function(res) {
+                            var jsonObject = JSON.parse(res + '');
+                            vm.courses = jsonObject;
+                        }
+                    });
+            },
+            getAllCourses: function() {
+                $.ajax({
+                        url: "http://118.24.110.84:8081/admin/course/list.do?page=1&rows=10",
+                        success: function(res) {
+                            var jsonObject = JSON.parse(res + '');
+                            vm.courses = jsonObject.rows;
+                        }
+                    });
             }
         }
     });
@@ -450,7 +455,6 @@
             url: "http://118.24.110.84:8081/admin/web/page.do",
             success: function(res) {
                 var jsonObject = JSON.parse(res + '');
-
                 //文字
                 if (jsonObject.courseType1 != null) {
                     vm.courseType1 = jsonObject.courseType1;
@@ -480,13 +484,7 @@
 
             }
         });
-        $.ajax({
-            url: "http://118.24.110.84:8081/admin/web/course.do?constantId=courseType1",
-            success: function(res) {
-                var jsonObject = JSON.parse(res + '');
-                vm.courses = jsonObject;
-            }
-        });
+        vm.getAllCourses();
     })
 </script>
 <script>
