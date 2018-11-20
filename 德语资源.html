@@ -203,9 +203,9 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                    &times;
-                                </button>
+                        <button type="button " class="close" @click="closeModel()">
+                            &times;
+                        </button>
                         <div style="margin-left:10%;width: 80%;text-align:center;">
                             <div class="row" style="padding-bottom: 30px;padding-top: 20px">
                                 <div class="column col-xs-5 col-sm-5 col-md-5 " style="padding:0">
@@ -236,7 +236,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <button type="button " class="close" @click="closeModel()">
                             &times;
                         </button>
                         <div style="margin-left:25%;width: 50%;text-align:center;">
@@ -283,7 +283,7 @@
             <div class="modal-dialog" style="text-align:center; width:800px">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <button type="button " class="close" @click="closeModel()">
                             &times;
                         </button>
                         <h4 class="modal-title center-align" id="myModalLabel" style="font-size:22px;font-weight: 400">
@@ -330,7 +330,7 @@
             <div class="modal-dialog" style="text-align:center; width:600px">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <button type="button " class="close" @click="closeModel()">
                             &times;
                         </button>
                         <h4 class="modal-title center-align" style="font-size:22px;font-weight: 400">
@@ -402,7 +402,7 @@
         methods: {
             getRes: function(res, model) {
                 if (model == '') {
-                    if (res.bdyUrl=null || res.bdyUrl=='') {
+                    if (res.bdyUrl==null || res.bdyUrl=='') {
                         model = 'myModal';
                     } else {
                         model = 'myModal1';
