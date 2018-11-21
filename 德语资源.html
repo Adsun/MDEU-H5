@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml"
+    xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>米德在线</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
+        name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +18,7 @@
     <link href="./img/mi.png" rel="shortcut icon" type="image/x-icon">
 </head>
 <style>
-figure figcaption {
+    figure figcaption {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -35,6 +37,7 @@ figure:hover img {
     transition: all 1s;
 }
 </style>
+
 <body>
     <div id="vueData" class="container-fluid" style="padding: 0px">
         <div class="navigator s-navbar-section" id="s-header">
@@ -76,15 +79,15 @@ figure:hover img {
                     <ul class="nav nav-tabs " style="text-align: center;cursor: pointer;">
                         <li class="active" style="width:15%"><a @click="getRess('resType1')" data-toggle="tab">{{resType1.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a @click="getRess('resType2')"  data-toggle="tab">{{resType2.articleContent}}</a></li>
+                        <li style="width:15%"><a @click="getRess('resType2')" data-toggle="tab">{{resType2.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a @click="getRess('resType3')"  data-toggle="tab">{{resType3.articleContent}}</a></li>
+                        <li style="width:15%"><a @click="getRess('resType3')" data-toggle="tab">{{resType3.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a @click="getRess('resType4')"  data-toggle="tab">{{resType4.articleContent}}</a></li>
+                        <li style="width:15%"><a @click="getRess('resType4')" data-toggle="tab">{{resType4.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a @click="getRess('resType5')"  data-toggle="tab">{{resType5.articleContent}}</a></li>
+                        <li style="width:15%"><a @click="getRess('resType5')" data-toggle="tab">{{resType5.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:160px"><a @click="getAllRess()"  data-toggle="tab">免费资源<sup> FREE</sup></a></li>
+                        <li style="width:160px"><a @click="getAllRess()" data-toggle="tab">免费资源<sup> FREE</sup></a></li>
                     </ul>
                 </div>
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-bottom:40px;">
@@ -93,14 +96,31 @@ figure:hover img {
                             <div class="row firstRow rowHeader" v-for="res in ress">
                                 <!--<a type="button" data-toggle="modal" data-target="#myModal">-->
                                 <div class="cloumn col-xs-12 col-sm-5 col-md-5">
+                                    <div v-if="res.constantId === 'resType1'">
                                         <figure>
                                             <img class="img-responsive center-block" :src="res.imgUrl">
                                             <figcaption>
                                                 <div style="padding-left: 40%;padding-top: 17%">
-                                                    <img class="img-responsive" src="img/资源蒙层.png">
+
+                                                    <a href="#"><img class="img-responsive" src="img/资源蒙层.png"></a>
                                                 </div>
                                             </figcaption>
                                         </figure>
+                                    </div>
+                                    <div v-else-if="res.constantId === 'resType3'">
+                                        <figure>
+                                            <img class="img-responsive center-block" :src="res.imgUrl">
+                                            <figcaption>
+                                                <div style="padding-left: 40%;padding-top: 17%">
+
+                                                    <a href="#"><img class="img-responsive" src="img/资源蒙层.png"></a>
+                                                </div>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div v-else>
+                                        <img class="img-responsive center-block" :src="res.imgUrl">
+                                    </div>
                                 </div>
                                 <!--</a>-->
                                 <div class="cloumn col-xs-12 col-sm-7 col-md-7 " style="padding-left:30px">
@@ -115,17 +135,18 @@ figure:hover img {
                                                         <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:left;padding-right: 0px;">
                                                             <span style="font-weight:200;font-size: 16px">简介：</span>
                                                         </div>
-                                                        <div class="cloumn col-xs-10 col-sm-10 col-md-10 "  style="text-align:left;padding-left: 0px;">
+                                                        <div class="cloumn col-xs-10 col-sm-10 col-md-10 " style="text-align:left;padding-left: 0px;">
                                                             <span style="font-weight:100;font-size: 13px">
                                                                 {{res.resContent}}
                                                             </span>
                                                         </div>
                                                         <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:right;padding-right: 0px;padding-top:10px;">
-                                                               
+
                                                         </div>
-                                                        <div class="cloumn col-xs-10 col-sm-10 col-md-10 " id="box6" style="padding-top:10px;padding-left: 0px;">
+                                                        <div class="cloumn col-xs-10 col-sm-10 col-md-10 " id="box6"
+                                                            style="padding-top:10px;padding-left: 0px;">
                                                             <span>
-                                                                <a type="button" >
+                                                                <a type="button">
                                                                     <div class="btn btn-default btn-xs orange signUpBtn"
                                                                         style="border-color: orange;"><a :href="res.videoUrl">观看预告</a></div>
                                                                 </a>
@@ -159,7 +180,8 @@ figure:hover img {
                         <input type="text" class="form-control" id="detail" placeholder="错误描述(请控制在30字内)" style="width:100%;height: 28px;">
                     </div>
                     <div class="column col-xs-2 col-sm-2 col-md-2" style="padding: 5px">
-                        <div class="btn btn-default btn-xs orange signUpBtn " data-toggle="modal" data-target="#tjModal" style="border-color: orange;padding: 5px;height: 28px; width: 100%">反馈意见</div>
+                        <div class="btn btn-default btn-xs orange signUpBtn " data-toggle="modal" data-target="#tjModal"
+                            style="border-color: orange;padding: 5px;height: 28px; width: 100%">反馈意见</div>
                     </div>
                 </form>
             </div>
@@ -232,7 +254,8 @@ figure:hover img {
             </div>
         </div>
         <!--my modal-->
-        <div class="modal fade" id="myModal" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -265,7 +288,8 @@ figure:hover img {
             </div>
         </div>
         <!--my modal-->
-        <div class="modal fade" id="myModal1" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal1" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -338,7 +362,8 @@ figure:hover img {
                                 <input type="text" style="width:300px;" class="form-control" id="phone" placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="need" placeholder="合作需求："></textarea>
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="need"
+                                    placeholder="合作需求："></textarea>
                             </div>
                         </form>
                         <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
@@ -400,7 +425,8 @@ figure:hover img {
                 'imgUrl': 'img/课程图.png',
                 'bdyUrl': 'http://v.baidu.com/tv/28437.htm?frp=browse',
                 'bdyCode': 'MD9A',
-                'playUrl': 'img/德语视频图标.png'
+                'playUrl': 'img/德语视频图标.png',
+                'constantId': 'resType1'
             }],
             nowRes: {},
             nowModel: '',
@@ -434,9 +460,9 @@ figure:hover img {
             },
         },
         methods: {
-            getRes: function(res, model) {
+            getRes: function (res, model) {
                 if (model == '') {
-                    if (res.bdyUrl==null || res.bdyUrl=='') {
+                    if (res.bdyUrl == null || res.bdyUrl == '') {
                         model = 'myModal';
                     } else {
                         model = 'myModal1';
@@ -444,36 +470,36 @@ figure:hover img {
                 }
                 this.nowRes = res;
                 this.nowModel = model;
-                
+
                 $('#' + model).modal("show");
             },
-            closeModel: function() {
+            closeModel: function () {
                 $('#' + this.nowModel).modal("hide");
             },
-            getRess: function(type) {
+            getRess: function (type) {
                 $.ajax({
-                        url: "http://118.24.110.84:8081/admin/web/resource.do?constantId=" + type,
-                        success: function(res) {
-                            var jsonObject = JSON.parse(res + '');
-                            vm.ress = jsonObject;
-                        }
-                    });
+                    url: "http://118.24.110.84:8081/admin/web/resource.do?constantId=" + type,
+                    success: function (res) {
+                        var jsonObject = JSON.parse(res + '');
+                        vm.ress = jsonObject;
+                    }
+                });
             },
-            getAllRess: function() {
+            getAllRess: function () {
                 $.ajax({
-                        url: "http://118.24.110.84:8081/admin/web/resource.do",
-                        success: function(res) {
-                            var jsonObject = JSON.parse(res + '');
-                            vm.ress = jsonObject;
-                        }
-                    });
+                    url: "http://118.24.110.84:8081/admin/web/resource.do",
+                    success: function (res) {
+                        var jsonObject = JSON.parse(res + '');
+                        vm.ress = jsonObject;
+                    }
+                });
             }
         }
     });
-    $(document).ready(function() {
+    $(document).ready(function () {
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/page.do",
-            success: function(res) {
+            success: function (res) {
                 var jsonObject = JSON.parse(res + '');
                 //文字
                 if (jsonObject.resType1 != null) {
@@ -491,7 +517,7 @@ figure:hover img {
                 if (jsonObject.resType5 != null) {
                     vm.resType5 = jsonObject.resType5;
                 }
-               
+
                 //图片
                 if (jsonObject.resBanner != null) {
                     vm.resBanner = jsonObject.resBanner;
@@ -504,12 +530,12 @@ figure:hover img {
 </script>
 
 <script>
-    $('div .signUpBtn').hover(function() {
+    $('div .signUpBtn').hover(function () {
         $(this).css({
             'background-color': '#ff9900',
             'color': '#ffffff'
         });
-    }, function() {
+    }, function () {
         $(this).css({
             'background-color': '#ffffff',
             'color': '#ff9900'
