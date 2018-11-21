@@ -210,7 +210,7 @@
                             <div class="row" style="padding-bottom: 30px;padding-top: 20px">
                                 <div class="column col-xs-5 col-sm-5 col-md-5 " style="padding:0">
                                     <div style="margin:0px;margin-top: 20px">
-                                        <img class="img-responsive center-block" src="img/德语视频图标.png" />
+                                        <img class="img-responsive center-block" :src="nowRes.playUrl" />
                                     </div>
                                     <p style="font-size:2rem;margin:0px">{{nowRes.resName}}</p>
                                 </div>
@@ -243,7 +243,7 @@
                             <div class="row" style="padding-bottom: 30px;padding-top: 20px">
                                 <div class="column col-xs-12 col-sm-12 col-md-12 " style="padding:5px">
                                     <div style="margin:0px;margin-top: 20px">
-                                        <img class="img-responsive center-block" src="img/德语视频图标.png" />
+                                        <img class="img-responsive center-block" :src="nowRes.playUrl" />
                                     </div>
                                 </div>
                                 <div class="column col-xs-12 col-sm-12 col-md-12 " style="padding:5px;text-align:left;">
@@ -366,7 +366,8 @@
                 'qrcUrl': 'img/德语视频二维码图标.png',
                 'imgUrl': 'img/课程图.png',
                 'bdyUrl': 'http://v.baidu.com/tv/28437.htm?frp=browse',
-                'bdyCode': 'MD9A'
+                'bdyCode': 'MD9A',
+                'playUrl': 'img/德语视频图标.png'
             }],
             nowRes: {},
             nowModel: '',
