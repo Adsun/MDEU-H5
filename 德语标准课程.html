@@ -441,7 +441,7 @@
             },
             getAllCourses: function() {
                 $.ajax({
-                        url: "http://118.24.110.84:8081/admin/course/list.do?page=1&rows=10",
+                        url: "http://118.24.110.84:8081/admin/course/list.do?page=1&rows=10&constantIds=courseType1&constantIds=courseType2&constantIds=courseType3&constantIds=courseType4&constantIds=courseType5&constantIds=courseType6",
                         success: function(res) {
                             var jsonObject = JSON.parse(res + '');
                             vm.courses = jsonObject.rows;
