@@ -179,3 +179,13 @@ a:active {
 li a {
     color: #000;
 }
+
+.signUpBtn {
+    background-color: #ffffff;
+    color: #ff9900
+}
+
+.signUpBtn:hover {
+    background-color: #ff9900;
+    color: #ffffff
+}
