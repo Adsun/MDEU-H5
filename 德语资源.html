@@ -174,13 +174,13 @@ figure:hover img {
                     <div class="column col-xs-2 col-sm-2 col-md-2 text-center" style="font-size:20px;font-weight: 400;padding: 5px"><span>资源报错</span></div>
 
                     <div class="form-group column col-xs-3 col-sm-3 col-md-3" style="padding: 5px">
-                        <input type="text" class="form-control" id="type" placeholder="类型区别/资源分类" style="width:100%;height: 28px;">
+                        <input type="text" class="form-control" v-model="form2.name" placeholder="类型区别/资源分类" style="width:100%;height: 28px;">
                     </div>
                     <div class="form-group column col-xs-5 col-sm-5 col-md-5" style="padding: 5px">
-                        <input type="text" class="form-control" id="detail" placeholder="错误描述(请控制在30字内)" style="width:100%;height: 28px;">
+                        <input type="text" class="form-control" v-model="form2.detail" placeholder="错误描述(请控制在30字内)" style="width:100%;height: 28px;">
                     </div>
                     <div class="column col-xs-2 col-sm-2 col-md-2" style="padding: 5px">
-                        <div class="btn btn-default btn-xs orange signUpBtn " data-toggle="modal" data-target="#tjModal"
+                        <div class="btn btn-default btn-xs orange signUpBtn "  @click="submitForm2"
                             style="border-color: orange;padding: 5px;height: 28px; width: 100%">反馈意见</div>
                     </div>
                 </form>
@@ -350,19 +350,19 @@ figure:hover img {
                     <div class="modal-body">
                         <form class="form-inline" role="form">
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" id="name" placeholder="您的姓名：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name" placeholder="您的姓名：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" id="city" placeholder="所在城市：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city" placeholder="所在城市：" />
                             </div>
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" id="email" placeholder="您的邮箱：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email" placeholder="您的邮箱：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" id="phone" placeholder="联系电话：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone" placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="need"
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail"
                                     placeholder="合作需求："></textarea>
                             </div>
                         </form>
@@ -371,7 +371,7 @@ figure:hover img {
                             <span>微信：</span><span style="color:#ffb339">deutschshi / michideutsch</span>
                         </div>
                         <div class="row" style="padding: 10px 0 10px 0">
-                            <button type="button" class="btn btn-warning" style="width:200px">
+                            <button type="button" @click="submitForm1()" class="btn btn-warning" style="width:200px">
                                 完成并发送
                             </button>
                         </div>
@@ -451,6 +451,18 @@ figure:hover img {
                 articleContent: '德语教材',
                 contentUrl: ''
             },
+            //表单
+            form1: {
+                name: '',
+                city: '',
+                email: '',
+                phone: '',
+                detail: ''
+            },
+            form2: {
+                name: '',
+                detail: ''
+            },
 
 
             //图片
@@ -493,6 +505,64 @@ figure:hover img {
                         vm.ress = jsonObject;
                     }
                 });
+            },
+            submitForm1: function () {
+                if (this.form1.name == "") {
+                    alert("请输入您的姓名");
+                    return;
+                }
+                if (this.form1.city == "") {
+                    alert("请输入所在城市");
+                    return;
+                }
+                if (this.form1.email == "") {
+                    alert("请输入您的邮箱");
+                    return;
+                }
+                if (this.form1.detail == "") {
+                    alert("请输入联系电话");
+                    return;
+                }
+                if (this.form1.name == "") {
+                    alert("请输入合作需求");
+                    return;
+                }
+                $.ajax({
+                    url: "http://118.24.110.84:8081/admin/web/contact.do",
+                    data: this.form1,
+                    success: function (res) {
+                        if (JSON.parse(res + '').success) {
+                            alert("提交成功");
+                        } else {
+                            alert("提交失败");
+                        }
+                    }
+                });
+                this.closeModel();
+            },
+            submitForm2: function () {
+                if (this.form2.name == "") {
+                    alert("请输入资源分类");
+                    return;
+                }
+                if (this.form2.detail == "") {
+                    alert("请输入错误描述");
+                    return;
+                }
+                $.ajax({
+                    url: "http://118.24.110.84:8081/admin/web/error.do",
+                    data: this.form2,
+                    success: function (res) {
+                        if (JSON.parse(res + '').success) {
+                            vm.getRes(this.nowRes,"tjModal");
+                        } else {
+                            alert("提交失败");
+                        }
+                    }
+                });
+                this.form2.name = "";
+                this.form2.detail = ""
+                vm.closeModel();
             }
         }
     });

@@ -262,9 +262,7 @@
                     success: function(res) {
                         var jsonObject = JSON.parse(res + '');
 
-                        if (jsonObject != null && jsonObject.length > 0) {
-                            vm.courses = jsonObject;
-                        }
+                        vm.courses = jsonObject;
                     }
                 });
             }
