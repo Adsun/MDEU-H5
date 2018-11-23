@@ -445,9 +445,7 @@
                     url: "http://118.24.110.84:8081/admin/web/coursePlan.do?courseId=" + courseId,
                     success: function (res) {
                         var jsonObject = JSON.parse(res + '');
-                        if (jsonObject != null && jsonObject.length > 0) {
-                            vm.nowCoursePlans = jsonObject;
-                        }
+                        vm.nowCoursePlans = jsonObject;
                     }
                 });
             },
