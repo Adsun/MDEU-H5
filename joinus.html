@@ -4,7 +4,8 @@
 <head>
     <title>米德在线</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
+        name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +37,8 @@
                             <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
                             <li>
                                 <a class="s-nav-item">
-                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
+                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span
+                                            style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
                                 </a>
                             </li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
@@ -170,9 +172,9 @@
             <div class="modal-dialog" style="text-align:center; width:800px">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
+                        <button type="button " class="close" @click="closeModel()">
+                            &times;
+                        </button>
                         <h4 class="modal-title center-align" id="myModalLabel" style="font-size:22px;font-weight: 400">
                             联系我们
                         </h4>
@@ -180,19 +182,24 @@
                     <div class="modal-body">
                         <form class="form-inline" role="form">
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" id="name" placeholder="您的姓名：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name"
+                                    placeholder="您的姓名：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" id="city" placeholder="所在城市：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city"
+                                    placeholder="所在城市：" />
                             </div>
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" id="email" placeholder="您的邮箱：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email"
+                                    placeholder="您的邮箱：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" id="phone" placeholder="联系电话：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone"
+                                    placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="detail" placeholder="合作需求："></textarea>
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail"
+                                    placeholder="合作需求："></textarea>
                             </div>
                         </form>
                         <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
@@ -200,9 +207,9 @@
                             <span>微信：</span><span style="color:#ffb339">deutschshi / michideutsch</span>
                         </div>
                         <div class="row" style="padding: 10px 0 10px 0">
-                            <button type="button" class="btn btn-warning" style="width:200px">
-                                        完成并发送
-                                </button>
+                            <button type="button" @click="submitForm1()" class="btn btn-warning" style="width:200px">
+                                完成并发送
+                            </button>
                         </div>
 
                         <div class="row" style="padding: 10px 0 10px 0">
@@ -250,6 +257,14 @@
                 articleContent: 'business@midezaixian.cn',
                 contentUrl: ''
             },
+            //表单
+            form1: {
+                name: '',
+                city: '',
+                email: '',
+                phone: '',
+                detail: ''
+            },
 
             //图片
             joinusBanner: {
@@ -258,15 +273,52 @@
             },
         },
         methods: {
-            getEmail: function() {
+            closeModel: function () {
+                $('#lxModal').modal("hide");
+            },
+            getEmail: function () {
                 return 'mailto:' + this.joinusEmailAdd.articleContent;
+            },
+            submitForm1: function () {
+                if (this.form1.name == "") {
+                    alert("请输入您的姓名");
+                    return;
+                }
+                if (this.form1.city == "") {
+                    alert("请输入所在城市");
+                    return;
+                }
+                if (this.form1.email == "") {
+                    alert("请输入您的邮箱");
+                    return;
+                }
+                if (this.form1.detail == "") {
+                    alert("请输入联系电话");
+                    return;
+                }
+                if (this.form1.name == "") {
+                    alert("请输入合作需求");
+                    return;
+                }
+                $.ajax({
+                    url: "http://118.24.110.84:8081/admin/web/contact.do",
+                    data: this.form1,
+                    success: function (res) {
+                        if (JSON.parse(res + '').success) {
+                            alert("提交成功");
+                        } else {
+                            alert("提交失败");
+                        }
+                    }
+                });
+                this.closeModel();
             }
         }
     });
-    $(document).ready(function() {
+    $(document).ready(function () {
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/page.do",
-            success: function(res) {
+            success: function (res) {
                 var jsonObject = JSON.parse(res + '');
 
                 //文字
@@ -297,7 +349,7 @@
         });
         $.ajax({
             url: "http://118.24.110.84:8081/admin/job/list.do",
-            success: function(res) {
+            success: function (res) {
                 var jsonObject = JSON.parse(res + '');
                 //文字
                 if (jsonObject.rows != null) {

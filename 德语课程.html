@@ -70,19 +70,20 @@
                 </div>
                 <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-top: 20px;padding-bottom: 30px">
                     <p style="font-size: 18px;font-weight: 400">更多精品课程</p>
-                    <a :href="img1.url"><img :src="img1.path" @mouseover="changeImg(1,1)" @mouseout="changeImg(1,0)"/></a>
-                    <a :href="img2.url"><img :src="img2.path" @mouseover="changeImg(2,1)" @mouseout="changeImg(2,0)"/></a>
-                    <a :href="img3.url"><img :src="img3.path" @mouseover="changeImg(3,1)" @mouseout="changeImg(3,0)"/></a>
+                    <a :href="img1.url"><img :src="img1.path" @mouseover="changeImg(1,1)" @mouseout="changeImg(1,0)" /></a>
+                    <a :href="img2.url"><img :src="img2.path" @mouseover="changeImg(2,1)" @mouseout="changeImg(2,0)" /></a>
+                    <a :href="img3.url"><img :src="img3.path" @mouseover="changeImg(3,1)" @mouseout="changeImg(3,0)" /></a>
                 </div>
             </div>
             <!--coursePlan  modal-->
-            <div class="modal fade" id="coursePlan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="coursePlan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
+                                &times;
+                            </button>
                             <form role="form">
                                 <table class="table table-striped">
                                     <tr style="text-align:center;font-size:2rem">
@@ -296,12 +297,11 @@
             </div>
         </div>
         <!--my modal-->
-        <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" style="text-align:center; width:800px">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <button type="button " class="close" @click="closeModel()">
                             &times;
                         </button>
                         <h4 class="modal-title center-align" id="myModalLabel" style="font-size:22px;font-weight: 400">
@@ -311,19 +311,23 @@
                     <div class="modal-body">
                         <form class="form-inline" role="form">
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" id="name" placeholder="您的姓名：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name"
+                                    placeholder="您的姓名：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" id="city" placeholder="所在城市：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city"
+                                    placeholder="所在城市：" />
                             </div>
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" id="email" placeholder="您的邮箱：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email"
+                                    placeholder="您的邮箱：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" id="phone" placeholder="联系电话：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone"
+                                    placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="detail"
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail"
                                     placeholder="合作需求："></textarea>
                             </div>
                         </form>
@@ -332,7 +336,7 @@
                             <span>微信：</span><span style="color:#ffb339">deutschshi / michideutsch</span>
                         </div>
                         <div class="row" style="padding: 10px 0 10px 0">
-                            <button type="button" class="btn btn-warning" style="width:200px">
+                            <button type="button" @click="submitForm1()" class="btn btn-warning" style="width:200px">
                                 完成并发送
                             </button>
                         </div>
@@ -352,60 +356,105 @@
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js "></script>
 
 <script>
-        var vm = new Vue({
-            el: '#vueData',
-            data: {
-                //图片
-                img1: {
-                    path: 'img/youku0.png',
-                    url: '#'
-                },
-                img2: {
-                    path: 'img/wechat0.png',
-                    url: '#'
-                },
-                img3: {
-                    path: 'img/xima0.png',
-                    url: '#'
-                },
-                courseVudBanner: {
-                    path: 'img/banner德语课程.png',
-                    url: ''
-                },
-                //课程信息
-                courses: []
-            
+    var vm = new Vue({
+        el: '#vueData',
+        data: {
+            //图片
+            img1: {
+                path: 'img/youku0.png',
+                url: '#'
             },
-            methods: {
-                changeImg:function(img,type){
-                    if (type === 0) {
-                        if (img == 1) {
-                            this.img1.path = 'img/youku0.png';
-                        }
-                        if (img == 2) {
-                            this.img2.path = 'img/wechat0.png';
-                        }
-                        if (img == 3) {
-                            this.img3.path = 'img/xima0.png';
-                        }
-                    } else if (type === 1) {
-                        if (img == 1) {
-                            this.img1.path = 'img/youku1.png';
-                        }
-                        if (img == 2) {
-                            this.img2.path = 'img/wechat1.png';
-                        }
-                        if (img == 3) {
-                            this.img3.path = 'img/xima1.png';
+            img2: {
+                path: 'img/wechat0.png',
+                url: '#'
+            },
+            img3: {
+                path: 'img/xima0.png',
+                url: '#'
+            },
+            courseVudBanner: {
+                path: 'img/banner德语课程.png',
+                url: ''
+            },
+            //表单
+            form1: {
+                name: '',
+                city: '',
+                email: '',
+                phone: '',
+                detail: ''
+            },
+            //课程信息
+            courses: []
+
+        },
+        methods: {
+            changeImg: function (img, type) {
+                if (type === 0) {
+                    if (img == 1) {
+                        this.img1.path = 'img/youku0.png';
+                    }
+                    if (img == 2) {
+                        this.img2.path = 'img/wechat0.png';
+                    }
+                    if (img == 3) {
+                        this.img3.path = 'img/xima0.png';
+                    }
+                } else if (type === 1) {
+                    if (img == 1) {
+                        this.img1.path = 'img/youku1.png';
+                    }
+                    if (img == 2) {
+                        this.img2.path = 'img/wechat1.png';
+                    }
+                    if (img == 3) {
+                        this.img3.path = 'img/xima1.png';
+                    }
+                }
+            },
+            closeModel: function () {
+                $('#lxModal').modal("hide");
+            },
+            submitForm1: function () {
+                if (this.form1.name == "") {
+                    alert("请输入您的姓名");
+                    return;
+                }
+                if (this.form1.city == "") {
+                    alert("请输入所在城市");
+                    return;
+                }
+                if (this.form1.email == "") {
+                    alert("请输入您的邮箱");
+                    return;
+                }
+                if (this.form1.detail == "") {
+                    alert("请输入联系电话");
+                    return;
+                }
+                if (this.form1.name == "") {
+                    alert("请输入合作需求");
+                    return;
+                }
+                $.ajax({
+                    url: "http://118.24.110.84:8081/admin/web/contact.do",
+                    data: this.form1,
+                    success: function (res) {
+                        if (JSON.parse(res + '').success) {
+                            alert("提交成功");
+                        } else {
+                            alert("提交失败");
                         }
                     }
-                },
+                });
+                this.closeModel();
             }
-        });
-        $(document).ready(function() {
+        }
+    });
+    $(document).ready(function () {
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/page.do",
-            success: function(res) {
+            success: function (res) {
                 var jsonObject = JSON.parse(res + '');
                 //图片
                 if (jsonObject.courseVudBanner != null) {
@@ -415,7 +464,7 @@
         });
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/course.do?constantId=courseVud",
-            success: function(res) {
+            success: function (res) {
                 var jsonObject = JSON.parse(res + '');
 
                 //文字
@@ -424,7 +473,7 @@
                 }
             }
         });
-        })
-       
+    })
 </script>
+
 </html>

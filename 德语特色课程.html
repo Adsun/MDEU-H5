@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="./css/main.bundle.css">
+    <link rel="stylesheet" media="screen" href="./css/common.css">
     <link rel="stylesheet" media="screen" href="./css/style.css">
     <link href="./img/mi.png" rel="shortcut icon" type="image/x-icon">
 </head>
@@ -58,7 +59,8 @@
                     <li style="font-size:2rem;padding-top:0.5rem">|</li>
                     <li style="width:30%"><a @click="getCourses('courseSupType2')" data-toggle="tab">{{courseSupType2.articleContent}}</a></li>
                     <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                    <li style="width:300px"><a @click="getCourses('courseSupType3')" data-toggle="tab">{{courseSupType3.articleContent}}<sup> 成为会员?</sup></a></li>
+                    <li style="width:300px"><a @click="getCourses('courseSupType3')" data-toggle="tab">{{courseSupType3.articleContent}}<sup>
+                                成为会员?</sup></a></li>
                 </ul>
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-bottom:40px;" v-for="course in courses">
                     <div class="tab-content">
@@ -168,12 +170,11 @@
             </div>
         </div>
         <!--my modal-->
-        <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" style="text-align:center; width:800px">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <button type="button " class="close" @click="closeModel()">
                             &times;
                         </button>
                         <h4 class="modal-title center-align" id="myModalLabel" style="font-size:22px;font-weight: 400">
@@ -183,19 +184,23 @@
                     <div class="modal-body">
                         <form class="form-inline" role="form">
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" id="name" placeholder="您的姓名：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name"
+                                    placeholder="您的姓名：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" id="city" placeholder="所在城市：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city"
+                                    placeholder="所在城市：" />
                             </div>
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" id="email" placeholder="您的邮箱：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email"
+                                    placeholder="您的邮箱：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" id="phone" placeholder="联系电话：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone"
+                                    placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" id="detail"
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail"
                                     placeholder="合作需求："></textarea>
                             </div>
                         </form>
@@ -204,7 +209,7 @@
                             <span>微信：</span><span style="color:#ffb339">deutschshi / michideutsch</span>
                         </div>
                         <div class="row" style="padding: 10px 0 10px 0">
-                            <button type="button" class="btn btn-warning" style="width:200px">
+                            <button type="button" @click="submitForm1()" class="btn btn-warning" style="width:200px">
                                 完成并发送
                             </button>
                         </div>
@@ -247,6 +252,14 @@
                 articleContent: '会员群讲座',
                 contentUrl: ''
             },
+            //表单
+            form1: {
+                name: '',
+                city: '',
+                email: '',
+                phone: '',
+                detail: ''
+            },
 
 
             //图片
@@ -256,22 +269,59 @@
             },
         },
         methods: {
-            getCourses: function(type) {
+            getCourses: function (type) {
                 $.ajax({
                     url: "http://118.24.110.84:8081/admin/web/course.do?constantId=" + type,
-                    success: function(res) {
+                    success: function (res) {
                         var jsonObject = JSON.parse(res + '');
 
                         vm.courses = jsonObject;
                     }
                 });
+            },
+            closeModel: function () {
+                $('#lxModal').modal("hide");
+            },
+            submitForm1: function () {
+                if (this.form1.name == "") {
+                    alert("请输入您的姓名");
+                    return;
+                }
+                if (this.form1.city == "") {
+                    alert("请输入所在城市");
+                    return;
+                }
+                if (this.form1.email == "") {
+                    alert("请输入您的邮箱");
+                    return;
+                }
+                if (this.form1.detail == "") {
+                    alert("请输入联系电话");
+                    return;
+                }
+                if (this.form1.name == "") {
+                    alert("请输入合作需求");
+                    return;
+                }
+                $.ajax({
+                    url: "http://118.24.110.84:8081/admin/web/contact.do",
+                    data: this.form1,
+                    success: function (res) {
+                        if (JSON.parse(res + '').success) {
+                            alert("提交成功");
+                        } else {
+                            alert("提交失败");
+                        }
+                    }
+                });
+                this.closeModel();
             }
         }
     });
-    $(document).ready(function() {
+    $(document).ready(function () {
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/page.do",
-            success: function(res) {
+            success: function (res) {
                 var jsonObject = JSON.parse(res + '');
 
                 //文字
@@ -293,7 +343,7 @@
         });
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/course.do?constantId=courseSupType1",
-            success: function(res) {
+            success: function (res) {
                 var jsonObject = JSON.parse(res + '');
 
                 //文字
