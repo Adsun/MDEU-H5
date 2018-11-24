@@ -51,17 +51,20 @@
         <div>
             <img class="img-responsive center-block" src="img/德语特色课程banner.png" style="width:100%;">
         </div>
-        <div class="clearfix" style="padding-bottom: 30px">
+        <div class="clearfix" style="padding-top: 50px;padding-bottom: 30px">
             <div id="nav0" class="tabbable row">
-                <ul class="nav nav-tabs " style="text-align: center;cursor: pointer;">
-                    <li class="active nav-li" style="width:30%"><a @click="getCourses('courseSupType1')" data-toggle="tab">{{courseSupType1.articleContent}}</a></li>
-                    <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                    <li class="nav-li" style="width:30%"><a @click="getCourses('courseSupType2')" data-toggle="tab">{{courseSupType2.articleContent}}</a></li>
-                    <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                    <li class="nav-li" style="width:300px"><a @click="getCourses('courseSupType3')" data-toggle="tab">{{courseSupType3.articleContent}}<sup>
-                                成为会员?</sup></a></li>
-                </ul>
-                <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-bottom:40px;" v-for="course in courses">
+                <div class="cloumn col-xs-12 col-sm-12 col-md-12" style="padding:0px;padding-bottom:20px;">
+                    <ul class="nav nav-tabs " style="text-align: center;cursor: pointer;">
+                        <li class="active nav-li" style="width:30%"><a @click="getCourses('courseSupType1')" data-toggle="tab">{{courseSupType1.articleContent}}</a></li>
+                        <li style="font-size:2rem;padding-top:0.5rem">|</li>
+                        <li class="nav-li" style="width:30%"><a @click="getCourses('courseSupType2')" data-toggle="tab">{{courseSupType2.articleContent}}</a></li>
+                        <li style="font-size:2rem;padding-top:0.5rem">|</li>
+                        <li class="nav-li" style="width:300px"><a @click="getCourses('courseSupType3')" data-toggle="tab">{{courseSupType3.articleContent}}<sup>
+                                                成为会员?</sup></a></li>
+                    </ul>
+                </div>
+
+                <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-top:30px;padding-bottom:40px;" v-for="course in courses">
                     <div class="tab-content">
                         <div class="tab-pane active" id="nav1" style="margin-top: 20px">
                             <div class="row firstRow rowHeader">
