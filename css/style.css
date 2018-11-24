@@ -169,6 +169,19 @@ sup {
     letter-spacing: 0px;
 }
 
+ol.carousel-indicators li.active {
+    width: 22px;
+    height: 6px;
+}
+
+ol.carousel-indicators li {
+    width: 6px;
+    height: 5px;
+    background: #FFF;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
 
 /* .nav-tabs {
     border-bottom: 1px solid #dad7d7 !important;
