@@ -13,6 +13,7 @@
     <link rel="stylesheet" media="screen" href="./css/main.bundle.css">
     <link rel="stylesheet" media="screen" href="./css/common.css">
     <link rel="stylesheet" media="screen" href="./css/style.css">
+    <link rel="stylesheet" media="screen" href="./css/sweetalert2.min.scss">
     <link href="./img/mi.png" rel="shortcut icon" type="image/x-icon">
 </head>
 
@@ -224,6 +225,7 @@
 <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue "></script>
+<script src="js/sweetalert2.min.js"></script>
 
 <script>
     var vm = new Vue({
@@ -282,23 +284,23 @@
             },
             submitForm1: function() {
                 if (this.form1.name == "") {
-                    alert("请输入您的姓名");
+                    swal("请输入您的姓名");
                     return;
                 }
                 if (this.form1.city == "") {
-                    alert("请输入所在城市");
+                    swal("请输入所在城市");
                     return;
                 }
                 if (this.form1.email == "") {
-                    alert("请输入您的邮箱");
+                    swal("请输入您的邮箱");
                     return;
                 }
                 if (this.form1.detail == "") {
-                    alert("请输入联系电话");
+                    swal("请输入联系电话");
                     return;
                 }
                 if (this.form1.name == "") {
-                    alert("请输入合作需求");
+                    swal("请输入合作需求");
                     return;
                 }
                 $.ajax({
@@ -306,9 +308,9 @@
                     data: this.form1,
                     success: function(res) {
                         if (JSON.parse(res + '').success) {
-                            alert("提交成功");
+                            swal("提交成功");
                         } else {
-                            alert("提交失败");
+                            swal("提交失败");
                         }
                     }
                 });
@@ -349,19 +351,6 @@
                     vm.courses = jsonObject;
                 }
             }
-        });
-    })
-</script>
-<script>
-    $('div .signUpBtn').hover(function() {
-        $(this).css({
-            'background-color': '#ff9900',
-            'color': '#ffffff'
-        });
-    }, function() {
-        $(this).css({
-            'background-color': '#ffffff',
-            'color': '#ff9900'
         });
     })
 </script>

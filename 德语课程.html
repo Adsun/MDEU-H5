@@ -4,8 +4,7 @@
 <head>
     <title>米德在线</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
-        name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +13,7 @@
     <link rel="stylesheet" media="screen" href="./css/main.bundle.css">
     <link rel="stylesheet" media="screen" href="./css/common.css">
     <link rel="stylesheet" media="screen" href="./css/style.css">
+    <link rel="stylesheet" media="screen" href="./css/sweetalert2.min.scss">
     <link href="./img/mi.png" rel="shortcut icon" type="image/x-icon">
 </head>
 
@@ -35,10 +35,11 @@
                         <ul class="s-nav">
                             <li><a class="s-nav-item selected" target="_self" href="index.html"><span style="font-size:14px;padding:15px;font-weight:300">首页</span></a></li>
                             <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
-                            <li><a class="s-nav-item">
-                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span
-                                            style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
-                                </a></li>
+                            <li>
+                                <a class="s-nav-item">
+                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
+                                </a>
+                            </li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
 
                         </ul>
@@ -75,7 +76,7 @@
                     <a :href="img3.url"><img :src="img3.path" @mouseover="changeImg(3,1)" @mouseout="changeImg(3,0)" /></a>
                 </div>
             </div>
-            
+
         </div>
 
         <div class="row" style="background:#000; color:#FFF;margin:0px ">
@@ -159,24 +160,19 @@
                     <div class="modal-body">
                         <form class="form-inline" role="form">
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name"
-                                    placeholder="您的姓名：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name" placeholder="您的姓名：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city"
-                                    placeholder="所在城市：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city" placeholder="所在城市：" />
                             </div>
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email"
-                                    placeholder="您的邮箱：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email" placeholder="您的邮箱：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone"
-                                    placeholder="联系电话：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone" placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail"
-                                    placeholder="合作需求："></textarea>
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail" placeholder="合作需求："></textarea>
                             </div>
                         </form>
                         <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
@@ -202,6 +198,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js "></script>
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js "></script>
+<script src="js/sweetalert2.min.js"></script>
 
 <script>
     var vm = new Vue({
@@ -237,7 +234,7 @@
 
         },
         methods: {
-            changeImg: function (img, type) {
+            changeImg: function(img, type) {
                 if (type === 0) {
                     if (img == 1) {
                         this.img1.path = 'img/youku0.png';
@@ -260,38 +257,38 @@
                     }
                 }
             },
-            closeModel: function () {
+            closeModel: function() {
                 $('#lxModal').modal("hide");
             },
-            submitForm1: function () {
+            submitForm1: function() {
                 if (this.form1.name == "") {
-                    alert("请输入您的姓名");
+                    swal("请输入您的姓名");
                     return;
                 }
                 if (this.form1.city == "") {
-                    alert("请输入所在城市");
+                    swal("请输入所在城市");
                     return;
                 }
                 if (this.form1.email == "") {
-                    alert("请输入您的邮箱");
+                    swal("请输入您的邮箱");
                     return;
                 }
                 if (this.form1.detail == "") {
-                    alert("请输入联系电话");
+                    swal("请输入联系电话");
                     return;
                 }
                 if (this.form1.name == "") {
-                    alert("请输入合作需求");
+                    swal("请输入合作需求");
                     return;
                 }
                 $.ajax({
                     url: "http://118.24.110.84:8081/admin/web/contact.do",
                     data: this.form1,
-                    success: function (res) {
+                    success: function(res) {
                         if (JSON.parse(res + '').success) {
-                            alert("提交成功");
+                            swal("提交成功");
                         } else {
-                            alert("提交失败");
+                            swal("提交失败");
                         }
                     }
                 });
@@ -299,10 +296,10 @@
             }
         }
     });
-    $(document).ready(function () {
+    $(document).ready(function() {
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/page.do",
-            success: function (res) {
+            success: function(res) {
                 var jsonObject = JSON.parse(res + '');
                 //图片
                 if (jsonObject.courseVudBanner != null) {
@@ -312,7 +309,7 @@
         });
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/course.do?constantId=courseVud",
-            success: function (res) {
+            success: function(res) {
                 var jsonObject = JSON.parse(res + '');
 
                 //文字

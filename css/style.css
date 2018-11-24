@@ -153,13 +153,13 @@ li a {
 .signUpBtn {
     background-color: #ffffff;
     color: #ff9900;
-    transition: 0.5s all linear;
+    transition: 0.3s all linear;
 }
 
 .signUpBtn:hover {
     background-color: #ff9900;
     color: #ffffff;
-    transition: 0.5s all linear;
+    transition: 0.3s all linear;
 }
 
 body {
@@ -171,7 +171,7 @@ sup {
 }
 
 ol.carousel-indicators li.active {
-    width: 22px;
+    width: 25px;
     height: 6px;
     transition: 0.5s all linear;
 }

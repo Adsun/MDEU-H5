@@ -12,6 +12,7 @@
     <link rel="stylesheet" media="screen" href="./css/main.bundle.css">
     <link rel="stylesheet" media="screen" href="./css/common.css">
     <link rel="stylesheet" media="screen" href="./css/style.css">
+    <link rel="stylesheet" media="screen" href="./css/sweetalert2.min.scss">
     <link href="./img/mi.png" rel="shortcut icon" type="image/x-icon">
 </head>
 
@@ -251,17 +252,17 @@
             </div>
             <!--discountActivity  modal-->
             <div class="modal fade " id="discountActivity" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
-                <div class="modal-dialog ">
+                <div class="modal-dialog " style="width: 800px;height: 400px;">
                     <div class="modal-content">
                         <div class="modal-header ">
                             <button type="button " class="close " @click="closeModel() ">
                                 &times;
                             </button>
-                            <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400 ">
+                        </div>
+                        <div class="modal-body " style="margin-left:22%;width:56%;margin-bottom: 100px;margin-top: 50px">
+                            <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400;padding-bottom: 30px">
                                 【德语B1进阶班】 优惠活动
                             </h4>
-                        </div>
-                        <div class="modal-body " style="margin-left:10%;width:80%;margin-bottom: 30px ">
                             <div class="row " style="border: 1px solid #B3B3B3; ">
                                 <div class="cloumn col-xs-6 col-sm-6 col-md-6 ">
                                     <img class="img-responsive center-block " src="img/优惠活动图标.png ">
@@ -355,6 +356,7 @@
 <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js "></script>
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js "></script>
 <script src="https://cdn.jsdelivr.net/npm/vue "></script>
+<script src="js/sweetalert2.min.js"></script>
 
 <script>
     var vm = new Vue({
@@ -458,23 +460,23 @@
             },
             submitForm1: function() {
                 if (this.form1.name == "") {
-                    alert("请输入您的姓名");
+                    swal("请输入您的姓名");
                     return;
                 }
                 if (this.form1.city == "") {
-                    alert("请输入所在城市");
+                    swal("请输入所在城市");
                     return;
                 }
                 if (this.form1.email == "") {
-                    alert("请输入您的邮箱");
+                    swal("请输入您的邮箱");
                     return;
                 }
                 if (this.form1.detail == "") {
-                    alert("请输入联系电话");
+                    swal("请输入联系电话");
                     return;
                 }
                 if (this.form1.name == "") {
-                    alert("请输入合作需求");
+                    swal("请输入合作需求");
                     return;
                 }
                 $.ajax({
@@ -482,9 +484,9 @@
                     data: this.form1,
                     success: function(res) {
                         if (JSON.parse(res + '').success) {
-                            alert("提交成功");
+                            swal("提交成功");
                         } else {
-                            alert("提交失败");
+                            swal("提交失败");
                         }
                     }
                 });

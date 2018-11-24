@@ -13,6 +13,7 @@
     <link rel="stylesheet" media="screen" href="./css/main.bundle.css">
     <link rel="stylesheet" media="screen" href="./css/style.css">
     <link rel="stylesheet" media="screen" href="./css/common.css">
+    <link rel="stylesheet" media="screen" href="./css/sweetalert2.min.scss">
     <link href="./img/mi.png" rel="shortcut icon" type="image/x-icon">
 </head>
 
@@ -77,8 +78,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-top:10px">
+                    <hr style="height:4px;border:none;border-top:5px solid #fafafa;" />
+                </div>
             </div>
-            <div class="row " style="padding:5px;">
+            <div class="row " style="padding:5px;padding-top: 30px;">
                 <div class="column col-xs-12 col-sm-6 col-md-6" v-for="job in jobs" style="width:47%;height:400px;margin:10px; background: #fafafa">
                     <div style="padding-left:8%;padding-top:15%;width:84%;">
                         <span style="font-weight:400; font-size: 24px; padding-right: 8px">{{job.name}}</span>
@@ -218,6 +222,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js "></script>
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js "></script>
+<script src="js/sweetalert2.min.js"></script>
 
 <script>
     var vm = new Vue({
@@ -274,23 +279,23 @@
             },
             submitForm1: function() {
                 if (this.form1.name == "") {
-                    alert("请输入您的姓名");
+                    swal("请输入您的姓名");
                     return;
                 }
                 if (this.form1.city == "") {
-                    alert("请输入所在城市");
+                    swal("请输入所在城市");
                     return;
                 }
                 if (this.form1.email == "") {
-                    alert("请输入您的邮箱");
+                    swal("请输入您的邮箱");
                     return;
                 }
                 if (this.form1.detail == "") {
-                    alert("请输入联系电话");
+                    swal("请输入联系电话");
                     return;
                 }
                 if (this.form1.name == "") {
-                    alert("请输入合作需求");
+                    swal("请输入合作需求");
                     return;
                 }
                 $.ajax({
@@ -298,9 +303,9 @@
                     data: this.form1,
                     success: function(res) {
                         if (JSON.parse(res + '').success) {
-                            alert("提交成功");
+                            swal("提交成功");
                         } else {
-                            alert("提交失败");
+                            swal("提交失败");
                         }
                     }
                 });
