@@ -227,12 +227,10 @@ ol.carousel-indicators li {
 }
 
 .nav-li {
-    cursor: pointer;
     border: 0px solid #ddd !important;
     position: relative;
     color: orange;
     transition: 0.2s all linear;
-    cursor: pointer;
 }
 
 .nav-li::before {
