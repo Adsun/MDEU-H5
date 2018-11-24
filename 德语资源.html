@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml"
-    xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>米德在线</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
-        name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,23 +17,24 @@
 </head>
 <style>
     figure figcaption {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    color: #000;
-    background: rgba(70, 68, 67, 0.749);
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    border: 2px solid hsl(300, 6%, 91%);
-}
-figure:hover img {
-    opacity: 0.9;
-    transform: scale(1);
-    transition: all 1s;
-}
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        color: #000;
+        background: rgba(70, 68, 67, 0.749);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        border: 2px solid hsl(300, 6%, 91%);
+    }
+    
+    figure:hover img {
+        opacity: 0.9;
+        transform: scale(1);
+        transition: all 1s;
+    }
 </style>
 
 <body>
@@ -95,7 +94,7 @@ figure:hover img {
                         <div class="tab-pane active" id="nav1" style="margin-top: 20px">
                             <div class="row firstRow rowHeader" v-for="res in ress">
                                 <!--<a type="button" data-toggle="modal" data-target="#myModal">-->
-                                <div class="cloumn col-xs-12 col-sm-5 col-md-5">
+                                <div class="cloumn col-xs-12 col-sm-5 col-md-5" style="padding-top:30px">
                                     <div v-if="res.constantId === 'resType1'">
                                         <figure>
                                             <img class="img-responsive center-block" :src="res.imgUrl">
@@ -123,28 +122,31 @@ figure:hover img {
                                     </div>
                                 </div>
                                 <!--</a>-->
-                                <div class="cloumn col-xs-12 col-sm-7 col-md-7 " style="padding-left:30px">
+                                <div class="cloumn col-xs-12 col-sm-7 col-md-7 " style="padding-left:30px;padding-top:30px">
                                     <table class="table detailTable">
                                         <tbody>
-                                            <tr style="height:3rem">
-                                                <div id="box4"><span style="text-align:left;font-size: 20px;font-weight: bold">{{res.resName}}</span></div>
+                                            <tr style="height:3rem;">
+                                                <div id="box4" style="padding-top:5%"><span style="text-align:left;padding-left:7%;letter-spacing: 6px;font-size: 20px;font-weight: bold">{{res.resName}}
+                                                    <div v-if="res.bdyUrl != '' && res.bdyUrl != null">
+                                                        <sup>￥</sup>
+                                                    </div>
+                                                    </span></div>
                                             </tr>
                                             <tr style="height:3rem">
-                                                <div id="box5" style="padding-top:20px;">
+                                                <div id="box5" style="padding-top:10px">
                                                     <div class="row" style="padding:0px">
-                                                        <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:left;padding-right: 0px;">
-                                                            <span style="font-weight:200;font-size: 16px">简介：</span>
+                                                        <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:right;padding: 0px;">
+                                                            <span style="font-weight:300;font-size: 10px">简介：</span>
                                                         </div>
                                                         <div class="cloumn col-xs-10 col-sm-10 col-md-10 " style="text-align:left;padding-left: 0px;">
-                                                            <span style="font-weight:100;font-size: 13px">
+                                                            <span style="font-weight:100;font-size: 10px">
                                                                 {{res.resContent}}
                                                             </span>
                                                         </div>
                                                         <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:right;padding-right: 0px;padding-top:10px;">
 
                                                         </div>
-                                                        <div class="cloumn col-xs-10 col-sm-10 col-md-10 " id="box6"
-                                                            style="padding-top:10px;padding-left: 0px;">
+                                                        <div class="cloumn col-xs-10 col-sm-10 col-md-10 " id="box6" style="padding-top:10px;padding-left: 0px;">
                                                             <span>
                                                                 <a type="button" :href="res.videoUrl">
                                                                     <div class="btn btn-default btn-xs orange signUpBtn"
@@ -180,8 +182,7 @@ figure:hover img {
                         <input type="text" class="form-control" v-model="form2.detail" placeholder="错误描述(请控制在30字内)" style="width:100%;height: 28px;">
                     </div>
                     <div class="column col-xs-2 col-sm-2 col-md-2" style="padding: 5px">
-                        <div class="btn btn-default btn-xs orange signUpBtn "  @click="submitForm2"
-                            style="border-color: orange;padding: 5px;height: 28px; width: 100%">反馈意见</div>
+                        <div class="btn btn-default btn-xs orange signUpBtn " @click="submitForm2" style="border-color: orange;padding: 5px;height: 28px; width: 100%">反馈意见</div>
                     </div>
                 </form>
             </div>
@@ -254,8 +255,7 @@ figure:hover img {
             </div>
         </div>
         <!--my modal-->
-        <div class="modal fade" id="myModal" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -288,8 +288,7 @@ figure:hover img {
             </div>
         </div>
         <!--my modal-->
-        <div class="modal fade" id="myModal1" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal1" style="left: 23%; width: 54%; padding-bottom: 30px" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -362,8 +361,7 @@ figure:hover img {
                                 <input type="text" style="width:300px;" class="form-control" v-model="form1.phone" placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail"
-                                    placeholder="合作需求："></textarea>
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail" placeholder="合作需求："></textarea>
                             </div>
                         </form>
                         <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
@@ -472,7 +470,7 @@ figure:hover img {
             },
         },
         methods: {
-            getRes: function (res, model) {
+            getRes: function(res, model) {
                 if (model == '') {
                     if (res.bdyUrl == null || res.bdyUrl == '') {
                         model = 'myModal';
@@ -485,28 +483,28 @@ figure:hover img {
 
                 $('#' + model).modal("show");
             },
-            closeModel: function () {
+            closeModel: function() {
                 $('#' + this.nowModel).modal("hide");
             },
-            getRess: function (type) {
+            getRess: function(type) {
                 $.ajax({
                     url: "http://118.24.110.84:8081/admin/web/resource.do?constantId=" + type,
-                    success: function (res) {
+                    success: function(res) {
                         var jsonObject = JSON.parse(res + '');
                         vm.ress = jsonObject;
                     }
                 });
             },
-            getAllRess: function () {
+            getAllRess: function() {
                 $.ajax({
                     url: "http://118.24.110.84:8081/admin/web/resource.do",
-                    success: function (res) {
+                    success: function(res) {
                         var jsonObject = JSON.parse(res + '');
                         vm.ress = jsonObject;
                     }
                 });
             },
-            submitForm1: function () {
+            submitForm1: function() {
                 if (this.form1.name == "") {
                     alert("请输入您的姓名");
                     return;
@@ -530,7 +528,7 @@ figure:hover img {
                 $.ajax({
                     url: "http://118.24.110.84:8081/admin/web/contact.do",
                     data: this.form1,
-                    success: function (res) {
+                    success: function(res) {
                         if (JSON.parse(res + '').success) {
                             alert("提交成功");
                         } else {
@@ -540,7 +538,7 @@ figure:hover img {
                 });
                 this.closeModel();
             },
-            submitForm2: function () {
+            submitForm2: function() {
                 if (this.form2.name == "") {
                     alert("请输入资源分类");
                     return;
@@ -552,9 +550,9 @@ figure:hover img {
                 $.ajax({
                     url: "http://118.24.110.84:8081/admin/web/error.do",
                     data: this.form2,
-                    success: function (res) {
+                    success: function(res) {
                         if (JSON.parse(res + '').success) {
-                            vm.getRes(this.nowRes,"tjModal");
+                            vm.getRes(this.nowRes, "tjModal");
                         } else {
                             alert("提交失败");
                         }
@@ -566,10 +564,10 @@ figure:hover img {
             }
         }
     });
-    $(document).ready(function () {
+    $(document).ready(function() {
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/page.do",
-            success: function (res) {
+            success: function(res) {
                 var jsonObject = JSON.parse(res + '');
                 //文字
                 if (jsonObject.resType1 != null) {

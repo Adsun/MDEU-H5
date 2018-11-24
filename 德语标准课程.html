@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml"
-    xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>德语标准课程</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
-        name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,24 +60,19 @@
                     <div class="modal-body">
                         <form class="form-inline" role="form">
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name"
-                                    placeholder="您的姓名：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name" placeholder="您的姓名：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city"
-                                    placeholder="所在城市：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city" placeholder="所在城市：" />
                             </div>
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email"
-                                    placeholder="您的邮箱：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email" placeholder="您的邮箱：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone"
-                                    placeholder="联系电话：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone" placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail"
-                                    placeholder="合作需求："></textarea>
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail" placeholder="合作需求："></textarea>
                             </div>
                         </form>
                         <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
@@ -128,7 +121,7 @@
                         <li style="width:14%;cursor: pointer;"><a data-toggle="tab" @click="getCourses('courseType6')">{{courseType6.articleContent}}</a></li>
                     </ul>
                 </div>
-                <div class=" cloumn col-xs-12 col-sm-12 col-md-12 " style="padding:0px;padding-bottom:20%; ">
+                <div class=" cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-top:30px;padding-bottom:20%; ">
                     <div class="row firstRow rowHeader " v-for="course in courses ">
                         <div class="cloumn col-xs-12 col-sm-5 col-md-5 ">
                             <img class="img-responsive center-block " :src="course.imgUrl ">
@@ -140,36 +133,34 @@
                             <table class="table detailTable ">
                                 <tbody>
                                     <tr style="height:3rem ">
-                                        <div id="box4 " style="padding-top:10px "><span style="text-align:left;font-size: 20px;font-weight: 400; ">{{course.courseName}}</span></div>
+                                        <div id="box4 " style="padding-top:10px "><span style="text-align:left;font-size: 20px;font-weight: 500;letter-spacing: 6px; ">{{course.courseName}}</span></div>
                                     </tr>
                                     <tr style="height:3rem ">
-                                        <div id="box5 " style="padding-top:20px;font-size: 15px;font-weight: 400; ">
+                                        <div id="box5 " style="padding-top:10px;font-size: 15px;font-weight: 400; ">
                                             <span>开课时间:</span>
-                                            <span class="orange startDate " style="padding-right: 10px;font-weight: bold; ">{{course.startTime}}</span>
+                                            <span class="orange startDate " style="padding-right: 10px;">{{course.startTime}}</span>
                                             <span>价格:</span>
-                                            <span class="orange startDate " style="padding-right: 10px;font-weight: bold; ">{{course.price}}</span>
+                                            <span class="orange startDate " style="padding-right: 10px; ">{{course.price}}</span>
                                             <span>讲师:</span><span>{{course.teacher}}</span>
 
                                         </div>
                                     </tr>
                                     <tr class="repairDepartment ">
                                         <div id="box6 " style="padding-top:10px;font-size: 15px;font-weight: 400;cursor: pointer; ">
-                                            <a type="button " class="btn-link " @click="getCourse(course,'courseIntroduction') "
-                                                style="color:#000 ">
+                                            <a type="button " class="btn-link " @click="getCourse(course,'courseIntroduction') " style="color:#000 ">
                                                 <span>课程介绍</span>
                                             </a>
-                                            <span style="padding: 10px ">|</span>
-                                            <a type="button " class="btn-link " @click="getCourse(course, 'coursePlan') "
-                                                style="color:#000 ">
+                                            <span style="padding: 20px ">|</span>
+                                            <a type="button " class="btn-link " @click="getCourse(course, 'coursePlan') " style="color:#000 ">
                                                 <span>课程安排</span>
                                             </a>
-                                            <span style="padding: 10px ">|</span>
-                                            <a type="button " class="btn-link " @click="getCourse(course, 'discountActivity') "
-                                                style="color:#000 ">
+                                            <span style="padding: 20px ">|</span>
+                                            <a type="button " class="btn-link " @click="getCourse(course, 'discountActivity') " style="color:#000 ">
                                                 <span>优惠活动</span>
                                             </a>
                                             <span style="padding-left:20px ">
-                                                <div class="btn btn-default btn-xs orange signUpBtn " style="border-color: orange; ">立即报名</div>
+                                                <a :href="course.courseUrl">
+                                                <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange; ">立即报名</div></a>
                                             </span>
                                         </div>
                                     </tr>
@@ -180,8 +171,7 @@
                 </div>
             </div>
             <!--courseIntroduction modal-->
-            <div class="modal fade " id="courseIntroduction" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel "
-                aria-hidden="true ">
+            <div class="modal fade " id="courseIntroduction" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
                 <div class="modal-dialog ">
                     <div class="modal-content ">
                         <div class="modal-header ">
@@ -216,8 +206,7 @@
                 </div>
             </div>
             <!--coursePlan  modal-->
-            <div class="modal fade " id="coursePlan" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel "
-                aria-hidden="true ">
+            <div class="modal fade " id="coursePlan" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
                 <div class="modal-dialog ">
                     <div class="modal-content ">
                         <div class="modal-header ">
@@ -261,8 +250,7 @@
                 </div>
             </div>
             <!--discountActivity  modal-->
-            <div class="modal fade " id="discountActivity" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel "
-                aria-hidden="true ">
+            <div class="modal fade " id="discountActivity" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
                 <div class="modal-dialog ">
                     <div class="modal-content">
                         <div class="modal-header ">
@@ -382,7 +370,8 @@
                 'price': '1200￥',
                 'courseDtl': '课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介',
                 'teacherDtl': '老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语寄语老师寄语老师寄语老师寄语老师寄语老师寄语',
-                'teacherImg': 'img/老师头像.png'
+                'teacherImg': 'img/老师头像.png',
+                'courseUrl': '#'
             }],
             nowCourse: {},
             nowModel: '',
@@ -429,7 +418,7 @@
             },
         },
         methods: {
-            getCourse: function (course, model) {
+            getCourse: function(course, model) {
                 this.nowCourse = course;
                 this.nowModel = model;
                 if (model == 'coursePlan') {
@@ -437,37 +426,37 @@
                 }
                 $('#' + model).modal("show");
             },
-            closeModel: function () {
+            closeModel: function() {
                 $('#' + this.nowModel).modal("hide");
             },
-            getCoursePlan: function (courseId) {
+            getCoursePlan: function(courseId) {
                 $.ajax({
                     url: "http://118.24.110.84:8081/admin/web/coursePlan.do?courseId=" + courseId,
-                    success: function (res) {
+                    success: function(res) {
                         var jsonObject = JSON.parse(res + '');
                         vm.nowCoursePlans = jsonObject;
                     }
                 });
             },
-            getCourses: function (type) {
+            getCourses: function(type) {
                 $.ajax({
                     url: "http://118.24.110.84:8081/admin/web/course.do?constantId=" + type,
-                    success: function (res) {
+                    success: function(res) {
                         var jsonObject = JSON.parse(res + '');
                         vm.courses = jsonObject;
                     }
                 });
             },
-            getAllCourses: function () {
+            getAllCourses: function() {
                 $.ajax({
                     url: "http://118.24.110.84:8081/admin/course/list.do?page=1&rows=10&constantIds=courseType1&constantIds=courseType2&constantIds=courseType3&constantIds=courseType4&constantIds=courseType5&constantIds=courseType6",
-                    success: function (res) {
+                    success: function(res) {
                         var jsonObject = JSON.parse(res + '');
                         vm.courses = jsonObject.rows;
                     }
                 });
             },
-            submitForm1: function () {
+            submitForm1: function() {
                 if (this.form1.name == "") {
                     alert("请输入您的姓名");
                     return;
@@ -491,7 +480,7 @@
                 $.ajax({
                     url: "http://118.24.110.84:8081/admin/web/contact.do",
                     data: this.form1,
-                    success: function (res) {
+                    success: function(res) {
                         if (JSON.parse(res + '').success) {
                             alert("提交成功");
                         } else {
@@ -503,10 +492,10 @@
             }
         }
     });
-    $(document).ready(function () {
+    $(document).ready(function() {
         $.ajax({
             url: "http://118.24.110.84:8081/admin/web/page.do",
-            success: function (res) {
+            success: function(res) {
                 var jsonObject = JSON.parse(res + '');
                 //文字
                 if (jsonObject.courseType1 != null) {

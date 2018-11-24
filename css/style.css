@@ -189,3 +189,11 @@ li a {
     background-color: #ff9900;
     color: #ffffff
 }
+
+body {
+    letter-spacing: 2px;
+}
+
+sup {
+    letter-spacing: 0px;
+}
