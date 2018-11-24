@@ -72,21 +72,21 @@
         <div>
             <img class="img-responsive center-block" :src="resBanner.path" style="width:100%;">
         </div>
-        <div class="clearfix" style="padding-bottom: 30px">
+        <div class="clearfix" style="padding-bottom: 30px;padding-top: 50px;">
             <div id="nav0" class="tabbable row">
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12 ">
-                    <ul class="nav nav-tabs " style="text-align: center;cursor: pointer;">
-                        <li class="active" style="width:15%"><a @click="getRess('resType1')" data-toggle="tab">{{resType1.articleContent}}</a></li>
+                    <ul class="nav nav-tabs ">
+                        <li class="active nav-li" style="width:15%" data-toggle="tab"><a @click="getRess('resType1')">{{resType1.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a @click="getRess('resType2')" data-toggle="tab">{{resType2.articleContent}}</a></li>
+                        <li class="nav-li" style="width:15%" data-toggle="tab"><a @click="getRess('resType2')">{{resType2.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a @click="getRess('resType3')" data-toggle="tab">{{resType3.articleContent}}</a></li>
+                        <li class="nav-li" style="width:15%" data-toggle="tab"><a @click="getRess('resType3')">{{resType3.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a @click="getRess('resType4')" data-toggle="tab">{{resType4.articleContent}}</a></li>
+                        <li class="nav-li" style="width:15%" data-toggle="tab"><a @click="getRess('resType4')">{{resType4.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:15%"><a @click="getRess('resType5')" data-toggle="tab">{{resType5.articleContent}}</a></li>
+                        <li class="nav-li" style="width:15%" data-toggle="tab"><a @click="getRess('resType5')">{{resType5.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li style="width:160px"><a @click="getAllRess()" data-toggle="tab">免费资源<sup> FREE</sup></a></li>
+                        <li class="nav-li" style="width:160px" data-toggle="tab"><a @click="getAllRess()">免费资源<sup> FREE</sup></a></li>
                     </ul>
                 </div>
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-bottom:40px;">
