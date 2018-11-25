@@ -94,13 +94,13 @@
 
             <div class="row" style="padding-bottom: 40px">
 
-                <div class="column col-xs-12 col-sm-4 col-md-4 " v-for="teacher in teachers" style="padding-bottom:40px">
+                <div class="column col-xs-12 col-sm-4 col-md-4 " v-for="teacher in teachers" style="padding-bottom:50px">
                     <figure>
                         <img class="img-responsive center-block" :src="teacher.imgUrl">
-                        <figcaption>
-                            <h2 class="text-center" style="padding:0px; padding-top: 15%;">{{teacher.title}}</h2>
+                        <figcaption style="padding-left:15%;padding-right: 15%">
+                            <h2 class="text-center" style="padding:0px; padding-top: 20%;">{{teacher.title}}</h2>
                             <p class="text-center" style="padding:0px;">{{teacher.detail}}</p>
-                            <p class="text-center" style="padding:0px; padding-top: 5%"><a :href="teacher.link">相关课程→</a></p>
+                            <p class="text-center btn-link" style="padding:0px; padding-top: 5%"><a :href="teacher.link">相关课程→</a></p>
                         </figcaption>
                     </figure>
                     <div class="text-center" style="height:60px;padding: 5px">
