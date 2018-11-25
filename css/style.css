@@ -185,6 +185,10 @@ ol.carousel-indicators li {
     transition: 0.5s all linear;
 }
 
+.btn-link {
+    text-decoration: none !important;
+}
+
 
 /* .nav-tabs {
     border-bottom: 1px solid #dad7d7 !important;
