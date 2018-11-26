@@ -207,20 +207,14 @@ ol.carousel-indicators li {
     border: 1px solid transparent !important;
 } */
 
-.nav-li {
-    border: 0px solid transparent !important;
-}
 .nav-li a {
     border: 0px solid transparent !important;
 }
 
 .nav-li.active {
-    border: 0px solid #ddd !important;
-    color: orange !important;
     border-bottom: 2px solid orange !important;
 }
-
-.nav-li.active a{
+.nav-li.active a {
     color: orange !important;
 }
 
@@ -251,6 +245,7 @@ ol.carousel-indicators li {
     left: 100%;
     width: 0;
     height: 100%;
+    border-bottom: 2px solid orange;
     transition: 0.2s all linear;
 }
 
@@ -259,7 +254,7 @@ ol.carousel-indicators li {
     top: 0;
     left: 0;
     transition-delay: 0.1s;
-    border-bottom: 2px solid orange !important;
+    border-bottom: 2px solid orange;
     z-index: -1;
 }
 
@@ -267,7 +262,7 @@ ol.carousel-indicators li {
     left: 0;
 }
 
-.nav-li a:hover {
+.nav-li :hover {
     color: orange;
     background-color: #FFF !important;
 }
