@@ -53,9 +53,9 @@
         </div>
         <div class="clearfix" style="padding-bottom: 30px">
             <div class="row">
-                <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-top:30px" v-for="course in courses">
-                    <div class="row">
-                        <div class="column col-xs-12 col-sm-12 col-md-6">
+                <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-top:30px" >
+                    <div class="row" >
+                        <div class="column col-xs-12 col-sm-12 col-md-6" v-for="course in courses">
                             <figure>
                                 <img class="img-responsive center-block" :src="course.imgUrl">
                                 <figcaption style="padding-right:10%">
