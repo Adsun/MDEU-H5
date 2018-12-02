@@ -297,7 +297,7 @@
                     return;
                 }
                 $.ajax({
-                    url: "http://localhost:18080/web/contact",
+                    url: "http://118.24.110.84:18080/web/contact",
                     data: this.form1,
                     success: function(res) {
                         if (res.code === 200) {
@@ -313,7 +313,7 @@
     });
     $(document).ready(function() {
         $.ajax({
-            url: "http://localhost:18080/web/page",
+            url: "http://118.24.110.84:18080/web/page",
             success: function(res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;
@@ -348,7 +348,7 @@
             }
         });
         $.ajax({
-            url: "http://localhost:18080/web/job",
+            url: "http://118.24.110.84:18080/web/job",
             success: function(res) {
                 if (res.code === 200 && res.data != '' && res.data != null) {
                     vm.jobs = res.data;

@@ -429,7 +429,7 @@
             },
             getCoursePlan: function(courseId) {
                 $.ajax({
-                    url: "http://localhost:18080/web/coursePlan?courseId=" + courseId,
+                    url: "http://118.24.110.84:18080/web/coursePlan?courseId=" + courseId,
                     success: function(res) {
                         vm.nowCoursePlans = res.data;
                     }
@@ -437,7 +437,7 @@
             },
             getCourses: function(type) {
                 $.ajax({
-                    url: "http://localhost:18080/web/course?constantId=" + type,
+                    url: "http://118.24.110.84:18080/web/course?constantId=" + type,
                     success: function(res) {
                         vm.courses = res.data;
                     }
@@ -445,7 +445,7 @@
             },
             getAllCourses: function() {
                 $.ajax({
-                    url: "http://localhost:18080/web/stantCourse?page=1&row=10",
+                    url: "http://118.24.110.84:18080/web/stantCourse?page=1&row=10",
                     success: function(res) {
                         vm.courses = res.data.content;
                     }
@@ -473,7 +473,7 @@
                     return;
                 }
                 $.ajax({
-                    url: "http://localhost:18080/web/contact",
+                    url: "http://118.24.110.84:18080/web/contact",
                     data: this.form1,
                     success: function(res) {
                         if (res.code === 200) {
@@ -489,7 +489,7 @@
     });
     $(document).ready(function() {
         $.ajax({
-            url: "http://localhost:18080//web/page",
+            url: "http://118.24.110.84:18080//web/page",
             success: function(res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;

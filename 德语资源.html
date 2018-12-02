@@ -489,7 +489,7 @@
             },
             getRess: function(type) {
                 $.ajax({
-                    url: "http://localhost:18080/web/resource?constantId=" + type,
+                    url: "http://118.24.110.84:18080/web/resource?constantId=" + type,
                     success: function(res) {
                         vm.ress = res.data;
                     }
@@ -497,7 +497,7 @@
             },
             getAllRess: function() {
                 $.ajax({
-                    url: "http://localhost:18080/web/resource?free=true",
+                    url: "http://118.24.110.84:18080/web/resource?free=true",
                     success: function(res) {
                         vm.ress = res.data;
                     }
@@ -525,7 +525,7 @@
                     return;
                 }
                 $.ajax({
-                    url: "http://localhost:18080/web/contact",
+                    url: "http://118.24.110.84:18080/web/contact",
                     data: this.form1,
                     success: function(res) {
                         if (res.code === 200) {
@@ -547,7 +547,7 @@
                     return;
                 }
                 $.ajax({
-                    url: "http://localhost:18080/web/error",
+                    url: "http://118.24.110.84:18080/web/error",
                     data: this.form2,
                     success: function(res) {
                         if (res.code === 200) {
@@ -565,7 +565,7 @@
     });
     $(document).ready(function() {
         $.ajax({
-            url: "http://localhost:18080/web/page",
+            url: "http://118.24.110.84:18080/web/page",
             success: function(res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;
