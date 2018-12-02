@@ -254,7 +254,7 @@
         <!--my modal-->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" style="width: 800px;height: 400px;">
-                <div class="modal-content" >
+                <div class="modal-content">
                     <div class="modal-header ">
                         <button type="button" class="close" @click="closeModel()">
                             &times;
@@ -288,8 +288,8 @@
         </div>
         <!--my modal-->
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" style="width: 800px;height: 400px;" >
-                <div class="modal-content" >
+            <div class="modal-dialog" style="width: 800px;height: 400px;">
+                <div class="modal-content">
                     <div class="modal-header ">
                         <button type="button" class="close" @click="closeModel()">
                             &times;
@@ -489,19 +489,17 @@
             },
             getRess: function(type) {
                 $.ajax({
-                    url: "http://118.24.110.84:8081/admin/web/resource.do?constantId=" + type,
+                    url: "http://localhost:18080/web/resource?constantId=" + type,
                     success: function(res) {
-                        var jsonObject = JSON.parse(res + '');
-                        vm.ress = jsonObject;
+                        vm.ress = res.data;
                     }
                 });
             },
             getAllRess: function() {
                 $.ajax({
-                    url: "http://118.24.110.84:8081/admin/web/resource.do",
+                    url: "http://localhost:18080/web/resource?free=true",
                     success: function(res) {
-                        var jsonObject = JSON.parse(res + '');
-                        vm.ress = jsonObject;
+                        vm.ress = res.data;
                     }
                 });
             },
@@ -527,10 +525,10 @@
                     return;
                 }
                 $.ajax({
-                    url: "http://118.24.110.84:8081/admin/web/contact.do",
+                    url: "http://localhost:18080/web/contact",
                     data: this.form1,
                     success: function(res) {
-                        if (JSON.parse(res + '').success) {
+                        if (res.code === 200) {
                             alert("提交成功");
                         } else {
                             alert("提交失败");
@@ -549,10 +547,10 @@
                     return;
                 }
                 $.ajax({
-                    url: "http://118.24.110.84:8081/admin/web/error.do",
+                    url: "http://localhost:18080/web/error",
                     data: this.form2,
                     success: function(res) {
-                        if (JSON.parse(res + '').success) {
+                        if (res.code === 200) {
                             vm.getRes(this.nowRes, "tjModal");
                         } else {
                             alert("提交失败");
@@ -567,10 +565,14 @@
     });
     $(document).ready(function() {
         $.ajax({
-            url: "http://118.24.110.84:8081/admin/web/page.do",
+            url: "http://localhost:18080/web/page",
             success: function(res) {
-                var jsonObject = JSON.parse(res + '');
-                //文字
+                if (res.code != 200 || res.data === '' || res.data === null) {
+                    return;
+                }
+
+                var jsonObject = res.data
+                    //文字
                 if (jsonObject.resType1 != null) {
                     vm.resType1 = jsonObject.resType1;
                 }

@@ -172,7 +172,7 @@
             <!--courseIntroduction modal-->
             <div class="modal fade " id="courseIntroduction" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
                 <div class="modal-dialog " style="width: 800px;height: 400px;">
-                    <div class="modal-content " >
+                    <div class="modal-content ">
                         <div class="modal-header ">
                             <button type="button " class="close" @click="closeModel()">
                                 &times;
@@ -207,7 +207,7 @@
             <!--coursePlan  modal-->
             <div class="modal fade " id="coursePlan" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
                 <div class="modal-dialog " style="width: 800px;text-align: center">
-                    <div class="modal-content " >
+                    <div class="modal-content ">
                         <div class="modal-header ">
                             <button type="button" class="close" @click="closeModel()">
                                 &times;
@@ -429,28 +429,25 @@
             },
             getCoursePlan: function(courseId) {
                 $.ajax({
-                    url: "http://118.24.110.84:8081/admin/web/coursePlan.do?courseId=" + courseId,
+                    url: "http://localhost:18080/web/coursePlan?courseId=" + courseId,
                     success: function(res) {
-                        var jsonObject = JSON.parse(res + '');
-                        vm.nowCoursePlans = jsonObject;
+                        vm.nowCoursePlans = res.data;
                     }
                 });
             },
             getCourses: function(type) {
                 $.ajax({
-                    url: "http://118.24.110.84:8081/admin/web/course.do?constantId=" + type,
+                    url: "http://localhost:18080/web/course?constantId=" + type,
                     success: function(res) {
-                        var jsonObject = JSON.parse(res + '');
-                        vm.courses = jsonObject;
+                        vm.courses = res.data;
                     }
                 });
             },
             getAllCourses: function() {
                 $.ajax({
-                    url: "http://118.24.110.84:8081/admin/course/list.do?page=1&rows=10&constantIds=courseType1&constantIds=courseType2&constantIds=courseType3&constantIds=courseType4&constantIds=courseType5&constantIds=courseType6",
+                    url: "http://localhost:18080/web/stantCourse?page=1&row=10",
                     success: function(res) {
-                        var jsonObject = JSON.parse(res + '');
-                        vm.courses = jsonObject.rows;
+                        vm.courses = res.data.content;
                     }
                 });
             },
@@ -476,10 +473,10 @@
                     return;
                 }
                 $.ajax({
-                    url: "http://118.24.110.84:8081/admin/web/contact.do",
+                    url: "http://localhost:18080/web/contact",
                     data: this.form1,
                     success: function(res) {
-                        if (JSON.parse(res + '').success) {
+                        if (res.code === 200) {
                             alert("提交成功");
                         } else {
                             alert("提交失败");
@@ -492,10 +489,13 @@
     });
     $(document).ready(function() {
         $.ajax({
-            url: "http://118.24.110.84:8081/admin/web/page.do",
+            url: "http://localhost:18080//web/page",
             success: function(res) {
-                var jsonObject = JSON.parse(res + '');
-                //文字
+                if (res.code != 200 || res.data === '' || res.data === null) {
+                    return;
+                }
+                var jsonObject = res.data
+                    //文字
                 if (jsonObject.courseType1 != null) {
                     vm.courseType1 = jsonObject.courseType1;
                 }

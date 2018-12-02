@@ -442,10 +442,10 @@
                     return;
                 }
                 $.ajax({
-                    url: "http://118.24.110.84:8081/admin/web/contact.do",
+                    url: "http://localhost:18080/web/contact",
                     data: this.form1,
                     success: function(res) {
-                        if (JSON.parse(res + '').success) {
+                        if (res.code === 200) {
                             alert("提交成功");
                         } else {
                             alert("提交失败");
@@ -460,10 +460,14 @@
         //锚点跳转滑动效果  
 
         $.ajax({
-            url: "http://118.24.110.84:8081/admin/web/page.do",
+            url: "http://localhost:18080/web/page",
             success: function(res) {
-                var jsonObject = JSON.parse(res + '');
-                //文字
+                if (res.code != 200 || res.data === '' || res.data === null) {
+                    return;
+                }
+
+                var jsonObject = res.data
+                    //文字
                 if (jsonObject.mainTitle != null) {
                     vm.mainTitle = jsonObject.mainTitle;
                 }
