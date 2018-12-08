@@ -68,7 +68,7 @@
                     <img :src="mainBanner3.path" alt="Third slide" class="img-responsive center-block" style="width:100%">
                 </div>
                 <div class="item">
-                    <img :src="mainBanner3.path" alt="Four slide" class="img-responsive center-block" style="width:100%">
+                    <img :src="mainBanner4.path" alt="Four slide" class="img-responsive center-block" style="width:100%">
                 </div>
             </div>
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -393,6 +393,10 @@
                 path: 'img/轮播图.png',
                 url: ''
             },
+            mainBanner4: {
+                path: 'img/轮播图.png',
+                url: ''
+            },
             mainMudle1: {
                 path: 'img/mod1.png',
                 url: '德语标准课程.html'
@@ -518,9 +522,9 @@
 
 
                 //图片
-                // if (jsonObject.mainBanner1 != null) {
-                //     vm.mainBanner1 = jsonObject.mainBanner1;
-                // }
+                if (jsonObject.mainBanner1 != null) {
+                    vm.mainBanner1 = jsonObject.mainBanner1;
+                }
                 if (jsonObject.mainBanner2 != null) {
                     vm.mainBanner2 = jsonObject.mainBanner2;
                 }
