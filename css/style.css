@@ -214,6 +214,7 @@ ol.carousel-indicators li {
 .nav-li.active {
     border-bottom: 2px solid orange !important;
 }
+
 .nav-li.active a {
     color: orange !important;
 }
@@ -266,6 +267,30 @@ ol.carousel-indicators li {
     color: orange;
     background-color: #FFF !important;
 }
-/* #s-header {
-    position:fixed !important;
-} */
+
+#s-nav {
+    position: static !important;
+}
+
+.s-nav-table {
+    width: calc(100% - 140px) !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-left: 70px !important;
+}
+
+.logo-title {
+    margin: 0px !important;
+}
+
+#s-nav.s-bg-light-text .logo-title,
+#s-nav.s-bg-light-text a.s-nav-item {
+    color: #000 !important;
+    text-shadow: 0 0px 0px rgba(0, 0, 0, .2) !important;
+    font-weight: 800 !important;
+}
+
+#s-nav.s-bg-light-text a.s-nav-item.selected,
+#s-nav.s-bg-light-text a.s-nav-item:hover {
+    color: #000 !important;
+}
