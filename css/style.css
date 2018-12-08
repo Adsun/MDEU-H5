@@ -294,3 +294,10 @@ ol.carousel-indicators li {
 #s-nav.s-bg-light-text a.s-nav-item:hover {
     color: #000 !important;
 }
+
+.text-justify {
+    float: left;
+    text-align: justify;
+    text-justify: inter-word;
+    text-justify: inter-ideograph;
+}
