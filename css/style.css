@@ -298,6 +298,5 @@ ol.carousel-indicators li {
 .text-justify {
     float: left;
     text-align: justify;
-    text-justify: inter-word;
-    text-justify: inter-ideograph;
+    letter-spacing: normal;
 }
