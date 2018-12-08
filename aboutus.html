@@ -99,7 +99,7 @@
                         <img class="img-responsive center-block" :src="teacher.imgUrl">
                         <figcaption style="padding-left:15%;padding-right: 15%">
                             <h2 class="text-center" style="padding:0px; padding-top: 20%;">{{teacher.title}}</h2>
-                            <p class="text-center" style="padding:0px;text-align: justify;">{{teacher.detail}}<i style="display:inline-block;width:100%;"></i></p>
+                            <p style="padding:0px;text-align: justify;">{{teacher.detail.split('').join(' ')}}</p>
                             <p class="text-center btn-link" style="padding:0px; padding-top: 5%"><a :href="teacher.link">试听课程→</a></p>
                         </figcaption>
                     </figure>
