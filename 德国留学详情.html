@@ -122,31 +122,6 @@
                 </div>
             </div>
         </div>
-        <!--成为会员-->
-        <div class="modal fade " id="beMemberModal" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
-            <div class="modal-dialog " style="width: 800px;height: 400px;">
-                <div class="modal-content">
-                    <div class="modal-header ">
-                        <button type="button " class="close " @click="closeModel()">&times;
-				</button>
-                    </div>
-                    <div class="modal-body " style="margin-left:22%;width:56%;margin-bottom: 100px;margin-top: 50px">
-                        <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400;padding-bottom: 30px">
-                            如何成为米德会员
-                        </h4>
-                        <div class="row " style="border: 1px solid #B3B3B3;padding-top:10px;padding-bottom:10px">
-                            <div class="cloumn col-xs-4 col-sm-4 col-md-4 ">
-                                <img class="img-responsive center-block " src="img/优惠活动图标.png ">
-                            </div>
-                            <div class="cloumn col-xs-8 col-sm-8 col-md-8 ">
-                                <p>成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员</p>
-                                <span>详情戳链接：</span><span style="color:#ffb339">http://118.24.110.84:8081/</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!--my modal-->
         <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" style="text-align:center; width:800px">
@@ -204,52 +179,11 @@
 <script>
     var vm = new Vue({
         el: '#vueData',
+        created() {
+
+        },
         data: {
-            //课程信息
-            courses: [{
-                'imgUrl': 'img/课程图.png',
-                'courseName': '留德申请个性定制服务',
-                'serviceContent': '留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务',
-                'teacher': '',
-            }, {
-                'imgUrl': 'img/课程图.png',
-                'courseName': '留德申请个性定制服务',
-                'serviceContent': '留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务',
-                'teacher': '',
-            }, {
-                'imgUrl': 'img/课程图.png',
-                'courseName': '留德申请个性定制服务',
-                'serviceContent': '留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务',
-                'teacher': '',
-            }],
-            //文字
-            courseSupType1: {
-                articleContent: '免费公开课',
-                contentUrl: ''
-            },
-            courseSupType2: {
-                articleContent: '特色系列课',
-                contentUrl: ''
-            },
-            courseSupType3: {
-                articleContent: '会员群讲座',
-                contentUrl: ''
-            },
-            //表单
-            form1: {
-                name: '',
-                city: '',
-                email: '',
-                phone: '',
-                detail: ''
-            },
 
-
-            //图片
-            courseSupBanner: {
-                path: 'img/德语特色课程banner.png',
-                url: ''
-            },
         },
         methods: {
             getCourses: function(type) {
