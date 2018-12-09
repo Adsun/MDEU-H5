@@ -56,9 +56,9 @@
         <div class="clearfix" style="margin-top:30px">
             <div id="nav0" class="tabbable row">
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-top:20px;padding-bottom:20px;">
-                    <div class="row firstRow rowHeader" v-for="course in courses">
+                    <div class="row firstRow rowHeader" v-for="edit in edits">
                         <div class="cloumn col-xs-12 col-sm-5 col-md-5">
-                            <img class="img-responsive center-block" style="width:100%;height:190px" :src="course.imgUrl">
+                            <img class="img-responsive center-block" style="width:100%;height:190px" :src="edit.imgUrl">
                         </div>
 
                         <div class="cloumn col-xs-12 col-sm-1 col-md-1 " style="padding-top:70px">
@@ -68,13 +68,12 @@
                             <table class="table detailTable">
                                 <tbody>
                                     <tr style="height:3rem">
-                                        <div id="box4" style="padding-top:10px"><span style="text-align:left;font-size: 24px">{{course.courseName}}</span>
-                                            <span>{{course.teacher}}</span>
+                                        <div id="box4" style="padding-top:10px"><span style="text-align:left;font-size: 24px">{{edit.title}}</span>
                                         </div>
                                     </tr>
                                     <tr style="height:3rem">
                                         <div id="box5" style="text-align:left;font-size: 13px;margin-top:0.5rem">
-                                            <span>{{course.serviceContent}}</span>
+                                            <span>{{edit.detail}}</span>
                                         </div>
                                     </tr>
                                     <tr class="repairDepartment">
@@ -242,45 +241,13 @@
         el: '#vueData',
         data: {
             //课程信息
-            courses: [{
+            edits: [{
+                'id': '',
                 'imgUrl': 'img/课程图.png',
-                'courseName': '留德申请个性定制服务',
-                'serviceContent': '留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务',
-                'teacher': '',
-            }, {
-                'imgUrl': 'img/课程图.png',
-                'courseName': '留德申请个性定制服务',
-                'serviceContent': '留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务',
-                'teacher': '',
-            }, {
-                'imgUrl': 'img/课程图.png',
-                'courseName': '留德申请个性定制服务',
-                'serviceContent': '留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务',
-                'teacher': '',
+                'title': '留德申请个性定制服务',
+                'detail': '留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务',
+                'time': ''
             }],
-            //文字
-            courseSupType1: {
-                articleContent: '免费公开课',
-                contentUrl: ''
-            },
-            courseSupType2: {
-                articleContent: '特色系列课',
-                contentUrl: ''
-            },
-            courseSupType3: {
-                articleContent: '会员群讲座',
-                contentUrl: ''
-            },
-            //表单
-            form1: {
-                name: '',
-                city: '',
-                email: '',
-                phone: '',
-                detail: ''
-            },
-
-
             //图片
             courseSupBanner: {
                 path: 'img/德语特色课程banner.png',
@@ -288,15 +255,6 @@
             },
         },
         methods: {
-            getCourses: function(type) {
-                $.ajax({
-                    url: "http://118.24.110.84:18080/web/course?constantId=" + type,
-                    success: function(res) {
-
-                        vm.courses = res.data;
-                    }
-                });
-            },
             beMemberModalRender: function() {
                 $('#beMemberModal').modal("show");
             },
@@ -348,18 +306,7 @@
                     return;
                 }
                 var jsonObject = res.data
-
-                //文字
-                if (jsonObject.courseSupType1 != null) {
-                    vm.courseSupType1 = jsonObject.courseSupType1;
-                }
-                if (jsonObject.courseSupType2 != null) {
-                    vm.courseSupType2 = jsonObject.courseSupType2;
-                }
-                if (jsonObject.courseSupType3 != null) {
-                    vm.courseSupType3 = jsonObject.courseSupType3;
-                }
-                //图片
+                    //图片
                 if (jsonObject.courseSupBanner != null) {
                     vm.courseSupBanner = jsonObject.courseSupBanner;
                 }
@@ -367,7 +314,7 @@
             }
         });
         $.ajax({
-            url: "http://118.24.110.84:8081/admin/web/course.do?constantId=courseSupType1",
+            url: "http://118.24.110.84:8081/admin/web/course.do?constantId=editType2",
             success: function(res) {
                 var jsonObject = JSON.parse(res + '');
 
