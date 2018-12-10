@@ -59,6 +59,12 @@ figure:hover img {
     transition: all 1s;
 }
 
+figure:hover .showZ {
+    opacity: 0;
+    transform: scale(1);
+    transition: all 1s;
+}
+
 .modal.fade.in {
     top: 20%;
 }
