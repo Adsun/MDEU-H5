@@ -26,9 +26,9 @@
 
 .Box .Box_con .conbox ul li {
     float: left;
-    width: 13.5%;
+    width: 18%;
     height: 0;
-    padding-bottom:6.75%;
+    padding-bottom:7%;
     margin-left: 1%;
     overflow: hidden;
 }
