@@ -196,50 +196,16 @@
                         <div class="Box_con">
                             <div class="conbox" id="BoxUl">
                                 <ul style="padding:0px;width:100% !important">
-                                    <li class="cur">
+                                    <li class="cur" v-for="edit in edits">
                                         <figure>
                                             <div class="showZ" style="position:relative;">
                                                 <img class="img-responsive center-block" src="./img/资讯背景图.png" />
                                                 <div style="position:absolute; z-index:2; left:10px; top:20%">
-                                                    <p style="font-weight:300;font-size: 14px;color:#FFF">德语在中国人心中的地位</p>
+                                                    <p style="font-weight:300;font-size: 14px;color:#FFF">{{edit.title}}</p>
                                                     <div style="width: 35px;">
                                                         <hr style="height:3px;border:none;border-top:3px solid #FFF;margin: 0px" />
                                                     </div>
-                                                    <p style="font-weight:300;font-size: 14px;color:#FFF">2018.8.8</p>
-                                                </div>
-                                            </div>
-                                            <figcaption>
-                                                <p style="padding-top:18%;padding-left:30%;font-weight:400;font-size: 16px;color:#0000"><a href="#">查看详情→</a></p>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-                                    <li class="cur">
-                                        <figure>
-                                            <div class="showZ" style="position:relative;">
-                                                <img class="img-responsive center-block" src="./img/资讯背景图.png" />
-                                                <div style="position:absolute; z-index:2; left:10px; top:20%">
-                                                    <p style="font-weight:300;font-size: 14px;color:#FFF">德语在中国人心中的地位</p>
-                                                    <div style="width: 35px;">
-                                                        <hr style="height:3px;border:none;border-top:3px solid #FFF;margin: 0px" />
-                                                    </div>
-                                                    <p style="font-weight:300;font-size: 14px;color:#FFF">2018.8.8</p>
-                                                </div>
-                                            </div>
-                                            <figcaption>
-                                                <p style="padding-top:18%;padding-left:30%;font-weight:400;font-size: 16px;color:#0000"><a href="#">查看详情→</a></p>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-                                    <li class="cur">
-                                        <figure>
-                                            <div class="showZ" style="position:relative;">
-                                                <img class="img-responsive center-block" src="./img/资讯背景图.png" />
-                                                <div style="position:absolute; z-index:2; left:10px; top:20%">
-                                                    <p style="font-weight:300;font-size: 14px;color:#FFF">德语在中国人心中的地位</p>
-                                                    <div style="width: 35px;">
-                                                        <hr style="height:3px;border:none;border-top:3px solid #FFF;margin: 0px" />
-                                                    </div>
-                                                    <p style="font-weight:300;font-size: 14px;color:#FFF">2018.8.8</p>
+                                                    <p style="font-weight:300;font-size: 14px;color:#FFF">{{edit.time}}</p>
                                                 </div>
                                             </div>
                                             <figcaption>
@@ -504,6 +470,28 @@
                 path: 'img/mod6.png',
                 url: '#'
             },
+            edits: [
+                {
+                    title: '德语在中国人心中的地位',
+                    time: '2018-11-22'
+                },
+                {
+                    title: '德语在中国人心中的地位',
+                    time: '2018-11-22'
+                },
+                {
+                    title: '德语在中国人心中的地位',
+                    time: '2018-11-22'
+                },
+                {
+                    title: '德语在中国人心中的地位',
+                    time: '2018-11-22'
+                },
+                {
+                    title: '德语在中国人心中的地位',
+                    time: '2018-11-22'
+                }
+            ]
         },
         methods: {
             closeModel: function () {
@@ -546,7 +534,15 @@
         }
     });
     $(document).ready(function () {
-        //锚点跳转滑动效果  
+        $.ajax({
+            url: "http://118.24.110.84:18080/web/edit?constantId=editType1",
+            success: function (res) {
+                if (res.code != 200 || res.data === '' || res.data === null) {
+                    return;
+                }
+                this.edits = res.data
+            }
+        });
 
         $.ajax({
             url: "http://118.24.110.84:18080/web/page",
