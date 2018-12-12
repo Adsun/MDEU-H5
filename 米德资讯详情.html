@@ -277,7 +277,8 @@
         },
         methods: {
             getEdit: function () {
-                let id = this.$route.query.id
+                var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+                var id = window.location.search.substr(1).match(reg)[2];
                 $.ajax({
                     url: "http://118.24.110.84:18080/web/edit?id=" + id,
                     success: function (res) {
@@ -347,7 +348,6 @@
 </script>
 <script src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./js/Lunbo.js"></script>
-<script type="text/javascript" src="./js/entry.js"></script>
 <script type="text/javascript">
     //滚动元素id，左切换按钮，右切换按钮，切换元素个数id,滚动方式，切换方向，是否自动滚动，滚动距离，滚动时间，滚动间隔，显示个数
     LbMove('BoxUl', 'btnl', 'btnr', 'BoxSwitch', true, 'left', true, 330, 1000, 5000, 2);
