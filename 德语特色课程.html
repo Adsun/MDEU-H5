@@ -37,13 +37,60 @@
                             <li><a class="s-nav-item selected" target="_self" href="米德资讯.html"><span style="font-size:14px;padding:15px;font-weight:300">米德资讯</span></a></li>
                             <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
                             <li>
-                                <a class="s-nav-item">
+                                <a class="s-nav-item" @click="getCourse(nowCourse,'lxModal')">
                                     <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
                                 </a>
                             </li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
 
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--my modal-->
+        <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="text-align:center; width:800px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button " class="close" @click="closeModel()">
+                            &times;
+                        </button>
+                        <h4 class="modal-title center-align" id="myModalLabel" style="font-size:22px;font-weight: 400">
+                            联系我们
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-inline" role="form">
+                            <div class="form-group" style="padding:10px 15px 0px 0">
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name" placeholder="您的姓名：" />
+                            </div>
+                            <div class="form-group" style="padding:10px 0 0px 15px">
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city" placeholder="所在城市：" />
+                            </div>
+                            <div class="form-group" style="padding:10px 15px 0px 0">
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email" placeholder="您的邮箱：" />
+                            </div>
+                            <div class="form-group" style="padding:10px 0 0px 15px">
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone" placeholder="联系电话：" />
+                            </div>
+                            <div class="form-group" style="padding:10px 0 0px 0">
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail" placeholder="合作需求："></textarea>
+                            </div>
+                        </form>
+                        <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
+                            <span>商务合作电话：</span><span style="color:#ffb339;padding-right: 30px">027-82298390</span>
+                            <span>微信：</span><span style="color:#ffb339">deutschshi / michideutsch</span>
+                        </div>
+                        <div class="row" style="padding: 10px 0 10px 0">
+                            <button type="button" @click="submitForm1()" class="btn btn-warning" style="width:200px">
+                                完成并发送
+                            </button>
+                        </div>
+
+                        <div class="row" style="padding: 10px 0 10px 0">
+                            <img src="img/logo1.png" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,35 +108,48 @@
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
                         <li class="nav-li btn-link" style="width:30%"><a @click="getCourses('courseSupType2')" data-toggle="tab">{{courseSupType2.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li class="nav-li btn-link" style="width:300px"><a @click="getCourses('courseSupType3')" data-toggle="tab">{{courseSupType3.articleContent}}<sup style="cursor: pointer;" @click="beMemberModalRender('beMemberModal')">成为会员?</sup></a></li>
+                        <li class="nav-li btn-link" style="width:300px"><a @click="getCourses('courseSupType3')" data-toggle="tab">{{courseSupType3.articleContent}}<sup style="cursor: pointer;" @click="getCourse(nowCourse,'beMemberModalRender')">成为会员?</sup></a></li>
                     </ul>
                 </div>
-                <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-top:50px;padding-bottom:40px;">
-                    <div class="row firstRow rowHeader" v-for="course in courses">
-                        <div class="cloumn col-xs-5 col-sm-5 col-md-5">
-                            <img class="img-responsive center-block" style="width:100%;height:190px" :src="course.imgUrl">
+                <div class=" cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-top:50px;padding-bottom:20%; ">
+                    <div class="row firstRow rowHeader " v-for="course in courses ">
+                        <div class="cloumn col-xs-5 col-sm-5 col-md-5 ">
+                            <img class="img-responsive center-block " style="width:100%;height:190px" :src="course.imgUrl ">
                         </div>
-
-                        <div class="cloumn col-xs-1 col-sm-1 col-md-1 " style="padding-top:70px">
-                            <img class="img-responsive center-block" src="img/德语标准课程-三角矩形.png">
+                        <div class="cloumn col-xs-1 col-sm-1 col-md-1 " style="padding-top:70px ">
+                            <img class="img-responsive center-block " src="img/德语标准课程-三角矩形.png ">
                         </div>
-                        <div class="cloumn col-xs-6 col-sm-6 col-md-6 " style="padding-top:30px">
-                            <table class="table detailTable">
+                        <div class="cloumn col-xs-6 col-sm-6 col-md-6 " style="padding-top: 30px; ">
+                            <table class="table detailTable ">
                                 <tbody>
-                                    <tr style="height:3rem">
-                                        <div id="box4" style="padding-top:10px"><span style="text-align:left;font-size: 20px">{{course.courseName}}</span><span style="padding-left:10px">讲师:</span><span>{{course.teacher}}</span></div>
-
+                                    <tr style="height:3rem ">
+                                        <div id="box4 " style="padding-top:10px "><span style="text-align:left;font-size: 20px;font-weight: 500;letter-spacing: 3px; ">{{course.courseName}}</span></div>
                                     </tr>
-                                    <tr style="height:3rem">
-                                        <div id="box5" style="padding-top:10px;">
+                                    <tr style="height:3rem ">
+                                        <div id="box5 " style="padding-top:10px;font-size: 15px;font-weight: 400; ">
                                             <span>开课时间:</span>
-                                            <span class="orange startDate" style="padding-right: 10px">{{course.startTime}}</span>
+                                            <span class="orange startDate " style="padding-right: 8px;">{{course.startTime}}</span>
+                                            <span>价格:</span>
+                                            <span class="orange startDate " style="padding-right: 8px; ">{{course.price}}</span>
+                                            <span>讲师:</span><span>{{course.teacher}}</span>
                                         </div>
                                     </tr>
-                                    <tr class="repairDepartment">
-                                        <div id="box6" style="padding-top:10px;">
-                                            <span>
-                                                <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">立即预约</div>
+                                    <tr class="repairDepartment ">
+                                        <div id="box6 " style="padding-top:10px;font-size: 15px;font-weight: 400;cursor: pointer; ">
+                                            <a type="button " class="btn-link " @click="getCourse(course,'courseIntroduction') " style="color:#000 ">
+                                                <span>课程介绍</span>
+                                            </a>
+                                            <span style="padding: 10px ">|</span>
+                                            <a type="button " class="btn-link " @click="getCourse(course, 'coursePlan') " style="color:#000 ">
+                                                <span>课程安排</span>
+                                            </a>
+                                            <span style="padding: 10px ">|</span>
+                                            <a type="button " class="btn-link " @click="getCourse(course, 'discountActivity') " style="color:#000 ">
+                                                <span>优惠活动</span>
+                                            </a>
+                                            <span style="padding-left:10px ">
+                                                <a :href="course.courseUrl">
+                                                <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange; ">立即报名</div></a>
                                             </span>
                                         </div>
                                     </tr>
@@ -166,6 +226,113 @@
                 </div>
             </div>
         </div>
+        <!--courseIntroduction modal-->
+        <div class="modal fade " id="courseIntroduction" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
+            <div class="modal-dialog " style="width: 800px;height: 400px;">
+                <div class="modal-content ">
+                    <div class="modal-header ">
+                        <button type="button " class="close" @click="closeModel()">
+                            &times;
+                        </button>
+                    </div>
+                    <div class=" modal-body ">
+                        <div class="row " style="margin-left:20%;width:60%; ">
+                            <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400;padding-bottom: 20px">
+                                【 {{nowCourse.courseName}}】 课程介绍
+                            </h4>
+                            <div class="cloumn col-xs-3 col-sm-3 col-md-3 " style="text-align: center;">
+                                <img style="width:100%" :src="nowCourse.teacherImg " />
+                            </div>
+                            <div class="cloumn col-xs-9 col-sm-9 col-md-9 ">
+                                <p>【米德】 {{nowCourse.teacher}}</p>
+                                <p>{{nowCourse.teacherDtl}}</p>
+                            </div>
+                            <div class="cloumn col-xs-3 col-sm-3 col-md-3 ">
+                            </div>
+                            <div class="cloumn col-xs-9 col-sm-9 col-md-9 ">
+                                <p>课程简介</p>
+                                <p>{{nowCourse.courseDtl}}</p>
+                            </div>
+                            <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="text-align: center;padding-bottom: 20px;padding-top: 20px">
+                                <img src="img/黑色文字logo.png " />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--coursePlan  modal-->
+        <div class="modal fade " id="coursePlan" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
+            <div class="modal-dialog " style="width: 800px;text-align: center">
+                <div class="modal-content ">
+                    <div class="modal-header ">
+                        <button type="button" class="close" @click="closeModel()">
+                            &times;
+                        </button>
+
+                    </div>
+                    <div class="modal-body " style="margin-left:10%;width:80%; ">
+                        <h4 class="modal-title center-align" style="font-size:22px;font-weight: 400 ">
+                            【米德】 {{nowCourse.courseName}}
+                        </h4>
+                        <form role="form ">
+                            <table class="table table-striped ">
+                                <tr style="text-align:left;font-size:1rem ">
+                                    <table class="table table-striped ">
+                                        <tr style="text-align:center;font-size:2rem ">
+                                            <td style="font-size:11px;color:#D5D5D5 ">日期</td>
+                                            <td style="font-size:11px;color:#D5D5D5 ">课程时间</td>
+                                            <td style="font-size:11px;color:#D5D5D5 ">课程内容</td>
+                                        </tr>
+                                        <tr style="text-align:left;font-size:1rem " v-for="coursePlan in nowCoursePlans ">
+                                            <td style="font-size:11px;color:#444 ">
+                                                <li>{{coursePlan.courseDate}}</li>
+                                            </td>
+                                            <td style="font-size:11px;color:#444;border-left:solid 3px #D5D5D5;border-right:solid 3px #D5D5D5; ">
+                                                {{coursePlan.courseTime}}
+                                            </td>
+                                            <td style="font-size:11px;color:#444 ">
+                                                {{coursePlan.courseDtl}}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </tr>
+                            </table>
+                            <div class="row " style="text-align:center;margin-bottom:20px ">
+                                <img src="img/黑色文字logo.png " />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--discountActivity  modal-->
+        <div class="modal fade " id="discountActivity" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
+            <div class="modal-dialog " style="width: 800px;height: 400px;">
+                <div class="modal-content">
+                    <div class="modal-header ">
+                        <button type="button " class="close " @click="closeModel() ">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body " style="margin-left:22%;width:56%;margin-bottom: 100px;margin-top: 50px">
+                        <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400;padding-bottom: 30px">
+                            【德语B1进阶班】 优惠活动
+                        </h4>
+                        <div class="row " style="border: 1px solid #B3B3B3; ">
+                            <div class="cloumn col-xs-5 col-sm-5 col-md-5 ">
+                                <img class="img-responsive center-block " src="img/优惠活动图标.png ">
+                            </div>
+                            <div class="cloumn col-xs-7 col-sm-7 col-md-7 ">
+                                <p style="padding-top:30px ">现在报名即刻享受特大优惠</p>
+                                <p>特价：<span style="text-align:center;font-size:2em " class="orange ">{{nowCourse.price}}</span><span class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;margin-bottom:1rem;margin-left:1rem">立即报名</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--成为会员-->
         <div class="modal fade " id="beMemberModal" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
             <div class="modal-dialog " style="width: 800px;height: 400px;">
@@ -191,53 +358,6 @@
                 </div>
             </div>
         </div>
-        <!--my modal-->
-        <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" style="text-align:center; width:800px">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button " class="close" @click="closeModel()">
-                            &times;
-                        </button>
-                        <h4 class="modal-title center-align" id="myModalLabel" style="font-size:22px;font-weight: 400">
-                            联系我们
-                        </h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form-inline" role="form">
-                            <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name" placeholder="您的姓名：" />
-                            </div>
-                            <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city" placeholder="所在城市：" />
-                            </div>
-                            <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email" placeholder="您的邮箱：" />
-                            </div>
-                            <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone" placeholder="联系电话：" />
-                            </div>
-                            <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail" placeholder="合作需求："></textarea>
-                            </div>
-                        </form>
-                        <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
-                            <span>商务合作电话：</span><span style="color:#ffb339;padding-right: 30px">027-82298390</span>
-                            <span>微信：</span><span style="color:#ffb339">deutschshi / michideutsch</span>
-                        </div>
-                        <div class="row" style="padding: 10px 0 10px 0">
-                            <button type="button" @click="submitForm1()" class="btn btn-warning" style="width:200px">
-                                完成并发送
-                            </button>
-                        </div>
-
-                        <div class="row" style="padding: 10px 0 10px 0">
-                            <img src="img/logo1.png" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </body>
 
@@ -252,10 +372,19 @@
             //课程信息
             courses: [{
                 'imgUrl': 'img/课程图.png',
-                'courseName': '德语特色课程',
+                'courseName': '德语欧标课程',
+                'courseId': 0,
                 'startTime': '2018.09.10',
                 'teacher': '墨子',
+                'price': '1200￥',
+                'courseDtl': '课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介',
+                'teacherDtl': '老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语寄语老师寄语老师寄语老师寄语老师寄语老师寄语',
+                'teacherImg': 'img/老师头像.png',
+                'courseUrl': '#'
             }],
+            nowCourse: {},
+            nowModel: '',
+            nowCoursePlans: {},
             //文字
             courseSupType1: {
                 articleContent: '免费公开课',
@@ -286,11 +415,26 @@
             },
         },
         methods: {
+            getCourse: function(course, model) {
+                this.nowCourse = course;
+                this.nowModel = model;
+                if (model == 'coursePlan') {
+                    this.getCoursePlan(course.id);
+                }
+                $('#' + model).modal("show");
+            },
+            getCoursePlan: function(courseId) {
+                $.ajax({
+                    url: "http://118.24.110.84:18080/web/coursePlan?courseId=" + courseId,
+                    success: function(res) {
+                        vm.nowCoursePlans = res.data;
+                    }
+                });
+            },
             getCourses: function(type) {
                 $.ajax({
                     url: "http://118.24.110.84:18080/web/course?constantId=" + type,
                     success: function(res) {
-
                         vm.courses = res.data;
                     }
                 });
@@ -299,8 +443,7 @@
                 $('#beMemberModal').modal("show");
             },
             closeModel: function() {
-                $('#lxModal').modal("hide");
-                $('#beMemberModal').modal("hide");
+                $('#' + this.nowModel).modal("hide");
             },
             submitForm1: function() {
                 if (this.form1.name == "") {
