@@ -69,33 +69,40 @@
                 <div class="btn btn-default btn-xs orange signUpBtn" style="padding-left:1.6rem;padding-right:1.6rem;padding-top:0.3rem;padding-bottom:0.3rem;border-color: orange;margin-top:5rem">返回列表</div>
             </div>
         </div>
-        <div id="part2" style="text-align:center;margin-top:3rem">
+        <div style="text-align:center;margin-top:3rem">
             <p style="font-size:2rem">更多资讯</p>
-            <div class="Box" style="margin-top:2rem">
-                <div class="content">
-                    <div class="Box_con clearfix">
-                        <span class="btnl btn" id="btnl"></span>
-                        <span class="btnr btn" id="btnr"></span>
-                        <div class="conbox" id="BoxUl">
-                            <ul style="width: 1525px; left: 0px;">
-                                <li class="cur">
-                                    <img src="./img/lbt1.jpg" alt="">
-                                </li>
-                                <li class="cur">
-                                    <img src="./img/lbt2.jpg" alt="">
-                                </li>
-                                <li class="cur">
-                                    <img src="./img/lbt3.jpg" alt="">
-                                </li>
-                                <li class="cur">
-                                    <img src="./img/lbt4.jpg" alt="">
-                                </li>
-                                <li class="cur">
-                                    <img src="./img/lbt5.jpg" alt="">
-                                </li>
-                            </ul>
+            <div class="row">
+                <div class="Box">
+                    <div class="content">
+                        <div class="Box_con">
+                            <div class="conbox" id="BoxUl">
+                                <ul style="padding:0px;width:100% !important">
+                                    <li class="cur" v-for="edit in edits">
+                                        <figure>
+                                            <div class="showZ" style="position:relative;">
+                                                <img class="img-responsive center-block" src="./img/资讯背景图.png" />
+                                                <div style="position:absolute; z-index:2; left:20px; top:40px">
+                                                    <p style="font-weight:300;font-size: 14px;color:#FFF">{{edit.title}}</p>
+                                                    <div style="width: 35px;">
+                                                        <hr style="height:3px;border:none;border-top:3px solid #FFF;margin: 0px" />
+                                                    </div>
+                                                    <p style="font-weight:300;font-size: 14px;color:#FFF; text-align: left">{{edit.time}}</p>
+                                                </div>
+                                            </div>
+                                            <figcaption>
+                                                <p style="padding-top:60px;padding-left:120px;font-weight:400;font-size: 16px;color:#0000"><a :href="'米德资讯.html?id='+edit.id">查看详情→</a></p>
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div style="padding-top:30px">
+                                <span class="btnl btn" id="btnl"></span>
+                                <span class="BoxSwitch" id="BoxSwitch">
+                                </span>
+                                <span class="btnr btn" id="btnr"></span>
+                            </div>
                         </div>
-                        <p class="BoxSwitch" id="BoxSwitch"><span class="cur"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></p>
                     </div>
                 </div>
             </div>
@@ -249,36 +256,8 @@
     var vm = new Vue({
         el: '#vueData',
         data: {
-            //课程信息
-            courses: [{
-                'imgUrl': 'img/课程图.png',
-                'courseName': '米德在线五一放假通知',
-                'startTime': '2018.09.10',
-                'teacher': '',
-            }, {
-                'imgUrl': 'img/课程图.png',
-                'courseName': '米德在线五一放假通知',
-                'startTime': '2018.09.10',
-                'teacher': '',
-            }, {
-                'imgUrl': 'img/课程图.png',
-                'courseName': '米德在线五一放假通知',
-                'startTime': '2018.09.10',
-                'teacher': '',
-            }],
-            //文字
-            courseSupType1: {
-                articleContent: '免费公开课',
-                contentUrl: ''
-            },
-            courseSupType2: {
-                articleContent: '特色系列课',
-                contentUrl: ''
-            },
-            courseSupType3: {
-                articleContent: '会员群讲座',
-                contentUrl: ''
-            },
+            edit: {},
+            edits: [],
             //表单
             form1: {
                 name: '',
@@ -287,30 +266,27 @@
                 phone: '',
                 detail: ''
             },
-
-
             //图片
             courseSupBanner: {
                 path: 'img/德语特色课程banner.png',
                 url: ''
             },
         },
+        created(){
+            let id = this.$route.query.id
+            $.ajax({
+            url: "http://118.24.110.84:18080/web/edit?id="+id,
+            success: function (res) {
+                if (res.code != 200 || res.data === '' || res.data === null) {
+                    return;
+                }
+                this.edit = res.data
+            }
+        });
+        },
         methods: {
-            getCourses: function(type) {
-                $.ajax({
-                    url: "http://118.24.110.84:18080/web/course?constantId=" + type,
-                    success: function(res) {
-
-                        vm.courses = res.data;
-                    }
-                });
-            },
-            beMemberModalRender: function() {
-                $('#beMemberModal').modal("show");
-            },
             closeModel: function() {
                 $('#lxModal').modal("hide");
-                $('#beMemberModal').modal("hide");
             },
             submitForm1: function() {
                 if (this.form1.name == "") {
@@ -356,17 +332,6 @@
                     return;
                 }
                 var jsonObject = res.data
-
-                //文字
-                if (jsonObject.courseSupType1 != null) {
-                    vm.courseSupType1 = jsonObject.courseSupType1;
-                }
-                if (jsonObject.courseSupType2 != null) {
-                    vm.courseSupType2 = jsonObject.courseSupType2;
-                }
-                if (jsonObject.courseSupType3 != null) {
-                    vm.courseSupType3 = jsonObject.courseSupType3;
-                }
                 //图片
                 if (jsonObject.courseSupBanner != null) {
                     vm.courseSupBanner = jsonObject.courseSupBanner;
