@@ -53,7 +53,7 @@
         <div style="position:relative;">
             <img class="img-responsive center-block" :src="joinusBanner.path" style="width:100%;">
         </div>
-        <div class="clearfix" style="padding-bottom: 30px">
+        <div class="clearfix" style="padding-bottom: 30px;text-align: left">
             <div class="row ">
                 <div class="column col-xs-12 col-sm-12 col-md-12 ">
                     <h1 style="letter-spacing:8px; font-weight:400; font-size: 28px;">{{joinusTitle.articleContent}}</h1>
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="row " style="padding:5px;padding-top: 30px;">
-                <div class="column col-xs-6 col-sm-6 col-md-6" v-for="job in jobs" 
+                <div class="column col-xs-6 col-sm-6 col-md-6" v-for="job in jobs"
                 style="margin:10px; background: #fafafa">
                     <div style="padding-left:10px;padding-top:15%;width:84%;">
                         <span style="font-weight:400; font-size: 24px; padding-right: 8px">{{job.name}}</span>
