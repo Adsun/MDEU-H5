@@ -56,16 +56,9 @@
         </div>
         <div class="clearfix" style="margin-top:30px">
             <div id="part1" class="tabbable row" style="text-align:center">
-                <p style="font-size:2.5rem">米德在线五一放假通知</p>
-                <p style="font-size:0.5rem;color:#B3B3B3">标签：假期公告，放假通知</p>
-                <div style="text-align:left">
-                    <p>
-                        按照国家规定，结合公司实际研究决定，我司将于2018年4月29日至2018年5月1日为五一假期，5月2号正常上班。<br/> 若给广大新老用户带来不便之处，敬请谅解！
-                    </p>
-                    <p>
-                        放假期间如有其它事宜需要联系，请发送邮件到POWER@POWER.cn给我们留言，谢谢！
-                    </p>
-                </div>
+                <p style="font-size:2.5rem">{{edit.title}}</p>
+                <p style="font-size:0.5rem;color:#B3B3B3">{{edit.subTitle}}</p>
+                {{edit.contextStr}}
                 <div class="btn btn-default btn-xs orange signUpBtn" style="padding-left:1.6rem;padding-right:1.6rem;padding-top:0.3rem;padding-bottom:0.3rem;border-color: orange;margin-top:5rem">返回列表</div>
             </div>
         </div>
@@ -90,7 +83,7 @@
                                                 </div>
                                             </div>
                                             <figcaption>
-                                                <p style="padding-top:60px;padding-left:120px;font-weight:400;font-size: 16px;color:#0000"><a :href="'米德资讯.html?id='+edit.id">查看详情→</a></p>
+                                                <p style="padding-top:60px;padding-left:120px;font-weight:400;font-size: 16px;color:#0000"><a :href="'米德资讯详情.html?id='+edit.id">查看详情→</a></p>
                                             </figcaption>
                                         </figure>
                                     </li>
