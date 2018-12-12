@@ -277,7 +277,7 @@
         },
         methods: {
             getEdit: function () {
-                var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+                var reg = new RegExp('(^|&)id=([^&]*)(&|$)', 'i');
                 var id = window.location.search.substr(1).match(reg)[2];
                 $.ajax({
                     url: "http://118.24.110.84:18080/web/edit?id=" + id,
