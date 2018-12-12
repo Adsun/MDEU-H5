@@ -24,18 +24,19 @@ figure img {
 
 figure figcaption p,
 h2 {
+    text-align: left;
     opacity: 0;
     transform: scale(1.5);
 }
 
 figure figcaption h2 {
-    padding: 15% 0 0 18%;
+    padding: 60px 0 0 55px;
     font-size: 18px;
     font-weight: 400;
 }
 
 figure figcaption p {
-    padding-left: 18%;
+    padding-left: 55px;
     font-size: 12px;
     font-weight: 300;
 }
@@ -73,9 +74,11 @@ figure:hover .showZ {
     color: orange;
 }
 
+body{ text-align:center} 
+
 .clearfix {
-    left: 21%;
-    width: 58%;
+    margin:0 auto;
+    width: 960px;
 }
 
 #nav0 {
