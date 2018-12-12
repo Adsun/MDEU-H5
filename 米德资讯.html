@@ -53,7 +53,7 @@
         <div>
             <img class="img-responsive center-block" src="img/德语特色课程banner.png" style="width:100%;">
         </div>
-        <div class="clearfix" style="margin-top:30px">
+        <div class="clearfix" style="margin-top:30px;text-align: left">
             <div id="nav0" class="tabbable row">
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-top:20px;padding-bottom:20px;">
                     <div class="row firstRow rowHeader" v-for="edit in edits">
@@ -84,14 +84,13 @@
                                     <tr class="repairDepartment">
                                         <div id="box7">
                                             <span>
-                                                <a href="#"><div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">查看详情</div></a>
+                                                <a :href="'米德资讯详情.html?id='+edit.id"><div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">查看详情</div></a>
                                             </span>
                                         </div>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <!-- <div style="border: 1px solid #E6E6E6"></div> -->
                     </div>
                 </div>
             </div>
@@ -221,7 +220,6 @@
     var vm = new Vue({
         el: '#vueData',
         data: {
-
             //表单
             form1: {
                 name: '',
