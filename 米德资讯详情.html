@@ -332,17 +332,6 @@
 
             }
         });
-        $.ajax({
-            url: "http://118.24.110.84:8081/admin/web/course.do?constantId=courseSupType1",
-            success: function(res) {
-                var jsonObject = JSON.parse(res + '');
-
-                //文字
-                if (jsonObject != null && jsonObject.length > 0) {
-                    vm.courses = jsonObject;
-                }
-            }
-        });
     })
 </script>
 <script src="./js/jquery.min.js"></script>
@@ -350,7 +339,7 @@
 <script type="text/javascript" src="./js/entry.js"></script>
 <script type="text/javascript">
     //滚动元素id，左切换按钮，右切换按钮，切换元素个数id,滚动方式，切换方向，是否自动滚动，滚动距离，滚动时间，滚动间隔，显示个数
-    LbMove('BoxUl', 'btnl', 'btnr', 'BoxSwitch', true, 'left', true, 305, 1000, 5000, 4);
+    LbMove('BoxUl', 'btnl', 'btnr', 'BoxSwitch', true, 'left', true, 330, 1000, 5000, 2);
 </script>
 
 </html>
