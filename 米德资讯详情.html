@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN" xmlns:fb="https://www.facebook.com/2008/fbml"
+    xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>米德在线</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
+        name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,7 +41,8 @@
                             <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
                             <li>
                                 <a class="s-nav-item">
-                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
+                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span
+                                            style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
                                 </a>
                             </li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
@@ -83,7 +86,8 @@
                                                 </div>
                                             </div>
                                             <figcaption>
-                                                <p style="padding-top:60px;padding-left:120px;font-weight:400;font-size: 16px;color:#0000"><a :href="'米德资讯详情.html?id='+edit.id">查看详情→</a></p>
+                                                <p style="padding-top:60px;padding-left:120px;font-weight:400;font-size: 16px;color:#0000"><a
+                                                        :href="'米德资讯详情.html?id='+edit.id">查看详情→</a></p>
                                             </figcaption>
                                         </figure>
                                     </li>
@@ -167,12 +171,13 @@
             </div>
         </div>
         <!--成为会员-->
-        <div class="modal fade " id="beMemberModal" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
+        <div class="modal fade " id="beMemberModal" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel "
+            aria-hidden="true ">
             <div class="modal-dialog " style="width: 800px;height: 400px;">
                 <div class="modal-content">
                     <div class="modal-header ">
                         <button type="button " class="close " @click="closeModel()">&times;
-				</button>
+                        </button>
                     </div>
                     <div class="modal-body " style="margin-left:22%;width:56%;margin-bottom: 100px;margin-top: 50px">
                         <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400;padding-bottom: 30px">
@@ -206,19 +211,24 @@
                     <div class="modal-body">
                         <form class="form-inline" role="form">
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name" placeholder="您的姓名：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.name"
+                                    placeholder="您的姓名：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city" placeholder="所在城市：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.city"
+                                    placeholder="所在城市：" />
                             </div>
                             <div class="form-group" style="padding:10px 15px 0px 0">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email" placeholder="您的邮箱：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.email"
+                                    placeholder="您的邮箱：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 15px">
-                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone" placeholder="联系电话：" />
+                                <input type="text" style="width:300px;" class="form-control" v-model="form1.phone"
+                                    placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail" placeholder="合作需求："></textarea>
+                                <textarea type="text" rows="5" style="width:630px;" class="form-control" v-model="form1.detail"
+                                    placeholder="合作需求："></textarea>
                             </div>
                         </form>
                         <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
@@ -266,10 +276,22 @@
             },
         },
         methods: {
-            closeModel: function() {
+            getEdit: function () {
+                let id = this.$route.query.id
+                $.ajax({
+                    url: "http://118.24.110.84:18080/web/edit?id=" + id,
+                    success: function (res) {
+                        if (res.code != 200 || res.data === '' || res.data === null) {
+                            return;
+                        }
+                        vm.edit = res.data
+                    }
+                });
+            },
+            closeModel: function () {
                 $('#lxModal').modal("hide");
             },
-            submitForm1: function() {
+            submitForm1: function () {
                 if (this.form1.name == "") {
                     alert("请输入您的姓名");
                     return;
@@ -293,7 +315,7 @@
                 $.ajax({
                     url: "http://118.24.110.84:18080/web/contact",
                     data: this.form1,
-                    success: function(res) {
+                    success: function (res) {
                         if (res.code === 200) {
                             alert("提交成功");
                         } else {
@@ -305,10 +327,11 @@
             }
         }
     });
-    $(document).ready(function() {
+    $(document).ready(function () {
+        vm.getEdit();
         $.ajax({
             url: "http://118.24.110.84:18080/web/page",
-            success: function(res) {
+            success: function (res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;
                 }
@@ -317,19 +340,9 @@
                 if (jsonObject.courseSupBanner != null) {
                     vm.courseSupBanner = jsonObject.courseSupBanner;
                 }
+            }
+        });
 
-            }
-        });
-        let id = vm.$route.query.id
-            $.ajax({
-            url: "http://118.24.110.84:18080/web/edit?id="+id,
-            success: function (res) {
-                if (res.code != 200 || res.data === '' || res.data === null) {
-                    return;
-                }
-                vm.edit = res.data
-            }
-        });
     })
 </script>
 <script src="./js/jquery.min.js"></script>
