@@ -265,18 +265,6 @@
                 url: ''
             },
         },
-        created(){
-            let id = this.$route.query.id
-            $.ajax({
-            url: "http://118.24.110.84:18080/web/edit?id="+id,
-            success: function (res) {
-                if (res.code != 200 || res.data === '' || res.data === null) {
-                    return;
-                }
-                this.edit = res.data
-            }
-        });
-        },
         methods: {
             closeModel: function() {
                 $('#lxModal').modal("hide");
@@ -330,6 +318,16 @@
                     vm.courseSupBanner = jsonObject.courseSupBanner;
                 }
 
+            }
+        });
+        let id = this.$route.query.id
+            $.ajax({
+            url: "http://118.24.110.84:18080/web/edit?id="+id,
+            success: function (res) {
+                if (res.code != 200 || res.data === '' || res.data === null) {
+                    return;
+                }
+                this.edit = res.data
             }
         });
     })
