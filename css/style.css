@@ -322,4 +322,5 @@ ol.carousel-indicators li {
 .item { 
     break-inside: avoid; 
     box-sizing: border-box; 
+    padding: 10px; 
 }
