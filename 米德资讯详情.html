@@ -317,27 +317,14 @@
     });
     $(document).ready(function () {
         var reg = new RegExp('(^|&)id=([^&]*)(&|$)', 'i');
-                var id = window.location.search.substr(1).match(reg)[2];
-                $.ajax({
-                    url: "http://118.24.110.84:18080/web/edit?id=" + id,
-                    success: function (res) {
-                        if (res.code != 200 || res.data === '' || res.data === null) {
-                            return;
-                        }
-                        vm.edit = res.data
-                    }
-                });
+        var id = window.location.search.substr(1).match(reg)[2];
         $.ajax({
-            url: "http://118.24.110.84:18080/web/page",
+            url: "http://118.24.110.84:18080/web/edit?id=" + id,
             success: function (res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;
                 }
-                var jsonObject = res.data
-                //图片
-                if (jsonObject.courseSupBanner != null) {
-                    vm.courseSupBanner = jsonObject.courseSupBanner;
-                }
+                vm.edit = res.data
             }
         });
 
