@@ -53,7 +53,7 @@
         <div>
             <img class="img-responsive center-block" src="img/德语特色课程banner.png" style="width:100%;">
         </div>
-        <div class="clearfix" style="margin-top:30px">
+        <div class="clearfix" style="margin-top:30px;text-align: left">
             <div id="nav0" class="tabbable row">
                 <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-top:20px;padding-bottom:20px;">
                     <div class="row firstRow rowHeader" v-for="edit in edits">
@@ -68,25 +68,29 @@
                             <table class="table detailTable">
                                 <tbody>
                                     <tr style="height:3rem">
-                                        <div id="box4" style="padding-top:10px"><span style="text-align:left;font-size: 24px">{{edit.title}}</span>
+                                        <div id="box4" style="padding-top:10px"><span style="text-align:left;font-size: 20px">{{edit.title}}</span>
                                         </div>
                                     </tr>
                                     <tr style="height:3rem">
-                                        <div id="box5" style="text-align:left;font-size: 13px;margin-top:0.5rem">
+                                        <div id="box5">
+                                            <span style="color:#aaa">发布日期：{{edit.time}}</span>
+                                        </div>
+                                    </tr>
+                                    <tr style="height:3rem">
+                                        <div id="box6">
                                             <span>{{edit.detail}}</span>
                                         </div>
                                     </tr>
                                     <tr class="repairDepartment">
-                                        <div id="box6">
+                                        <div id="box7">
                                             <span>
-                                                <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">了解更多</div>
+                                                <a :href="'米德资讯详情.html?id='+edit.id"><div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">查看详情</div></a>
                                             </span>
                                         </div>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <!-- <div style="border: 1px solid #E6E6E6"></div> -->
                     </div>
                 </div>
             </div>
@@ -157,31 +161,7 @@
                 </div>
             </div>
         </div>
-        <!--成为会员-->
-        <div class="modal fade " id="beMemberModal" tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
-            <div class="modal-dialog " style="width: 800px;height: 400px;">
-                <div class="modal-content">
-                    <div class="modal-header ">
-                        <button type="button " class="close " @click="closeModel()">&times;
-				</button>
-                    </div>
-                    <div class="modal-body " style="margin-left:22%;width:56%;margin-bottom: 100px;margin-top: 50px">
-                        <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400;padding-bottom: 30px">
-                            如何成为米德会员
-                        </h4>
-                        <div class="row " style="border: 1px solid #B3B3B3;padding-top:10px;padding-bottom:10px">
-                            <div class="cloumn col-xs-4 col-sm-4 col-md-4 ">
-                                <img class="img-responsive center-block " src="img/优惠活动图标.png ">
-                            </div>
-                            <div class="cloumn col-xs-8 col-sm-8 col-md-8 ">
-                                <p>成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员</p>
-                                <span>详情戳链接：</span><span style="color:#ffb339">http://118.24.110.84:8081/</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!--my modal-->
         <div class="modal fade" id="lxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" style="text-align:center; width:800px">
@@ -240,27 +220,25 @@
     var vm = new Vue({
         el: '#vueData',
         data: {
-            //课程信息
-            edits: [{
-                'id': '',
-                'imgUrl': 'img/课程图.png',
-                'title': '留德申请个性定制服务',
-                'detail': '留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务留德申请个性定制服务',
-                'time': ''
-            }],
+            //表单
+            form1: {
+                name: '',
+                city: '',
+                email: '',
+                phone: '',
+                detail: ''
+            },
             //图片
             courseSupBanner: {
                 path: 'img/德语特色课程banner.png',
                 url: ''
             },
+            edits:[]
         },
         methods: {
-            beMemberModalRender: function() {
-                $('#beMemberModal').modal("show");
-            },
+            
             closeModel: function() {
                 $('#lxModal').modal("hide");
-                $('#beMemberModal').modal("hide");
             },
             submitForm1: function() {
                 if (this.form1.name == "") {
@@ -306,7 +284,18 @@
                     return;
                 }
                 var jsonObject = res.data
-                    //图片
+
+                //文字
+                if (jsonObject.courseSupType1 != null) {
+                    vm.courseSupType1 = jsonObject.courseSupType1;
+                }
+                if (jsonObject.courseSupType2 != null) {
+                    vm.courseSupType2 = jsonObject.courseSupType2;
+                }
+                if (jsonObject.courseSupType3 != null) {
+                    vm.courseSupType3 = jsonObject.courseSupType3;
+                }
+                //图片
                 if (jsonObject.courseSupBanner != null) {
                     vm.courseSupBanner = jsonObject.courseSupBanner;
                 }
@@ -314,14 +303,12 @@
             }
         });
         $.ajax({
-            url: "http://118.24.110.84:8081/admin/web/course.do?constantId=editType2",
-            success: function(res) {
-                var jsonObject = JSON.parse(res + '');
-
-                //文字
-                if (jsonObject != null && jsonObject.length > 0) {
-                    vm.courses = jsonObject;
+            url: "http://118.24.110.84:18080/web/edit?constantId=editType2",
+            success: function (res) {
+                if (res.code != 200 || res.data === '' || res.data === null) {
+                    return;
                 }
+                vm.edits = res.data
             }
         });
     })
