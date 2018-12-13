@@ -276,20 +276,6 @@
             },
         },
         methods: {
-            getEdit: function () {
-                var reg = new RegExp('(^|&)id=([^&]*)(&|$)', 'i');
-                var id = window.location.search.substr(1).match(reg)[2];
-                $.ajax({
-                    url: "http://118.24.110.84:18080/web/edit?id=" + id,
-                    success: function (res) {
-                        alert("请求成功" + res.code + res.data);
-                        if (res.code != 200 || res.data === '' || res.data === null) {
-                            return;
-                        }
-                        this.edit = res.data
-                    }
-                });
-            },
             closeModel: function () {
                 $('#lxModal').modal("hide");
             },
@@ -330,7 +316,17 @@
         }
     });
     $(document).ready(function () {
-        vm.getEdit();
+        var reg = new RegExp('(^|&)id=([^&]*)(&|$)', 'i');
+                var id = window.location.search.substr(1).match(reg)[2];
+                $.ajax({
+                    url: "http://118.24.110.84:18080/web/edit?id=" + id,
+                    success: function (res) {
+                        if (res.code != 200 || res.data === '' || res.data === null) {
+                            return;
+                        }
+                        vm.edit = res.data
+                    }
+                });
         $.ajax({
             url: "http://118.24.110.84:18080/web/page",
             success: function (res) {
