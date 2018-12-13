@@ -309,3 +309,7 @@ ol.carousel-indicators li {
     letter-spacing: normal;
     text-align-last: center;
 }
+
+#vueData {
+    min-width:1080px
+}
