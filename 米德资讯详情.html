@@ -327,6 +327,28 @@
                 vm.edit = res.data
             }
         });
+        $.ajax({
+            url: "http://118.24.110.84:18080/web/page",
+            success: function (res) {
+                if (res.code != 200 || res.data === '' || res.data === null) {
+                    return;
+                }
+                var jsonObject = res.data
+                //图片
+                if (jsonObject.courseSupBanner != null) {
+                    vm.courseSupBanner = jsonObject.courseSupBanner;
+                }
+            }
+        });
+        $.ajax({
+            url: "http://118.24.110.84:18080/web/edit?constantId=editType1",
+            success: function(res) {
+                if (res.code != 200 || res.data === '' || res.data === null) {
+                    return;
+                }
+                vm.edits = res.data
+            }
+        });
 
     })
 </script>
