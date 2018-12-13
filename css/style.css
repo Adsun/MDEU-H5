@@ -315,11 +315,12 @@ ol.carousel-indicators li {
 }
 
 .masonry {
-    column-count: 1;
+    column-count: 2;
     column-gap: 0;
 }
 
 .item { 
     break-inside: avoid; 
     box-sizing: border-box; 
-    padding: 10px; }
+    padding: 10px; 
+}
