@@ -282,6 +282,7 @@
                 $.ajax({
                     url: "http://118.24.110.84:18080/web/edit?id=" + id,
                     success: function (res) {
+                        alert("请求成功" + res.code + res.data);
                         if (res.code != 200 || res.data === '' || res.data === null) {
                             return;
                         }
