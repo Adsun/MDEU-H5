@@ -64,48 +64,6 @@
                         <span v-html="edit.contextStr"></span>
                 </div>
             </div>
-            <a href="米德资讯.html">
-                <div class="btn btn-default btn-xs orange signUpBtn" style="padding-left:1.6rem;padding-right:1.6rem;padding-top:0.3rem;padding-bottom:0.3rem;border-color: orange;margin-top:5rem">返回列表</div>
-            </a>
-            <div class="row center-align" style="padding-top:30px;padding-bottom: 20px">
-                <p style="font-size:18px;font-weight: 400">更多资讯</p>
-            </div>
-            <div class="row">
-                <div class="Box">
-                    <div class="content">
-                        <div class="Box_con">
-                            <div class="conbox" id="BoxUl">
-                                <ul style="padding:0px;width:100% !important">
-                                    <li class="cur" v-for="edit in edits">
-                                        <figure>
-                                            <div class="showZ" style="position:relative;">
-                                                <img class="img-responsive center-block" src="./img/资讯背景图.png" />
-                                                <div style="position:absolute; z-index:2; left:20px; top:40px">
-                                                    <p style="font-weight:300;font-size: 14px;color:#FFF">{{edit.title}}</p>
-                                                    <div style="width: 35px;">
-                                                        <hr style="height:3px;border:none;border-top:3px solid #FFF;margin: 0px" />
-                                                    </div>
-                                                    <p style="font-weight:300;font-size: 14px;color:#FFF; text-align: left">{{edit.time}}</p>
-                                                </div>
-                                            </div>
-                                            <figcaption>
-                                                <p style="padding-top:4.6rem;padding-left:10rem;font-weight:400;font-size: 16px;color:#000000"><a
-                                                        :href="'米德资讯.html?id='+edit.id">查看详情→</a></p>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div style="padding-top:30px">
-                                <span class="btnl btn" id="btnl"></span>
-                                <span class="BoxSwitch" id="BoxSwitch">
-                                </span>
-                                <span class="btnr btn" id="btnr"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="row" style="background:#000; color:#FFF;margin:0px;text-align:left">
