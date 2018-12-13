@@ -129,8 +129,8 @@
                                         <div id="box5 " style="padding-top:10px;font-size: 15px;font-weight: 400; ">
                                             <span>开课时间:</span>
                                             <span class="orange startDate " style="padding-right: 8px;">{{course.startTime}}</span>
-                                            <span>价格:</span>
-                                            <span class="orange startDate " style="padding-right: 8px; ">{{course.price}}</span>
+                                            <span v-if="course.price != null && course.price != ''">价格:</span>
+                                            <span class="orange startDate " v-if="course.price != null && course.price != ''" style="padding-right: 8px; ">{{course.price}}</span>
                                             <span>讲师:</span><span>{{course.teacher}}</span>
                                         </div>
                                     </tr>
