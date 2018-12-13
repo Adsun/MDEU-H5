@@ -319,7 +319,7 @@ ol.carousel-indicators li {
     column-gap: 0;
 }
 
-.item { 
+.masonry .item { 
     break-inside: avoid; 
     box-sizing: border-box; 
     padding: 10px; 
