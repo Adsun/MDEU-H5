@@ -64,9 +64,9 @@
                 {{edit.contextStr}}
                 <div class="btn btn-default btn-xs orange signUpBtn" style="padding-left:1.6rem;padding-right:1.6rem;padding-top:0.3rem;padding-bottom:0.3rem;border-color: orange;margin-top:5rem">返回列表</div>
             </div>
-        </div>
-        <div style="text-align:center;margin-top:3rem">
-            <p style="font-size:2rem">更多资讯</p>
+            <div class="row center-align" style="padding-top:30px;padding-bottom: 20px">
+                <p style="font-size:18px;font-weight: 400">更多资讯</p>
+            </div>
             <div class="row">
                 <div class="Box">
                     <div class="content">
@@ -86,8 +86,7 @@
                                                 </div>
                                             </div>
                                             <figcaption>
-                                                <p style="padding-top:60px;padding-left:120px;font-weight:400;font-size: 16px;color:#0000"><a
-                                                        :href="'米德资讯详情.html?id='+edit.id">查看详情→</a></p>
+                                                <p style="padding-top:4.6rem;padding-left:10rem;font-weight:400;font-size: 16px;color:#000000"><a :href="'米德资讯.html?id='+edit.id">查看详情→</a></p>
                                             </figcaption>
                                         </figure>
                                     </li>
@@ -104,6 +103,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="row" style="background:#000; color:#FFF;margin:0px;text-align:left">
             <div class="clearfix" style="padding-top:70px; padding-bottom: 40px; ">
                 <div class="column col-xs-4 col-sm-4 col-md-4" style="padding-top:15px;">
@@ -260,7 +260,22 @@
         el: '#vueData',
         data: {
             edit: {},
-            edits: [],
+            edits: [{
+                title: '德语在中国人心中的地位',
+                time: '2018-11-22'
+            }, {
+                title: '德语在中国人心中的地位',
+                time: '2018-11-22'
+            }, {
+                title: '德语在中国人心中的地位',
+                time: '2018-11-22'
+            }, {
+                title: '德语在中国人心中的地位',
+                time: '2018-11-22'
+            }, {
+                title: '德语在中国人心中的地位',
+                time: '2018-11-22'
+            }],
             //表单
             form1: {
                 name: '',
@@ -352,6 +367,7 @@
 
     })
 </script>
+
 <script src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./js/Lunbo.js"></script>
 <script type="text/javascript">
