@@ -51,7 +51,7 @@
         <div class="waypoint"></div>
         <a class="section-anchor" style="top: -997px;"></a>
         <div>
-            <img class="img-responsive center-block" src="img/德语特色课程banner.png" style="width:100%;">
+            <img class="img-responsive center-block" :src="infoList.path" style="width:100%;">
         </div>
         <div class="clearfix" style="margin-top:30px;text-align: left">
             <div id="nav0" class="tabbable row">
@@ -229,7 +229,7 @@
                 detail: ''
             },
             //图片
-            courseSupBanner: {
+            infoList: {
                 path: 'img/德语特色课程banner.png',
                 url: ''
             },
@@ -285,19 +285,9 @@
                 }
                 var jsonObject = res.data
 
-                //文字
-                if (jsonObject.courseSupType1 != null) {
-                    vm.courseSupType1 = jsonObject.courseSupType1;
-                }
-                if (jsonObject.courseSupType2 != null) {
-                    vm.courseSupType2 = jsonObject.courseSupType2;
-                }
-                if (jsonObject.courseSupType3 != null) {
-                    vm.courseSupType3 = jsonObject.courseSupType3;
-                }
                 //图片
-                if (jsonObject.courseSupBanner != null) {
-                    vm.courseSupBanner = jsonObject.courseSupBanner;
+                if (jsonObject.infoList != null) {
+                    vm.infoList = jsonObject.infoList;
                 }
 
             }
