@@ -317,7 +317,6 @@ ol.carousel-indicators li {
 .masonry {
     column-count: 1;
     column-gap: 0;
-    counter-reset: item-counter;
 }
 
 .item { 
