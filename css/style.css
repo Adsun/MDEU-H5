@@ -313,3 +313,14 @@ ol.carousel-indicators li {
 #vueData {
     min-width:1080px
 }
+
+.masonry {
+    column-count: 1;
+    column-gap: 0;
+    counter-reset: item-counter;
+}
+
+.item { 
+    break-inside: avoid; 
+    box-sizing: border-box; 
+    padding: 10px; }
