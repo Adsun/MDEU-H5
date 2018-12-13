@@ -38,7 +38,7 @@
                             <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
                             <li>
                                 <a class="s-nav-item" @click="getCourse(nowCourse,'lxModal')">
-                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
+                                    <div data-toggle="modal" style="cursor: pointer;"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
                                 </a>
                             </li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
@@ -438,9 +438,6 @@
                         vm.courses = res.data;
                     }
                 });
-            },
-            beMemberModalRender: function() {
-                $('#beMemberModal').modal("show");
             },
             closeModel: function() {
                 $('#' + this.nowModel).modal("hide");
