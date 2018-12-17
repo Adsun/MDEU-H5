@@ -307,7 +307,7 @@ ol.carousel-indicators li {
 .text-justify {
     text-align: justify;
     letter-spacing: normal;
-    text-align-last: center;
+    text-align-last: left;
 }
 
 #vueData {
