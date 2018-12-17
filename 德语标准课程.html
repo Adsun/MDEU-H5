@@ -177,7 +177,7 @@
                                                 <span>优惠活动</span>
                                             </a>
                                             <span style="padding-left:10px ">
-                                                <a :href="course.courseUrl">
+                                                <a :href="course.courseLink">
                                                     <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange; ">立即报名</div>
                                                 </a>
                                             </span>
@@ -292,7 +292,8 @@
                                 <div class="cloumn col-xs-7 col-sm-7 col-md-7 ">
                                     <p style="padding-top:30px ">现在报名即刻享受特大优惠</p>
                                     <p style="font-size:20px; color: orange" class="orange ">{{nowCourse.disCount}}</p>
-                                    <p class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;margin-bottom:1rem;">立即报名</p>
+                                    <a :href="course.courseLink"><p class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;margin-bottom:1rem;">立即报名</p></a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -392,7 +393,7 @@
                 'courseDtl': '课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介',
                 'teacherDtl': '老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语寄语老师寄语老师寄语老师寄语老师寄语老师寄语',
                 'teacherImg': 'img/老师头像.png',
-                'courseUrl': '#'
+                'courseLink': '#'
             }],
             nowCourse: {},
             nowModel: '',
