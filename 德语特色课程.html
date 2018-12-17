@@ -523,12 +523,7 @@
 
             }
         });
-        $.ajax({
-            url: "http://118.24.110.84:8081/admin/web/course?constantId=courseSupType1",
-            success: function (res) {
-                vm.courses = res.data
-            }
-        });
+        vm.getCourses('courseSupType1')
     })
 </script>
 
