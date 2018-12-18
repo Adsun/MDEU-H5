@@ -382,18 +382,7 @@
         el: '#vueData',
         data: {
             //课程信息
-            courses: [{
-                'imgUrl': 'img/课程图.png',
-                'courseName': '德语欧标课程',
-                'courseId': 0,
-                'startTime': '2018.09.10',
-                'teacher': '墨子',
-                'price': '1200￥',
-                'courseDtl': '课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介',
-                'teacherDtl': '老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语老师寄语寄语老师寄语老师寄语老师寄语老师寄语老师寄语',
-                'teacherImg': 'img/老师头像.png',
-                'courseLink': '#'
-            }],
+            courses: [],
             nowCourse: {},
             nowModel: '',
             nowCoursePlans: {},
@@ -431,10 +420,7 @@
                 detail: ''
             },
             //图片
-            courseBanner: {
-                path: 'img/德语标准课程banner.png',
-                url: ''
-            },
+            courseBanner: {},
         },
         methods: {
             getCourse: function (course, model) {
