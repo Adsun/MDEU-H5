@@ -314,9 +314,7 @@
             url: "http://118.24.110.84:18080/web/page",
             success: function (res) {
                 //图片
-                if (jsonObject.courseVudBanner != null) {
-                    vm.courseVudBanner = res.data.courseVudBanner;
-                }
+                vm.courseVudBanner = res.data.courseVudBanner;
             }
         });
         $.ajax({
