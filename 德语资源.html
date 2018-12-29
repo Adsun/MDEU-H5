@@ -94,79 +94,75 @@
                                     FREE</sup></a></li>
                     </ul>
                 </div>
-                <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-bottom:40px;text-align: left">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="nav1" style="margin-top: 20px">
-                            <div class="row firstRow rowHeader" v-for="res in ress">
-                                <!--<a type="button" data-toggle="modal" data-target="#myModal">-->
-                                <div class="cloumn col-xs-5 col-sm-5 col-md-5">
-                                    <!-- <div v-if="res.constantId === 'resType1'">
-                                        <figure>
-                                            <img class="img-responsive center-block" :src="res.imgUrl">
-                                            <figcaption>
-                                                <div style="padding-left: 40%;padding-top: 17%">
+                <div class="cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-top:40px;padding-bottom:40px;text-align: left">
+                    <div class="row firstRow rowHeader" v-for="res in ress">
+                            <!--<a type="button" data-toggle="modal" data-target="#myModal">-->
+                            <div class="cloumn col-xs-5 col-sm-5 col-md-5">
+                                <!-- <div v-if="res.constantId === 'resType1'">
+                                    <figure>
+                                        <img class="img-responsive center-block" :src="res.imgUrl">
+                                        <figcaption>
+                                            <div style="padding-left: 40%;padding-top: 17%">
 
-                                                    <a href="#"><img class="img-responsive" src="img/资源蒙层.png"></a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div v-else-if="res.constantId === 'resType3'">
-                                        <figure>
-                                            <img class="img-responsive center-block" :src="res.imgUrl">
-                                            <figcaption>
-                                                <div style="padding-left: 40%;padding-top: 17%">
-                                                    <a href="#"><img class="img-responsive" src="img/资源蒙层.png"></a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </div> 
-                                     <div v-else>
-                                        <img class="img-responsive center-block" :src="res.imgUrl">
-                                    </div> -->
-                                    <div>
-                                        <img class="img-responsive center-block" :src="res.imgUrl">
-                                    </div>
+                                                <a href="#"><img class="img-responsive" src="img/资源蒙层.png"></a>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
                                 </div>
-                                <!--</a>-->
-                                <div class="cloumn col-xs-7 col-sm-7 col-md-7 " style="padding-left:30px;">
-                                    <div style="padding-top:5%"><span style="text-align:left;padding-left:7%;letter-spacing: 4px;font-size: 20px;font-weight:500">{{res.resName}}<sup
-                                                v-if="res.bdyUrl === '' || res.bdyUrl === null">￥</sup>
-                                        </span></div>
-                                    <div style="padding-top:10px">
-                                        <div class="row" style="padding:0px">
-                                            <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:right;padding: 0px;">
-                                                <span style="font-weight:300;font-size: 10px">简介：</span>
+                                <div v-else-if="res.constantId === 'resType3'">
+                                    <figure>
+                                        <img class="img-responsive center-block" :src="res.imgUrl">
+                                        <figcaption>
+                                            <div style="padding-left: 40%;padding-top: 17%">
+                                                <a href="#"><img class="img-responsive" src="img/资源蒙层.png"></a>
                                             </div>
-                                            <div class="cloumn col-xs-10 col-sm-10 col-md-10 " style="text-align:left;padding-left: 0px;">
-                                                <span style="font-weight:100;font-size: 10px">
-                                                    {{res.resContent}}
-                                                </span>
-                                            </div>
-                                            <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:right;padding-right: 0px;padding-top:10px;">
+                                        </figcaption>
+                                    </figure>
+                                </div> 
+                                 <div v-else>
+                                    <img class="img-responsive center-block" :src="res.imgUrl">
+                                </div> -->
+                                <div>
+                                    <img class="img-responsive center-block" :src="res.imgUrl">
+                                </div>
+                            </div>
+                            <!--</a>-->
+                            <div class="cloumn col-xs-7 col-sm-7 col-md-7 " style="padding-left:30px;">
+                                <div style="padding-top:5%"><span style="text-align:left;padding-left:7%;letter-spacing: 4px;font-size: 20px;font-weight:500">{{res.resName}}<sup
+                                            v-if="res.bdyUrl === '' || res.bdyUrl === null">￥</sup>
+                                    </span></div>
+                                <div style="padding-top:10px">
+                                    <div class="row" style="padding:0px">
+                                        <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:right;padding: 0px;">
+                                            <span style="font-weight:300;font-size: 10px">简介：</span>
+                                        </div>
+                                        <div class="cloumn col-xs-10 col-sm-10 col-md-10 " style="text-align:left;padding-left: 0px;">
+                                            <span style="font-weight:100;font-size: 10px">
+                                                {{res.resContent}}
+                                            </span>
+                                        </div>
+                                        <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:right;padding-right: 0px;padding-top:10px;">
 
-                                            </div>
-                                            <div class="cloumn col-xs-10 col-sm-10 col-md-10 " id="box6" style="padding-top:10px;padding-left: 0px;">
-                                                <span style="padding-right:10px" v-if="res.videoUrl != '' && res.videoUrl != null">
-                                                    <a type="button" :href="res.videoUrl" target="_blank">
-                                                        <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">观看预告</div>
-                                                    </a>
-                                                </span>
-                                                <span>
-                                                    <a type="button" @click="getRes(res,'')">
-                                                        <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">获取资源</div>
-                                                    </a>
-                                                </span>
-                                            </div>
+                                        </div>
+                                        <div class="cloumn col-xs-10 col-sm-10 col-md-10 " id="box6" style="padding-top:10px;padding-left: 0px;">
+                                            <span style="padding-right:10px" v-if="res.videoUrl != '' && res.videoUrl != null">
+                                                <a type="button" :href="res.videoUrl" target="_blank">
+                                                    <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">观看预告</div>
+                                                </a>
+                                            </span>
+                                            <span>
+                                                <a type="button" @click="getRes(res,'')">
+                                                    <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">获取资源</div>
+                                                </a>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-top:10px;padding-bottom: 10px">
-                                    <hr style="height:4px;border:none;border-top:5px solid #fafafa;" />
-                                </div>
+                            </div>
+                            <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-top:10px;padding-bottom: 10px">
+                                <hr style="height:4px;border:none;border-top:5px solid #fafafa;" />
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
             <div class="row">
