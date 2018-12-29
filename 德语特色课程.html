@@ -121,7 +121,7 @@
                     </ul>
                 </div>
                 <div class=" cloumn col-xs-12 col-sm-12 col-md-12 " style="padding-top:50px;padding-bottom:20%; ">
-                    <div class="row firstRow rowHeader " v-for="course in courses ">
+                    <div class="row firstRow rowHeader " v-for="course in courses " style="padding-top:15px">
                         <div class="cloumn col-xs-5 col-sm-5 col-md-5 ">
                             <img class="img-responsive center-block " style="width:100%;height:190px" :src="course.imgUrl ">
                         </div>
@@ -129,46 +129,36 @@
                             <img class="img-responsive center-block " src="img/德语标准课程-三角矩形.png ">
                         </div>
                         <div class="cloumn col-xs-6 col-sm-6 col-md-6 " style="padding-top: 30px; ">
-                            <table class="table detailTable ">
-                                <tbody>
-                                    <tr style="height:3rem ">
-                                        <div id="box4 " style="padding-top:10px "><span style="text-align:left;font-size: 20px;font-weight: 500;letter-spacing: 3px; ">{{course.courseName}}</span></div>
-                                    </tr>
-                                    <tr style="height:3rem ">
-                                        <div id="box5 " style="padding-top:10px;font-size: 15px;font-weight: 400; ">
-                                            <span>开课时间:</span>
-                                            <span class="orange startDate " style="padding-right: 8px;">{{course.startTime}}</span>
-                                            <span v-if="course.price != null && course.price != ''">价格:</span>
-                                            <span class="orange startDate " v-if="course.price != null && course.price != ''"
-                                                style="padding-right: 8px; ">{{course.price}}</span>
-                                            <span>讲师:</span><span>{{course.teacher}}</span>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <div id="box6 " style="padding-top:10px;font-size: 15px;font-weight: 400;cursor: pointer; ">
-                                            <a type="button " class="btn-link " @click="getCourse(course,'courseIntroduction') "
-                                                style="color:#000 ">
-                                                <span>课程介绍</span>
-                                            </a>
-                                            <span style="padding: 10px ">|</span>
-                                            <a type="button " class="btn-link " @click="getCourse(course, 'coursePlan') "
-                                                style="color:#000 ">
-                                                <span>课程安排</span>
-                                            </a>
-                                            <span style="padding: 10px ">|</span>
-                                            <a type="button " class="btn-link " @click="getCourse(course, 'discountActivity') "
-                                                style="color:#000 ">
-                                                <span>优惠活动</span>
-                                            </a>
-                                            <span style="padding-left:10px ">
-                                                <a :href="course.courseLink" target="_blank">
-                                                    <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange; ">立即报名</div>
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div style="padding-top:10px "><span style="text-align:left;font-size: 20px;font-weight: 500;letter-spacing: 3px; ">{{course.courseName}}</span></div>
+                            <div style="padding-top:10px;font-size: 15px;font-weight: 400; ">
+                                <span>开课时间:</span>
+                                <span class="orange startDate " style="padding-right: 8px;">{{course.startTime}}</span>
+                                <span v-if="course.price != null && course.price != ''">价格:</span>
+                                <span class="orange startDate " v-if="course.price != null && course.price != ''"
+                                    style="padding-right: 8px; ">{{course.price}}</span>
+                                <span>讲师:</span><span>{{course.teacher}}</span>
+                            </div>
+                            <div style="padding-top:10px;font-size: 15px;font-weight: 400;cursor: pointer; ">
+                                <a type="button " class="btn-link " @click="getCourse(course,'courseIntroduction') "
+                                    style="color:#000 ">
+                                    <span>课程介绍</span>
+                                </a>
+                                <span style="padding: 10px ">|</span>
+                                <a type="button " class="btn-link " @click="getCourse(course, 'coursePlan') "
+                                    style="color:#000 ">
+                                    <span>课程安排</span>
+                                </a>
+                                <span style="padding: 10px ">|</span>
+                                <a type="button " class="btn-link " @click="getCourse(course, 'discountActivity') "
+                                    style="color:#000 ">
+                                    <span>优惠活动</span>
+                                </a>
+                                <span style="padding-left:10px ">
+                                    <a :href="course.courseLink" target="_blank">
+                                        <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange; ">立即报名</div>
+                                    </a>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
