@@ -145,8 +145,8 @@
                             <img class="img-responsive center-block " src="img/德语标准课程-三角矩形.png ">
                         </div>
                         <div class="cloumn col-xs-6 col-sm-6 col-md-6 " style="padding-top: 30px; ">
-                            <div style="padding-top:10px "><span style="text-align:left;font-size: 20px;font-weight: 500;letter-spacing: 3px; ">{{course.courseName}}</span></div>
-                            <div style="padding-top:10px;font-size: 15px;font-weight: 400; ">
+                            <div><span style="text-align:left;font-size: 20px;font-weight: 500;letter-spacing: 3px; ">{{course.courseName}}</span></div>
+                            <div style="padding-top:15px;font-size: 15px;font-weight: 400; ">
                                 <span>开课时间:</span>
                                 <span class="orange startDate " style="padding-right: 8px;">{{course.startTime}}</span>
                                 <span v-if="course.price != null && course.price != ''">价格:</span>
@@ -154,7 +154,7 @@
                                     style="padding-right: 8px; ">{{course.price}}</span>
                                 <span>讲师:</span><span>{{course.teacher}}</span>
                             </div>
-                            <div style="padding-top:10px;font-size: 15px;font-weight: 400;cursor: pointer; ">
+                            <div style="padding-top:15px;font-size: 15px;font-weight: 400;cursor: pointer; ">
                                 <a type="button " class="btn-link " @click="getCourse(course,'courseIntroduction') "
                                     style="color:#000 ">
                                     <span>课程介绍</span>
