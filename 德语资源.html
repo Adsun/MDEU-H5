@@ -100,7 +100,7 @@
                             <div class="row firstRow rowHeader" v-for="res in ress">
                                 <!--<a type="button" data-toggle="modal" data-target="#myModal">-->
                                 <div class="cloumn col-xs-5 col-sm-5 col-md-5" style="padding-top:30px">
-                                    <div v-if="res.constantId === 'resType1'">
+                                    <!-- <div v-if="res.constantId === 'resType1'">
                                         <figure>
                                             <img class="img-responsive center-block" :src="res.imgUrl">
                                             <figcaption>
@@ -120,54 +120,46 @@
                                                 </div>
                                             </figcaption>
                                         </figure>
-                                    </div>
-                                    <div v-else>
+                                    </div> 
+                                     <div v-else>
+                                        <img class="img-responsive center-block" :src="res.imgUrl">
+                                    </div> -->
+                                    <div>
                                         <img class="img-responsive center-block" :src="res.imgUrl">
                                     </div>
                                 </div>
                                 <!--</a>-->
                                 <div class="cloumn col-xs-7 col-sm-7 col-md-7 " style="padding-left:30px;padding-top:30px">
-                                    <table class="table detailTable">
-                                        <tbody>
-                                            <tr style="height:3rem;">
-                                                <div id="box4" style="padding-top:5%"><span style="text-align:left;padding-left:7%;letter-spacing: 4px;font-size: 20px;font-weight:500">{{res.resName}}<sup
-                                                            v-if="res.bdyUrl === '' || res.bdyUrl === null">￥</sup>
-                                                    </span></div>
-                                            </tr>
-                                            <tr style="height:3rem">
-                                                <div id="box5" style="padding-top:10px">
-                                                    <div class="row" style="padding:0px">
-                                                        <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:right;padding: 0px;">
-                                                            <span style="font-weight:300;font-size: 10px">简介：</span>
-                                                        </div>
-                                                        <div class="cloumn col-xs-10 col-sm-10 col-md-10 " style="text-align:left;padding-left: 0px;">
-                                                            <span style="font-weight:100;font-size: 10px">
-                                                                {{res.resContent}}
-                                                            </span>
-                                                        </div>
-                                                        <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:right;padding-right: 0px;padding-top:10px;">
+                                    <div style="padding-top:5%"><span style="text-align:left;padding-left:7%;letter-spacing: 4px;font-size: 20px;font-weight:500">{{res.resName}}<sup
+                                                v-if="res.bdyUrl === '' || res.bdyUrl === null">￥</sup>
+                                        </span></div>
+                                    <div style="padding-top:10px">
+                                        <div class="row" style="padding:0px">
+                                            <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:right;padding: 0px;">
+                                                <span style="font-weight:300;font-size: 10px">简介：</span>
+                                            </div>
+                                            <div class="cloumn col-xs-10 col-sm-10 col-md-10 " style="text-align:left;padding-left: 0px;">
+                                                <span style="font-weight:100;font-size: 10px">
+                                                    {{res.resContent}}
+                                                </span>
+                                            </div>
+                                            <div class="cloumn col-xs-2 col-sm-2 col-md-2 " style="text-align:right;padding-right: 0px;padding-top:10px;">
 
-                                                        </div>
-                                                        <div class="cloumn col-xs-10 col-sm-10 col-md-10 " id="box6"
-                                                            style="padding-top:10px;padding-left: 0px;">
-                                                            <span style="padding-right:10px" v-if="res.videoUrl != '' && res.videoUrl != null">
-                                                                <a type="button" :href="res.videoUrl">
-                                                                    <div class="btn btn-default btn-xs orange signUpBtn"
-                                                                        style="border-color: orange;">观看预告</div>
-                                                                </a>
-                                                            </span>
-                                                            <span >
-                                                                <a type="button" @click="getRes(res,'')">
-                                                                    <div class="btn btn-default btn-xs orange signUpBtn"
-                                                                        style="border-color: orange;">获取资源</div>
-                                                                </a>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                            </div>
+                                            <div class="cloumn col-xs-10 col-sm-10 col-md-10 " id="box6" style="padding-top:10px;padding-left: 0px;">
+                                                <span style="padding-right:10px" v-if="res.videoUrl != '' && res.videoUrl != null">
+                                                    <a type="button" :href="res.videoUrl" target="_blank">
+                                                        <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">观看预告</div>
+                                                    </a>
+                                                </span>
+                                                <span>
+                                                    <a type="button" @click="getRes(res,'')">
+                                                        <div class="btn btn-default btn-xs orange signUpBtn" style="border-color: orange;">获取资源</div>
+                                                    </a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
