@@ -286,15 +286,15 @@
                         </div>
                         <div class="modal-body " style="margin-left:22%;width:56%;margin-bottom: 100px;margin-top: 50px">
                             <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400;padding-bottom: 30px">
-                                如何成为米德会员
+                                {{courseSupVipTitle.articleContent}}
                             </h4>
                             <div class="row " style="border: 1px solid #B3B3B3;padding-top:10px;padding-bottom:10px">
                                 <div class="cloumn col-xs-4 col-sm-4 col-md-4 ">
                                     <img class="img-responsive center-block " src="img/优惠活动图标.png ">
                                 </div>
                                 <div class="cloumn col-xs-8 col-sm-8 col-md-8 ">
-                                    <p>成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员</p>
-                                    <span>详情戳链接：</span><span style="color:#ffb339">http://118.24.110.84:8081/</span>
+                                    <p>{{courseSupVipDtl.articleContent}}</p>
+                                    <span>详情戳链接：</span><span style="color:#ffb339"><a :href="courseSupVipLink.contentUrl"></a>{{courseSupVipLink.articleContent}}</span>
                                 </div>
                             </div>
                         </div>
@@ -408,6 +408,18 @@
             courseSupType3: {
                 articleContent: '会员群讲座',
                 contentUrl: ''
+            },
+            courseSupVipTitle: {
+                articleContent: '如何成为米德会员',
+                contentUrl: ''
+            },
+            courseSupVipDtl: {
+                articleContent: '成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员成为米德会员',
+                contentUrl: ''
+            },
+            courseSupVipLink: {
+                articleContent: 'http://118.24.110.84:8081/',
+                contentUrl: 'http://118.24.110.84:8081/'
             },
             //表单
             form1: {
