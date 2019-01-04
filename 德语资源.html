@@ -276,7 +276,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p>获 取 方 式 : 扫 描 右 侧 二 维 码，添 加 微 信 可 立 即 获 得</p>
+                            <p>{{resMethod.articleContent}}</p>
                             <img class="img-responsive center-block" src="img/头像logo.png" />
                         </div>
 
@@ -452,6 +452,10 @@
                 articleContent: '德语教材',
                 contentUrl: ''
             },
+            resMethod: {
+                articleContent: '获 取 方 式 : 扫 描 右 侧 二 维 码，添 加 微 信 可 立 即 获 得',
+                contentUrl: ''
+            },
             //表单
             form1: {
                 name: '',
@@ -589,6 +593,9 @@
                 }
                 if (jsonObject.resType5 != null) {
                     vm.resType5 = jsonObject.resType5;
+                }
+                if (jsonObject.resMethod != null) {
+                    vm.resMethod = jsonObject.resMethod;
                 }
 
                 //图片
