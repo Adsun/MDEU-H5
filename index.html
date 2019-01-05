@@ -447,7 +447,7 @@
     });
     $(document).ready(function() {
         $.ajax({
-            url: "http://118.24.110.84:18080/web/edit?constantId=editType1",
+            url: "http://118.24.110.84:18080/web/edit?constantId=editType1&limit=true",
             success: function(res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;
