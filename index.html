@@ -50,7 +50,7 @@
         </div>
         <div class="waypoint"></div>
         <a class="section-anchor" style="top: -997px;"></a>
-        <div id="myCarousel" class="carousel slide" >
+        <div id="myCarousel" class="carousel slide">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -84,15 +84,15 @@
         </div>
         <div class="clearfix" style="padding-bottom: 30px">
             <div class="row" style="padding:30px;">
-                    <div class="column col-xs-6 col-sm-6 col-md-6" >
-                        <img class="img-responsive center-block" src="img/main-subbanner.png">
-                    </div>
-                    <div class="column col-xs-6 col-sm-6 col-md-6" style="padding-left:40px" >
-                        <p style="line-height:30px;font-size: 18px;font-weight: 500;text-align: left">{{mainDetail.articleContent}}</p>
-                    </div>
+                <div class="column col-xs-6 col-sm-6 col-md-6">
+                    <img class="img-responsive center-block" src="img/main-subbanner.png">
+                </div>
+                <div class="column col-xs-6 col-sm-6 col-md-6" style="padding-left:40px">
+                    <p style="line-height:30px;font-size: 18px;font-weight: 500;text-align: left">{{mainDetail.articleContent}}</p>
+                </div>
             </div>
             <div class="row">
-                <div data-sorting-index="0" class="column col-xs-4 col-sm-4 col-md-4" style="padding: 3px;" >
+                <div data-sorting-index="0" class="column col-xs-4 col-sm-4 col-md-4" style="padding: 3px;">
                     <a :href="mainMudle1.url">
                         <figure>
                             <img class="img-responsive center-block" :src="mainMudle1.path">
@@ -178,7 +178,7 @@
                 </div>
             </div>
             <div class="row center-align" style="padding-top:30px;padding-bottom: 20px">
-                <img  class="img-responsive center-block" src="img/main-subbanner1.png">
+                <img class="img-responsive center-block" src="img/main-subbanner1.png">
             </div>
             <div class="row">
                 <div class="Box">
@@ -198,7 +198,7 @@
                                                     <p style="font-weight:300;font-size: 14px;color:#FFF; text-align: left">{{edit.time}}</p>
                                                 </div>
                                             </div>
-                                            <figcaption >
+                                            <figcaption>
                                                 <p style="padding-top:4.6rem;padding-left:120px;font-weight:400;font-size: 16px;color:#000000"><a :href="'米德资讯详情.html?id='+edit.id">查看详情→</a></p>
                                             </figcaption>
                                         </figure>
@@ -296,9 +296,9 @@
                         </button>
                     </div>
                     <div class="modal-body center-align">
-                            <h4 style="font-size:22px;font-weight: 400">
-                                    联系我们
-                            </h4>
+                        <h4 style="font-size:22px;font-weight: 400">
+                            联系我们
+                        </h4>
                         <form class="form-inline" role="form">
                             <div class="form-group" style="padding:10px 2px 0px 0">
                                 <input type="text" style="width:400px; height: 25px;" class="form-control" v-model="form1.name" placeholder="您的姓名：" />
@@ -447,7 +447,7 @@
     });
     $(document).ready(function() {
         $.ajax({
-            url: "http://118.24.110.84:18080/web/edit?constantId=editType1",
+            url: "http://118.24.110.84:18080/web/edit?constantId=editType1&limit=true",
             success: function(res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;
