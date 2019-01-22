@@ -54,7 +54,7 @@
             <img class="img-responsive center-block" :src="infoDetail.path" style="width:100%;">
         </div>
         <div class="clearfix" style="margin-top:30px">
-            <div id="part1" class="tabbable row" style="text-align:center">
+            <div id="part1" class="tabbable row" style="text-align:center;width: 70%">
                 <p style="font-size:2.5rem">{{edit.title}}</p>
                 <p style="font-size:1.5rem;color: #aaa">{{edit.subTitle}}</p>
                 <div style="text-align:left;">
@@ -291,7 +291,7 @@
                     return;
                 }
                 $.ajax({
-                    url: "http://118.24.110.84:18080/web/contact",
+                    url: "http://port.midezaixian.com/web/contact",
                     data: this.form1,
                     success: function(res) {
                         if (res.code === 200) {
@@ -309,7 +309,7 @@
         var reg = new RegExp('(^|&)id=([^&]*)(&|$)', 'i');
         var id = window.location.search.substr(1).match(reg)[2];
         $.ajax({
-            url: "http://118.24.110.84:18080/web/edit?id=" + id,
+            url: "http://port.midezaixian.com/web/edit?id=" + id,
             success: function(res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;
@@ -318,7 +318,7 @@
             }
         });
         $.ajax({
-            url: "http://118.24.110.84:18080/web/page",
+            url: "http://port.midezaixian.com/web/page",
             success: function(res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;
@@ -337,7 +337,7 @@
             }
         });
         $.ajax({
-            url: "http://118.24.110.84:18080/web/edit?constantId=editType1&limit=true",
+            url: "http://port.midezaixian.com/web/edit?constantId=editType1&limit=true",
             success: function(res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;

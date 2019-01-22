@@ -435,7 +435,7 @@
                     return;
                 }
                 $.ajax({
-                    url: "http://118.24.110.84:18080/web/contact",
+                    url: "http://port.midezaixian.com/web/contact",
                     data: this.form1,
                     success: function(res) {
                         if (res.code === 200) {
@@ -451,7 +451,7 @@
     });
     $(document).ready(function() {
         $.ajax({
-            url: "http://118.24.110.84:18080/web/edit?constantId=editType1&limit=true",
+            url: "http://port.midezaixian.com/web/edit?constantId=editType1&limit=true",
             success: function(res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;
@@ -461,7 +461,7 @@
         });
 
         $.ajax({
-            url: "http://118.24.110.84:18080/web/page",
+            url: "http://port.midezaixian.com/web/page",
             success: function(res) {
                 if (res.code != 200 || res.data === '' || res.data === null) {
                     return;
