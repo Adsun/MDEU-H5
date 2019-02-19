@@ -492,6 +492,7 @@
                 $.ajax({
                     url: "http://port.midezaixian.com/web/resource?constantId=" + type,
                     success: function (res) {
+                        vm.ress = [{}];
                         vm.ress = res.data;
                     }
                 });
@@ -500,6 +501,7 @@
                 $.ajax({
                     url: "http://port.midezaixian.com/web/resource?free=true",
                     success: function (res) {
+                        vm.ress = [{}];
                         vm.ress = res.data;
                     }
                 });
