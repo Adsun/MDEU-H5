@@ -90,7 +90,7 @@
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
                         <li class="nav-li btn-link" style="cursor: pointer;width:15%" data-toggle="tab"><a @click="getRess('resType5')">{{resType5.articleContent}}</a></li>
                         <li style="font-size:2rem;padding-top:0.5rem">|</li>
-                        <li class="nav-li btn-link" style="cursor: pointer;width:160px" data-toggle="tab"><a @click="getAllRess()">免费资源<sup>
+                        <li class="nav-li btn-link" style="cursor: pointer;width:160px" data-toggle="tab"><a @click="getRess('freeType')">免费资源<sup>
                                     FREE</sup></a></li>
                     </ul>
                 </div>
@@ -424,6 +424,14 @@
             //课程信息
             ress: [{
             }],
+            allRess: {
+                resType1: '',
+                resType2: '',
+                resType3: '',
+                resType4: '',
+                resType5: '',
+                freeType: '',
+            },
             nowRes: {},
             nowModel: '',
             //文字
@@ -489,22 +497,63 @@
                 $('#' + this.nowModel).modal("hide");
             },
             getRess: function (type) {
-                $.ajax({
-                    url: "http://port.midezaixian.com/web/resource?constantId=" + type,
-                    success: function (res) {
-                        vm.ress = [{}];
-                        vm.ress = res.data;
-                    }
-                });
+                if (type === 'resType1') {
+                    vm.ress = vm.allRess.resType1;
+                }
+                if (type === 'resType2') {
+                    vm.ress = vm.allRess.resType2;
+                }
+                if (type === 'resType3') {
+                    vm.ress = vm.allRess.resType3;
+                }
+                if (type === 'resType4') {
+                    vm.ress = vm.allRess.resType4;
+                }
+                if (type === 'resType5'){
+                    vm.ress = vm.allRess.resType5;
+                }
+                if (type === 'freeType'){
+                    vm.ress = vm.allRess.freeType;
+                }
             },
             getAllRess: function () {
                 $.ajax({
-                    url: "http://port.midezaixian.com/web/resource?free=true",
+                    url: "http://port.midezaixian.com/web/resource?constantId=resType1",
                     success: function (res) {
-                        vm.ress = [{}];
-                        vm.ress = res.data;
+                        vm.allRess.resType1 = res.data;
                     }
                 });
+                $.ajax({
+                    url: "http://port.midezaixian.com/web/resource?constantId=resType2",
+                    success: function (res) {
+                        vm.allRess.resType2 = res.data;
+                    }
+                });
+                $.ajax({
+                    url: "http://port.midezaixian.com/web/resource?constantId=resType3",
+                    success: function (res) {
+                        vm.allRess.resType3 = res.data;
+                    }
+                });
+                $.ajax({
+                    url: "http://port.midezaixian.com/web/resource?constantId=resType4",
+                    success: function (res) {
+                        vm.allRess.resType4 = res.data;
+                    }
+                });
+                $.ajax({
+                    url: "http://port.midezaixian.com/web/resource?constantId=resType5",
+                    success: function (res) {
+                        vm.allRess.resType5 = res.data;
+                    }
+                });
+                $.ajax({
+                    url: "http://port.midezaixian.com/web/resource?free=true",
+                    success: function (res) {
+                        vm.allRess.freeType = res.data;
+                    }
+                });
+               
             },
             submitForm1: function () {
                 if (this.form1.name == "") {
@@ -608,7 +657,7 @@
 
             }
         });
-        vm.getRess('resType1');
+        vm.getAllRess();
     })
 </script>
 
