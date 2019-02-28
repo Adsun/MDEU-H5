@@ -521,6 +521,7 @@
                     url: "http://port.midezaixian.com/web/resource?constantId=resType1",
                     success: function (res) {
                         vm.allRess.resType1 = res.data;
+                        vm.ress = res.data;
                     }
                 });
                 $.ajax({
@@ -553,7 +554,7 @@
                         vm.allRess.freeType = res.data;
                     }
                 });
-               
+                
             },
             submitForm1: function () {
                 if (this.form1.name == "") {
