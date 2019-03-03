@@ -74,10 +74,12 @@ figure:hover .showZ {
     color: orange;
 }
 
-body{ text-align:center} 
+body {
+    text-align: center
+}
 
 .clearfix {
-    margin:0 auto;
+    margin: 0 auto;
     width: 960px;
 }
 
@@ -311,7 +313,7 @@ ol.carousel-indicators li {
 }
 
 #vueData {
-    min-width:1080px
+    min-width: 1080px
 }
 
 .masonry {
@@ -319,9 +321,135 @@ ol.carousel-indicators li {
     column-gap: 0;
 }
 
-.masonry .item { 
-    break-inside: avoid; 
-    box-sizing: border-box; 
-    padding: 10px; 
-    margin-bottom: 20px; 
+.masonry .item {
+    break-inside: avoid;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+/*悬浮链接*/
+
+.suspension {
+    position: fixed;
+    z-index: 55;
+    right: 0;
+    bottom: 385px;
+    width: 50px;
+    height: 140px;
+}
+
+
+/* 
+.suspension .a {
+    display: block;
+    width: 44px;
+    height: 44px;
+    background-color: #353535;
+    margin-bottom: 4px;
+    cursor: pointer;
+    outline: none;
+} */
+
+
+/* .suspension .a.active,
+.suspension .a:hover {
+    background: orange;
+} */
+
+
+/* .suspension .a-service .i{background-position:0 0;} */
+
+.suspension .a-service .i {
+    display: block;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    outline: none;
+    background-image: url(../img/QQBlack.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+
+.suspension .a-service .i:hover {
+    display: block;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    outline: none;
+    background-image: url(../img/QQYellow.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+
+.suspension .a-qrcode .i {
+    display: block;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    outline: none;
+    background-image: url(../img/QRCodeBlack.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+
+.suspension .a-qrcode .i:hover {
+    display: block;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    outline: none;
+    background-image: url(../img/QRCodeYellow.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+
+.suspension .d {
+    display: none;
+    background: #fff;
+    position: absolute;
+    right: 57px;
+    min-height: 90px;
+    border: 1px solid #E0E1E5;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px 0px rgba(161, 163, 175, 0.11);
+}
+
+.suspension .d-qrcode {
+    top: 38px;
+}
+
+.suspension .d .inner-box {
+    padding: 0px 0px 0px;
+}
+
+.suspension .d-service-item .i-qq {
+    width: 44px;
+    height: 44px;
+    background: url(../img/QQBlack.png) no-repeat center 15px;
+    display: block;
+    transition: all .2s;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.suspension .d-service-item:hover .i-qq {
+    background-position: center 3px;
+}
+
+.suspension .d-qrcode {
+    text-align: center;
+}
+
+.suspension .d-qrcode .inner-box .qrcode-img {
+    padding: 0px;
 }

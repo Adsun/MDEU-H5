@@ -4,8 +4,7 @@
 <head>
     <title>米德在线</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport"
-        name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0" id="viewport" name="viewport">
     <meta content="#ffffff" name="theme-color">
     <meta content="米德在线">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,8 +38,7 @@
                             <li><a class="s-nav-item" target="_self" href="aboutus.html"><span style="font-size:14px;padding:15px;font-weight: 300">米德团队</span></a></li>
                             <li>
                                 <a class="s-nav-item">
-                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span
-                                            style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
+                                    <div data-toggle="modal" data-target="#lxModal" style="cursor: pointer;"><span style="font-size:14px;padding:15px;font-weight: 300">联系我们</span></div>
                                 </a>
                             </li>
                             <li><a class="s-nav-item" target="_self" href="joinus.html"><span style="font-size:14px;padding:15px;font-weight: 300">加入我们</span></a></li>
@@ -57,7 +55,7 @@
         </div>
         <div class="clearfix" style="padding-bottom: 30px;text-align: left">
             <div class="row">
-                <div class="column col-xs-12 col-sm-12 col-md-12" >
+                <div class="column col-xs-12 col-sm-12 col-md-12">
                     <div class="row">
                         <div class="column col-xs-6 col-sm-6 col-md-6" v-for="course in courses" style="padding-top:30px;padding-left: 30px;padding-right: 30px">
                             <a :href="course.courseLink" target="_blank">
@@ -79,12 +77,9 @@
                 </div>
                 <div class="column col-xs-12 col-sm-12 col-md-12" style="padding-top: 20px;padding-bottom: 30px">
                     <p style="font-size: 17px;font-weight: 500">更多精品课程</p>
-                    <a :href="img1.url" style="padding-right:5px"><img :src="img1.path" @mouseover="changeImg(1,1)"
-                            @mouseout="changeImg(1,0)" /></a>
-                    <a :href="img2.url" style="padding-right:5px"><img :src="img2.path" @mouseover="changeImg(2,1)"
-                            @mouseout="changeImg(2,0)" /></a>
-                    <a :href="img3.url" style="padding-right:5px"><img :src="img3.path" @mouseover="changeImg(3,1)"
-                            @mouseout="changeImg(3,0)" /></a>
+                    <a :href="img1.url" style="padding-right:5px"><img :src="img1.path" @mouseover="changeImg(1,1)" @mouseout="changeImg(1,0)" /></a>
+                    <a :href="img2.url" style="padding-right:5px"><img :src="img2.path" @mouseover="changeImg(2,1)" @mouseout="changeImg(2,0)" /></a>
+                    <a :href="img3.url" style="padding-right:5px"><img :src="img3.path" @mouseover="changeImg(3,1)" @mouseout="changeImg(3,0)" /></a>
                 </div>
             </div>
         </div>
@@ -174,24 +169,19 @@
                         </h4>
                         <form class="form-inline" role="form">
                             <div class="form-group" style="padding:10px 2px 0px 0">
-                                <input type="text" style="width:400px; height: 25px;" class="form-control" v-model="form1.name"
-                                    placeholder="您的姓名：" />
+                                <input type="text" style="width:400px; height: 25px;" class="form-control" v-model="form1.name" placeholder="您的姓名：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 2px">
-                                <input type="text" style="width:400px; height: 25px;" class="form-control" v-model="form1.city"
-                                    placeholder="所在城市：" />
+                                <input type="text" style="width:400px; height: 25px;" class="form-control" v-model="form1.city" placeholder="所在城市：" />
                             </div>
                             <div class="form-group" style="padding:10px 2px 0px 0">
-                                <input type="text" style="width:400px; height: 25px;" class="form-control" v-model="form1.email"
-                                    placeholder="您的邮箱：" />
+                                <input type="text" style="width:400px; height: 25px;" class="form-control" v-model="form1.email" placeholder="您的邮箱：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 2px">
-                                <input type="text" style="width:400px; height: 25px;" class="form-control" v-model="form1.phone"
-                                    placeholder="联系电话：" />
+                                <input type="text" style="width:400px; height: 25px;" class="form-control" v-model="form1.phone" placeholder="联系电话：" />
                             </div>
                             <div class="form-group" style="padding:10px 0 0px 0">
-                                <textarea type="text" rows="5" style="width:812px;" class="form-control" v-model="form1.detail"
-                                    placeholder="合作需求："></textarea>
+                                <textarea type="text" rows="5" style="width:812px;" class="form-control" v-model="form1.detail" placeholder="合作需求："></textarea>
                             </div>
                         </form>
                         <div class="row" style="padding: 30px 0 10px 0; font-weight: 400; font-size: 16px">
@@ -206,6 +196,18 @@
                         <div class="row" style="padding: 10px 0 30px 0">
                             <img src="img/logo1.png" />
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="suspension">
+            <div class="suspension-box">
+                <a href="http://wpa.qq.com/msgrd?V=1&Uin=1216319784&Site=ioshenmue&Menu=yes" target="black" class="a a-service "><i class="i"></i></a>
+                <a href="javascript:;" class="a a-qrcode"><i class="i"></i></a>
+                <div class="d d-qrcode">
+                    <div class="inner-box">
+                        <div class="qrcode-img"><img src="./img/wechat01.png"></div>
                     </div>
                 </div>
             </div>
@@ -234,12 +236,9 @@
                 path: 'img/xima0.png',
                 url: '#'
             },
-            courseVudBanner: {
-            },
-            bottomCopyright: {
-            },
-            bottomBeiAn: {
-            },
+            courseVudBanner: {},
+            bottomCopyright: {},
+            bottomBeiAn: {},
             //表单
             form1: {
                 name: '',
@@ -253,7 +252,7 @@
 
         },
         methods: {
-            changeImg: function (img, type) {
+            changeImg: function(img, type) {
                 if (type === 0) {
                     if (img == 1) {
                         this.img1.path = 'img/youku0.png';
@@ -276,10 +275,10 @@
                     }
                 }
             },
-            closeModel: function () {
+            closeModel: function() {
                 $('#lxModal').modal("hide");
             },
-            submitForm1: function () {
+            submitForm1: function() {
                 if (this.form1.name == "") {
                     alert("请输入您的姓名");
                     return;
@@ -303,7 +302,7 @@
                 $.ajax({
                     url: "http://port.midezaixian.com/web/contact",
                     data: this.form1,
-                    success: function (res) {
+                    success: function(res) {
                         if (res.code === 200) {
                             alert("提交成功");
                         } else {
@@ -315,12 +314,12 @@
             }
         }
     });
-    $(document).ready(function () {
+    $(document).ready(function() {
         $.ajax({
             url: "http://port.midezaixian.com/web/page",
-            success: function (res) {
+            success: function(res) {
                 var jsonObject = res.data
-                //图片
+                    //图片
                 vm.courseVudBanner = jsonObject.courseVudBanner;
                 if (jsonObject.bottomCopyright != null) {
                     vm.bottomCopyright = jsonObject.bottomCopyright;
@@ -332,11 +331,53 @@
         });
         $.ajax({
             url: "http://port.midezaixian.com/web/course?constantId=courseVud",
-            success: function (res) {
+            success: function(res) {
                 vm.courses = res.data;
             }
         });
     })
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        /* ----- 侧边悬浮 ---- */
+        $(document).on("mouseenter", ".suspension .a", function() {
+            var _this = $(this);
+            var s = $(".suspension");
+            var isQrcode = _this.hasClass("a-qrcode");
+            if (isQrcode) {
+                s.find(".d-qrcode").show().siblings(".d").hide();
+            } else {
+                s.find(".d-qrcode").hide().siblings(".d").show();
+            }
+        });
+        $(document).on("mouseleave", ".suspension, .suspension .a-top", function() {
+            $(".suspension").find(".d").hide();
+        });
+        $(document).on("mouseenter", ".suspension .a-top", function() {
+            $(".suspension").find(".d").hide();
+        });
+        $(document).on("click", ".suspension .a-top", function() {
+            $("html,body").animate({
+                scrollTop: 0
+            });
+        });
+        $(window).scroll(function() {
+            var st = $(document).scrollTop();
+            var $top = $(".suspension .a-top");
+            if (st > 400) {
+                $top.css({
+                    display: 'block'
+                });
+            } else {
+                if ($top.is(":visible")) {
+                    $top.hide();
+                }
+            }
+        });
+
+    });
 </script>
 
 </html>

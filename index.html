@@ -340,6 +340,17 @@
                 </div>
             </div>
         </div>
+        <div class="suspension">
+            <div class="suspension-box">
+                <a href="http://wpa.qq.com/msgrd?V=1&Uin=1216319784&Site=ioshenmue&Menu=yes" target="black" class="a a-service "><i class="i"></i></a>
+                <a href="javascript:;" class="a a-qrcode"><i class="i"></i></a>
+                <div class="d d-qrcode">
+                    <div class="inner-box">
+                        <div class="qrcode-img"><img src="./img/wechat01.png"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -367,10 +378,8 @@
             mainMudlep4: {},
             mainMudlep5: {},
             mainMudlep6: {},
-            bottomCopyright: {
-            },
-            bottomBeiAn: {
-            },
+            bottomCopyright: {},
+            bottomBeiAn: {},
             //表单
             form1: {
                 name: '',
@@ -563,6 +572,48 @@
 <script type="text/javascript">
     //滚动元素id，左切换按钮，右切换按钮，切换元素个数id,滚动方式，切换方向，是否自动滚动，滚动距离，滚动时间，滚动间隔，显示个数
     LbMove('BoxUl', 'btnl', 'btnr', 'BoxSwitch', true, 'left', true, 330, 1000, 5000, 2);
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        /* ----- 侧边悬浮 ---- */
+        $(document).on("mouseenter", ".suspension .a", function() {
+            var _this = $(this);
+            var s = $(".suspension");
+            var isQrcode = _this.hasClass("a-qrcode");
+            if (isQrcode) {
+                s.find(".d-qrcode").show().siblings(".d").hide();
+            } else {
+                s.find(".d-qrcode").hide().siblings(".d").show();
+            }
+        });
+        $(document).on("mouseleave", ".suspension, .suspension .a-top", function() {
+            $(".suspension").find(".d").hide();
+        });
+        $(document).on("mouseenter", ".suspension .a-top", function() {
+            $(".suspension").find(".d").hide();
+        });
+        $(document).on("click", ".suspension .a-top", function() {
+            $("html,body").animate({
+                scrollTop: 0
+            });
+        });
+        $(window).scroll(function() {
+            var st = $(document).scrollTop();
+            var $top = $(".suspension .a-top");
+            if (st > 400) {
+                $top.css({
+                    display: 'block'
+                });
+            } else {
+                if ($top.is(":visible")) {
+                    $top.hide();
+                }
+            }
+        });
+
+    });
 </script>
 
 </html>
