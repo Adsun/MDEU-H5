@@ -415,12 +415,8 @@ ol.carousel-indicators li {
 
 .suspension .d {
     display: none;
-    background: #fff;
     position: absolute;
     right: 57px;
-    border: 1px solid #E0E1E5;
-    border-radius: 3px;
-    box-shadow: 0px 2px 5px 0px rgba(161, 163, 175, 0.11);
 }
 
 .suspension .d-qrcode {
