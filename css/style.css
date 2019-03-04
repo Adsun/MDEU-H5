@@ -132,9 +132,9 @@ a:visited {
 
 /* 已被访问的链接 */
 
-a:hover {
-    color: #ffffff;
-}
+/* a:hover {
+    color: #5d6d63;
+} */
 
 
 /* 鼠标指针移动到链接上 */
