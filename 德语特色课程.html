@@ -125,7 +125,7 @@
                                 <span class="orange startDate " style="padding-right: 8px;">{{course.startTime}}</span>
                                 <span v-if="course.price != null && course.price != ''">价格:</span>
                                 <span class="orange startDate " v-if="course.price != null && course.price != ''" style="padding-right: 8px; ">{{course.price}}</span>
-                                <span>讲师:</span><span>{{course.teacher}}</span>
+                                <span>讲师: </span><span>{{course.teacher}}</span>
                             </div>
                             <div style="padding-top:15px;font-size: 15px;font-weight: 400;cursor: pointer; ">
                                 <a type="button " class="btn-link " @click="getCourse(course,'courseIntroduction') " style="color:#000 ">
@@ -164,7 +164,7 @@
                         <div class=" modal-body ">
                             <div class="row " style="margin-left:20%;width:60%; ">
                                 <h4 class="modal-title center-align " style="font-size:22px;font-weight: 400;padding-bottom: 20px">
-                                    【 {{nowCourse.courseName}}】 课程介绍
+                                    【{{nowCourse.courseName}}】 课程介绍
                                 </h4>
                                 <div class="cloumn col-xs-3 col-sm-3 col-md-3 " style="text-align: center;">
                                     <img style="width:100%" :src="nowCourse.teacherImg " />
